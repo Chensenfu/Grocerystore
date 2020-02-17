@@ -1,0 +1,117 @@
+.ziying{
+	width: 1200px;
+	margin: 0 auto;
+}
+.ziyingone{
+	padding-top: 25px;
+	
+}
+.ziyinga{
+	text-align: left;
+	width: 100%;
+}
+.cc{
+	margin-bottom: 30px;
+	color: #FF7250;
+	font-size: 36px;
+	line-height: 36px;
+	font-weight: bold;
+	margin: 20px 0;
+	
+	padding-left: 20px;
+}
+.ziyingb{
+	width: 100%;
+	/* float: left; */
+	
+}
+
+.ziying  .pic-wrapper{
+	width: 245px;
+	height: 340px;
+	background-color: #fff;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	padding: 20px;
+	display: inline-block;
+	
+}
+.pic-wrapper{
+	width: 270px;
+	height: 340px;
+	
+}
+.pic-wrapper:hover{
+	
+	box-shadow:1px 1px 20px 1px gray;
+	transition: 1s;
+	
+}
+.goods-item{
+	text-decoration: none;
+}
+ .pic{
+	margin: 0 auto;
+	width: 230px;
+	height: 230px;
+	margin-left: -26px;
+}
+
+.ziying .price-wrapper{
+	font-size: 26px;
+	color: #ff3843;
+	margin-top: 5px;
+	text-align: center;
+}
+.goods-name{
+	text-align: center;
+	color: #666;
+	font-size: 18px;
+}
+.yan{
+	display: inline-block;
+	border: 1px solid #fa162b;
+	color: #fff;
+	background-color: #FA162B;
+	line-height: 16px;
+	height: 16px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	border-radius: 4px;
+}
+.zi{
+	display: inline-block;
+	border: 1px solid #cc9756;
+	color: #CC9756;
+	background-color: #fff;
+	line-height: 16px;
+	height: 16px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	border-radius: 4px;
+	
+}
+.jin{
+	display: inline-block;
+	border: 1px solid #fe5a01;
+	color: #FE5A01;
+	background-color: #fff;
+	line-height: 16px;
+	height: 16px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	border-radius: 4px;
+	
+}
+ .pis{
+	margin: 0 auto;
+	width: 230px;
+	height: 230px;
+	margin-left: 9px;
+}
+.pi{
+	margin: 0 auto;
+	width: 230px;
+	height: 230px;
+	margin-left: 9px;
+}

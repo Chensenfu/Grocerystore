@@ -1,0 +1,99 @@
+
+			*{
+				padding: 0px;
+				margin: 0px;
+				font-family:"微软雅黑", "宋体", Arial, Helvetica, sans-serif;
+			}
+			.first{
+				height: 60px;
+				background-color: #f1f1f1;
+				padding-top: 30px ;
+				width: 100%;
+				margin: 0 auto;
+			}
+			.first  span{
+				color:#A2A2A2;
+					font-size: 13px;
+			}
+			.first a{
+			    color: #FF7250;
+				text-decoration: none;
+			}
+			h4{
+				font-size: 17px;
+				display: inline;
+			}
+			h5{
+				display: inline;
+			}
+			.headone{
+				padding-left: 145px;
+				display: inline-block;
+			}
+			.headtwo{
+				float: right;
+				padding-right: 200px;
+			}
+			#size{
+				font-size: 13px;
+			}
+			
+			.firstone{
+				height: 100px;
+				margin-top: 20px;
+				width: 1440px;
+				margin: 0 auto;
+			}
+			.imgone {
+				display: inline-block;
+				height: 100px;
+				padding-left: 150px;
+				vertical-align: middle;
+				margin-top: 0px;
+				
+			}
+			input[name=words]{
+				border: 1px solid #FF7250;
+				border-radius: 10px 0 0 10px;
+				margin-left: 204px;
+				margin-right: -5px;
+				width: 445px;
+				height: 37px;
+				outline: none;
+				padding-left: 20px;
+				
+			}
+			input[name=see]{
+				border: 1px  #FF7250;
+				color: #F1F1F1;
+				background-color:#FF7250;
+				height:40px;
+				width: 100px;
+				border-radius: 0 10px 10px 0;
+				font-size: 14px;
+				outline: none;
+				
+			}
+			input[name=see]:hover{
+				cursor: pointer;
+			}
+			.aone{
+				padding-left: 60px;
+				margin-left: 200px;
+				padding-top: 10px;
+				border:1px solid #FF7250;
+				text-align: center;
+				border-radius: 10px;
+				background: #fff;
+				color: #FF7250;
+				text-decoration: none;
+				padding-right: 45px;
+				padding-bottom: 10px;
+			}
+			.inputone{
+				margin-left: -10px;
+				width: 772px;
+				height: 80px;
+				display: inline-block;
+			}
+		
