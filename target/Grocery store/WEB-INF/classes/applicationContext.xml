@@ -14,7 +14,7 @@
     <!--1.连接数据库-->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/library"/>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/jieyou"/>
         <property name="user" value="root"/>
         <property name="password" value="root"/>
     </bean>
