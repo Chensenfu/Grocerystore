@@ -32,6 +32,12 @@
                     .to("#gotop1", 1, {y:-1000, opacity:0, ease:  Power4.easeOut}, 0.6)
                     .to("#gotop1", 1, {y:0, rotationY:0, opacity:1, scale:1, ease: Expo.easeOut, clearProps: "all"}, "1.4");
             });
+            $.getJSON("detail/queryImg",function (data) {
+                var str ="";
+                str += "<img id='big' src='img/"+data[0].img+"' width='350' height='350'>";
+                str += "<video id=\"video\" src=\"xiaobawang.mp4\" width=\"350\" height=\"350\" controls=\"controls\" style=\"display: none;\"></video>"
+                $(".picturebox").empty().append(str)
+            })
         });
     </script>
     <title>解忧杂货铺-商品详情</title>
@@ -66,6 +72,7 @@
         <a href="购物车.html" class="aone">购物车</a>
     </div>
 </form>
+
 <!-- 头部导航栏 -->
 <div class="hdnav">
     <div class="hdnav-inner">
@@ -339,8 +346,8 @@
         <div class="picview">
             <div class="view">
                 <div class="picturebox">
-                    <img id="big" src="img/xiaobawang/xiaobawang01.jpg" width="350" height="350">
-                    <video id="video" src="xiaobawang.mp4" width="350" height="350" controls="controls" style="display: none;"></video>
+
+
                 </div>
             </div>
             <div class="change">
