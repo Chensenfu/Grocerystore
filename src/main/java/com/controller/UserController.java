@@ -15,10 +15,8 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("user")
 @ResponseBody
 public class UserController {
-
     @Autowired
     private UserService userService;
-
     @RequestMapping("login")
     public Boolean login(@RequestParam("name") String name, @RequestParam("pwd") String pwd,HttpServletRequest req){
         User user = userService.queryByNameAndPwd(name,pwd);
