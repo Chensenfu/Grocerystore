@@ -54,8 +54,6 @@
         <span>杂货铺承诺&nbsp;&nbsp;&nbsp;产品体验&nbsp;&nbsp;&nbsp;厂家资源&nbsp;&nbsp;&nbsp;帮助中心</span>
     </div>
 </div>
-
-
 <form action="" method="post">
     <div class="firstone">
         <img src="img/首页/logo.jpg" class="imgone">
@@ -68,7 +66,6 @@
         <a href="购物车.html" class="aone">购物车</a>
     </div>
 </form>
-
 <!-- 头部导航栏 -->
 <div class="hdnav">
     <div class="hdnav-inner">

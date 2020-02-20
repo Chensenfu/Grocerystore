@@ -29,7 +29,7 @@ public class UserController {
         return false;
     }
 
-    @RequestMapping("addd")
+    @RequestMapping("add")
     public Boolean add(User user){
         return userService.add(user);
     }
