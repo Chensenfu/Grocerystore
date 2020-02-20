@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "http://mybatis.org/dtd/mybatis-3-mapper.dtd" "mybatis-3-mapper.dtd" >
 <mapper namespace="com.mapper.DetailPageMapper">
-<select id="queryImg" resultType="com.entity.Img">
-    select id,imgId,img from img where imgId=1
-</select>
+    <select id="queryImg" resultType="com.entity.Img">
+        select id,imgId,img from img where imgId=1
+    </select>
+    <select id="queryImgs" resultType="com.entity.Imgs">
+        select id,imgId,img from imgs where imgId=1
+    </select>
 </mapper>
