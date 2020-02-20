@@ -7,11 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ecd9120-ddf4-4487-984f-0cfe4572234d" name="Default Changelist" comment="">
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+=======
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Grocery store/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/Grocery store/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Grocery store/ziying.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/Grocery store/ziying.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -92,12 +92,6 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="1380" />
-    <option name="height" value="685" />
-  </component>
   <component name="ProjectId" id="1XuiD0ko30fW5JfiqK5ggSS6RoC" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -177,7 +171,7 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -372,6 +366,10 @@
       <workItem from="1582097297929" duration="4302000" />
       <workItem from="1582159767049" duration="2211000" />
       <workItem from="1582163156833" duration="2267000" />
+<<<<<<< Updated upstream
+=======
+      <workItem from="1582165888967" duration="2740000" />
+>>>>>>> Stashed changes
     </task>
     <task id="LOCAL-00001" summary="数据库民更改">
       <created>1581985166822</created>
@@ -415,7 +413,21 @@
       <option name="project" value="LOCAL" />
       <updated>1582163807482</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="没有头绪">
+      <created>1582165963122</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1582165963122</updated>
+    </task>
+    <task id="LOCAL-00008" summary="没有头绪">
+      <created>1582165978696</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1582165978696</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -481,11 +493,19 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="161" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1582099123458" />
+<<<<<<< Updated upstream
     <state x="355" y="4" key="CommitChangelistDialog2" timestamp="1582160729627">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="355" y="4" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1582160729627" />
     <state x="848" y="161" key="FileChooserDialogImpl" timestamp="1582098222183">
+=======
+    <state x="355" y="0" key="CommitChangelistDialog2" timestamp="1582165977704">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="355" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1582165977704" />
+    <state x="848" y="161" key="FileChooserDialogImpl" timestamp="1582165936247">
+>>>>>>> Stashed changes
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="848" y="161" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1582098222183" />
@@ -561,6 +581,7 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1447" height="211" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1582157921708" />
+<<<<<<< Updated upstream
     <state x="79" y="0" key="SettingsEditor" timestamp="1582099531989">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -574,17 +595,36 @@
     </state>
     <state x="439" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1582159772734" />
     <state x="554" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581906833650">
+=======
+    <state x="79" y="0" key="SettingsEditor" timestamp="1582169806814">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="554" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1581906833650" />
-    <state x="447" y="206" key="git4idea.merge.GitPullDialog" timestamp="1581985196573">
+    <state x="79" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1582169806814" />
+    <state x="361" y="147" key="Vcs.Push.Dialog.v2" timestamp="1582165992175">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="447" y="206" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1581985196573" />
+    <state x="361" y="147" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1582165992175" />
+    <state x="439" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1582165888708">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="439" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1582165888708" />
+    <state x="554" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1582170243017">
+>>>>>>> Stashed changes
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="554" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1582170243017" />
+    <state x="447" y="206" key="git4idea.merge.GitPullDialog" timestamp="1582170231297">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="447" y="206" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1582170231297" />
     <state x="161" y="121" key="new project wizard" timestamp="1581985076848">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="161" y="121" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1581985076848" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1582169644630">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1582169644630" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/target/Grocery store/jingxihe.mp4">
