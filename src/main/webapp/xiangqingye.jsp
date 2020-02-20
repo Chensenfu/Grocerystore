@@ -62,7 +62,7 @@
 </div>
 <form action="" method="post">
     <div class="firstone">
-        <img src="img/首页/logo.jpg" class="imgone">
+        <img src="img/logo1.jpg" class="imgone">
         <div class="inputone">
             <input type="text" name="words" id="" value="" />
             <input type="button" name="see" id="" value="搜索" />
