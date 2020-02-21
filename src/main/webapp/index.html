@@ -6,16 +6,12 @@
 		<link rel="stylesheet" type="text/css" href="css/head.css" />
 		<link rel="stylesheet" type="text/css" href="css/daohang.css" />
 		<link rel="stylesheet" type="text/css" href="css/lunbo.css" />
-		<!-- <link rel="stylesheet" type="text/css" href="css/renqi.css" /> -->
 		<link rel="stylesheet" type="text/css" href="css/tongyong.css" />
 		<link rel="stylesheet" type="text/css" href="css/公用-尾部.css"/>
 		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 		<!--CSS RESET-->
 		<link href="css/jquery.easy_slides.css" rel="stylesheet" type="text/css" />
 		<link href="css/kf.css" rel="stylesheet" type="text/css" />
-		<style type="text/css">
-			
-		</style>
 		<style type="text/css">
 			/* 小火箭css */
 			#gotop1 {
@@ -62,12 +58,53 @@
 			  }
 			}
 		</style>
-
 		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+		<script src="http://libs.useso.com/js/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
+		<script>window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')</script>
+		<script src="http://cdn.bootcss.com/gsap/1.19.0/TweenMax.min.js"></script>
+		<script src="js/jq22.js"></script>
+		<script src="http://cdn.bootcss.com/gsap/1.19.0/plugins/ScrollToPlugin.min.js"></script>
+
+		<script src="http://cdn.bootcss.com/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
+		<script>
+			window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')
+		</script>
+		<script src="js/jquery.easy_slides.js"></script>
 		<script type="text/javascript">
-			$(function () {
-				$.getJSON("detail/queryAll",function (data) {
-					console.log(data);
+			$(function() {
+				$("#gotop1").click(function(e) {
+					TweenMax.to(window, 1.5, {scrollTo:0, ease: Expo.easeInOut});
+					var huojian = new TimelineLite();
+					huojian.to("#gotop1", 1, {rotationY:720, scale:0.6, y:"+=40", ease:  Power4.easeOut})
+							.to("#gotop1", 1, {y:-1000, opacity:0, ease:  Power4.easeOut}, 0.6)
+							.to("#gotop1", 1, {y:0, rotationY:0, opacity:1, scale:1, ease: Expo.easeOut, clearProps: "all"}, "1.4");
+				})
+			})
+			$(document).ready(function() {
+				$('.slider_one_big_picture').EasySlides({
+					'autoplay': true,
+					'stepbystep': false,
+					'show': 5,
+					'loop': true
+				})
+				$('.slider_one_big_2').EasySlides({
+					'autoplay': false,
+					'stepbystep': true,
+					'show': 5,
+					'loop': true
+				})
+				$('.slider_circle_10').EasySlides({
+					'autoplay': true,
+					'show': 13
+				})
+				$('.slider_four_in_line').EasySlides({
+					'autoplay': true,
+					'show': 9
+				})
+				$('.slider_clock').EasySlides({
+					'autoplay': true,
+					'stepbystep': false,
+					'show': 15
 				})
 			})
 		</script>
@@ -97,8 +134,8 @@
 			<div class="firstone">
 				<img src="img/logo1.jpg" class="imgone">
 				<div class="inputone">
-					<input type="text" name="words" id="" value="" />
-					<input type="button" name="see" id="" value="搜索" />
+					<input type="text" name="words"   />
+					<input type="button" name="see"  value="搜索" />
 		
 				</div>
 		
@@ -465,42 +502,9 @@
 						</div>
 					</div>
 				</div>
-				<script src="http://cdn.bootcss.com/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
-				<script>
-					window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')
-				</script>
-				<script src="js/jquery.easy_slides.js"></script>
-				<script type="text/javascript">
-					$(document).ready(function() {
-						$('.slider_one_big_picture').EasySlides({
-							'autoplay': true,
-							'stepbystep': false,
-							'show': 5,
-							'loop': true
-						})
-						$('.slider_one_big_2').EasySlides({
-							'autoplay': false,
-							'stepbystep': true,
-							'show': 5,
-							'loop': true
-						})
-						$('.slider_circle_10').EasySlides({
-							'autoplay': true,
-							'show': 13
-						})
-						$('.slider_four_in_line').EasySlides({
-							'autoplay': true,
-							'show': 9
-						})
-						$('.slider_clock').EasySlides({
-							'autoplay': true,
-							'stepbystep': false,
-							'show': 15
-						})
-					});
-				</script>
-			</body>
-		</html>
+
+
+
 		<!--人气推荐 end-->
 
     <div class="b">
@@ -814,24 +818,10 @@
 				</div>
 			</div>
 		</div>
-		<script src="http://libs.useso.com/js/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
-		<script>window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')</script>
-		<script src="http://cdn.bootcss.com/gsap/1.19.0/TweenMax.min.js"></script>
-		<script src="js/jq22.js"></script>
-		<script src="http://cdn.bootcss.com/gsap/1.19.0/plugins/ScrollToPlugin.min.js"></script>
-		<script type="text/javascript">
-			$(function() {
-			$("#gotop1").click(function(e) {
-			   TweenMax.to(window, 1.5, {scrollTo:0, ease: Expo.easeInOut});
-			   var huojian = new TimelineLite();
-				huojian.to("#gotop1", 1, {rotationY:720, scale:0.6, y:"+=40", ease:  Power4.easeOut})
-				.to("#gotop1", 1, {y:-1000, opacity:0, ease:  Power4.easeOut}, 0.6)
-				.to("#gotop1", 1, {y:0, rotationY:0, opacity:1, scale:1, ease: Expo.easeOut, clearProps: "all"}, "1.4");
-			 });
-			});
-		</script>
+
+
 	</body>
-	
-	
-	
+
+
+
 </html>
