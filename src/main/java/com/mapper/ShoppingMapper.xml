@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "http://mybatis.org/dtd/mybatis-3-mapper.dtd" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.ShoppingMapper">
+    <resultMap id="AllMap" type="com.entity.Shopping ">
+        <id column="shopId" property="shopId"></id>
+        <result column="shopName" property="shopName"></result>
+        <result column="price" property="price"></result>
+        <result column="typeId" property="typeId"></result>
+        <result column="imgId" property="imgId"></result>
+        <association property="img" javaType="com.entity.Img">
+            <id column="id" property="id"></id>
+            <result column="imgId" property="imgId"></result>
+            <result column="img" property="img"></result>
+        </association>
+        <association property="shoppingTyp" javaType="com.entity.ShoppingTyp">
+            <id column="typeId" property="typeId"></id>
+            <result column="shoppingType" property="shoppingType"></result>
+        </association>
+    </resultMap>
+
+    <select id="queryAll" resultMap="AllMap">
+        SELECT s.shopId,s.shopName,s.price,s.typeId, t.typeId,t.shoppingType ,i.id,i.img,i.imgId
+        FROM shopping s  INNER JOIN  shoppingtyp t ON s.typeId=t.typeId INNER JOIN img i ON s.imgId=i.imgId
+
+    </select>
+</mapper>
