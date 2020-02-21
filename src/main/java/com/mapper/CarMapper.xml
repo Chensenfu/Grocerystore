@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "http://mybatis.org/dtd/mybatis-3-mapper.dtd" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.CarMapper">
+    <resultMap id="queryCars" type="com.entity.Car">
+        <id column="id" property="id"/>
+        <result column="shopId" property="shopId"/>
+        <result column="createdate" property="createdate"/>
+        <result column="userId" property="userId"/>
+        <association property="shop" javaType="com.entity.Shop">
+            <id column="shopIds" property="shopId"/>
+            <result column="shopName" property="shopName"/>
+            <result column="price" property="price"/>
+        </association>
+        <association property="img" javaType="com.entity.Img">
+            <id column="imgIdi" property="imgId"/>
+            <result column="img" property="img"/>
+        </association>
+    </resultMap>
+<select id="queryCar" resultMap="queryCars">
+    SELECT g.id,g.shopId,g.imgId,s.shopId shopIds,g.userId,shopName,price,i.imgId imgIdi,img FROM gouwuche g INNER JOIN shopping s on g.shopId=s.shopId
+    INNER JOIN img i ON g.imgId=i.imgId
+</select>
+</mapper>

@@ -15,6 +15,46 @@
     <link rel="stylesheet" type="text/css" href="css/carts.css">
     <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="js/carts.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $.getJSON("car/query",function (data) {
+                var str = "";
+                $(data).each(function () {
+                    str += "<ul class='order_lists'>\n" +
+                        "<li class='list_chk'>\n" +
+                        "<input type='checkbox' id='checkbox_"+(this.id+1)+"' class='son_check'>\n" +
+                        "<label for='checkbox_"+(this.id+1)+"'></label>\n" +
+                        "</li>\n" +
+                        "<li class='list_con'>\n" +
+                        "<div class='list_img'><a href='xiangqingye.jsp?id='"+this.shopId+"><img src='img/"+this.img.img+"' alt='"+this.shop.shopName+"'></a></div>\n" +
+                        "<div class='list_text'><a href='xiangqingye.jsp?id='"+this.shopId+">"+this.shop.shopName+"</a></div>\n" +
+                        "</li>\n" +
+                        "<li class='list_info'>\n" +
+                        "<p>规格：默认</p>\n" +
+                        "<p>尺寸：16*16*3(cm)</p>\n" +
+                        "</li>\n" +
+                        "<li class='list_price'>\n" +
+                        "<p class='price'>￥"+this.shop.price+"</p>\n" +
+                        "</li>\n" +
+                        "<li class='list_amount'>\n" +
+                        "<div class='amount_box'>\n" +
+                        "<a href='javascript:;' class='reduce reSty'>-</a>\n" +
+                        "<input type='text' value='1' class='sum'>\n" +
+                        "<a href='javascript:;' class='plus'>+</a>\n" +
+                        "</div>\n" +
+                        "</li>\n" +
+                        "<li class='list_sum'>\n" +
+                        "<p class='sum_price'>￥"+this.shop.price+"</p>\n" +
+                        "</li>\n" +
+                        "<li class='list_op'>\n" +
+                        "<p class='del'><a href='javascript:;' class='delBtn'>移除商品</a></p>\n" +
+                        "</li>\n" +
+                        "</ul>";
+                })
+                $(".order_content").empty().append(str);
+            })
+        })
+    </script>
 </head>
 <body>
 <!-- 首页头部 -->
@@ -305,12 +345,6 @@
     </div>
 </div>
 <!-- 头部导航栏 end -->
-<div class="stepnav">
-    <i class="step1"></i><br/>
-    <span class="step1 text-center active">购物车</span>
-    <span class="step2">确认订单信息</span>
-    <span class="step3">成功提交订单</span>
-</div>
 <div class="tt">我的购物车</div>
 <section class="cartMain">
     <div class="cartMain_hd">
@@ -331,37 +365,8 @@
     </div>
     <div class="cartBox">
         <div class="order_content">
-            <ul class="order_lists">
-                <li class="list_chk">
-                    <input type="checkbox" id="checkbox_2" class="son_check">
-                    <label for="checkbox_2"></label>
-                </li>
-                <li class="list_con">
-                    <div class="list_img"><a href="javascript:;"><img src="" alt=""></a></div>
-                    <div class="list_text"><a href="javascript:;">夏季男士迷彩无袖T恤圆领潮流韩版修身男装背心青年时尚打底衫男</a></div>
-                </li>
-                <li class="list_info">
-                    <p>规格：默认</p>
-                    <p>尺寸：16*16*3(cm)</p>
-                </li>
-                <li class="list_price">
-                    <p class="price">￥980</p>
-                </li>
-                <li class="list_amount">
-                    <div class="amount_box">
-                        <a href="javascript:;" class="reduce reSty">-</a>
-                        <input type="text" value="1" class="sum">
-                        <a href="javascript:;" class="plus">+</a>
-                    </div>
-                </li>
-                <li class="list_sum">
-                    <p class="sum_price">￥980</p>
-                </li>
-                <li class="list_op">
-                    <p class="del"><a href="javascript:;" class="delBtn">移除商品</a></p>
-                </li>
-            </ul>
-            <ul class="order_lists">
+
+            <%--<ul class="order_lists">
                 <li class="list_chk">
                     <input type="checkbox" id="checkbox_3" class="son_check">
                     <label for="checkbox_3"></label>
@@ -420,7 +425,7 @@
                 <li class="list_op">
                     <p class="del"><a href="javascript:;" class="delBtn">移除商品</a></p>
                 </li>
-            </ul>
+            </ul>--%>
         </div>
     </div>
 

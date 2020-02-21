@@ -412,6 +412,28 @@ a:hover{
     text-align: right;
     margin-top: 10px;
 }
+.stepnav span.active{
+    color: #e52871;
+}
+i.step1{
+    width:300px;
+    height:25px;
+    margin: 0;
+    background-position: -20px -373px;
+}
+i.step2{
+    width:300px;
+    height:25px;
+    margin: 0;
+    background-position: -20px -410px;
+}
+i.warning{
+    background-position: -122px -262px;
+}
+.stepnav span.step1,.car-wrap .stepnav span.step2,.car-wrap .stepnav span.step3{
+    width: 108px;
+    margin-left: 50px;
+}
 /* 底部 */
 .gongyong-footsum{
     width: 100%;
