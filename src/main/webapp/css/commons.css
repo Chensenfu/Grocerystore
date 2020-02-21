@@ -58,7 +58,7 @@ input{text-indent: 4px;}
 .center{height: 46px;line-height: 46px;font-size: 14px;color: #000;background: #E8E8E8;display: block;text-align: center;}
 .service-div{width: 278px;text-align: center;height: auto;font-size: 0;margin-top: 10px;cursor: pointer;}
 .service-QQ{display: inline-block;width: 130px;height: 40px;line-height: 40px;font-size: 16px;margin-right: 4px;}
-.service-img img{height: 40px;vertical-align:top;}
+.service-img img{height: 40px;vertical-align:middle;}
 .centertime{width: 274px;font-size: 12px;text-align: center;padding-top: 12px;line-height: 28px;}
 .about-titles{padding: 6px;font:normal 14px/1.8 "微软雅黑";color: #666;border: 1px solid #efefef;background: #efefef;}
 .about a{display: inline-block; color: #666;font-size: 12px;line-height: 1.8;margin:6px;}

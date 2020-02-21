@@ -8,6 +8,15 @@ public class Shop {
     private Integer imgId;
     private Sdetail sdetail;
     private Img img;
+    private ShoppingTyp shoppingTyp;
+
+    public ShoppingTyp getShoppingTyp() {
+        return shoppingTyp;
+    }
+
+    public void setShoppingTyp(ShoppingTyp shoppingTyp) {
+        this.shoppingTyp = shoppingTyp;
+    }
 
     public Sdetail getSdetail() {
         return sdetail;

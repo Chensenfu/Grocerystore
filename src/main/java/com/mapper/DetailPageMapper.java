@@ -1,14 +1,14 @@
 package com.mapper;
 
-import com.entity.Img;
-import com.entity.Imgs;
-import com.entity.Shop;
-import com.entity.Video;
+import com.entity.*;
 
 import java.util.List;
 
 public interface DetailPageMapper {
     List<Imgs> queryImgs();
     List<Img> queryImg();
+    List<Shop> queryTuijian();
     Shop queryShop();
+    List<PingJia> queryPingjia();
+    Integer queryPingjiacount();
 }

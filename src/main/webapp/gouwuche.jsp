@@ -1,159 +1,26 @@
 <%--
   Created by IntelliJ IDEA.
   User: Lenovo
-  Date: 2020/2/19
-  Time: 15:56
+  Date: 2020/2/21
+  Time: 18:40
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="css/commons.css"/>
+    <title>购物车</title>
     <link rel="stylesheet" type="text/css" href="css/daohang.css"/>
     <link rel="stylesheet" type="text/css" href="css/head.css"/>
-    <link rel="stylesheet" type="text/css" href="css/fly.css"/>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/carts.css">
     <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="js/xiangqingye.js"></script>
-    <script src="js/jquery.fly.min.js"></script>
-    <script src="http://libs.useso.com/js/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')</script>
-    <script src="http://cdn.bootcss.com/gsap/1.19.0/TweenMax.min.js"></script>
-    <script src="http://cdn.bootcss.com/gsap/1.19.0/plugins/ScrollToPlugin.min.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            // 返回顶部，绑定gotop1图标和gotop2文字事件
-            $("#gotop1").click(function (e) {
-                TweenMax.to(window, 1.5, {scrollTo: 0, ease: Expo.easeInOut});
-                var huojian = new TimelineLite();
-                huojian.to("#gotop1", 1, {rotationY: 720, scale: 0.6, y: "+=40", ease: Power4.easeOut})
-                    .to("#gotop1", 1, {y: -1000, opacity: 0, ease: Power4.easeOut}, 0.6)
-                    .to("#gotop1", 1, {
-                        y: 0,
-                        rotationY: 0,
-                        opacity: 1,
-                        scale: 1,
-                        ease: Expo.easeOut,
-                        clearProps: "all"
-                    }, "1.4");
-            });
-            //顶部图片查询
-            $.getJSON("detail/queryImg", function (data) {
-                var str = "";
-                str += "<img id='big' src='img/" + data[0].img + "' width='350' height='350'>";
-                if (data[0].videos.videos != ""){
-                str += "<video id='video' src='img/"+data[0].videos.videos+"' width='350' height='350' controls='controls' style='display: none;'></video>"
-                }
-                $(".picturebox").empty().append(str);
-                if (data[0].videos.videos != ""){
-                    $("#small3").append("<video src='img/"+data[0].videos.videos+"' width='45px' height='45px'></video>");
-                }
-                $("#small3").click(function() {
-                    $("#big").hide();
-                    $("#video").show();
-                })
-            });
-            //商品详情图片查询
-            $.getJSON("detail/queryImgs", function (data) {
-                var str = "";
-                $(data).each(function () {
-                    str += "<img src='img/" + this.img + "'/>";
-                })
-                $(".imgwrap").empty().append(str);
-                $("#small1").append("<img src='img/"+data[1].img+"' width='45px' height='45px'>");
-                $("#small2").append("<img src='img/"+data[2].img+"' width='45px' height='45px'>");
-                $("#small1").click(function () {
-                    var img = document.getElementById("big");
-                    img.setAttribute("src", "img/"+data[1].img+"");
-                    $("#big").show();
-                    $("#video").hide();
-                })
-                $("#small2").click(function () {
-                    var img = document.getElementById("big");
-                    img.setAttribute("src", "img/"+data[2].img+"");
-                    $("#big").show();
-                    $("#video").hide();
-                })
-            });
-            //商品查询
-            $.getJSON("detail/qureyShop", function (data) {
-                $(".title").html(data.shopName);
-                $(".newprice").html("￥"+data.price);
-                $(".oldprice").html("￥"+(data.price + data.price * 0.3));
-                $(".mmsg").append("<div class='text'>货号：" + data.sdetail.number + "</div>\n" +
-                    "<div class='text'>重量：" + data.sdetail.weight + "</div>\n" +
-                    "<div class='text'>已售出：" + data.sdetail.sales + "</div>");
-                $(".stock").html(data.sdetail.inventory);
-                if (data.sdetail.inventory > 0) {
-                    $(".buyafter").show();
-                    $(".buynow").show();
-                    $(".unbuy").hide();
-                } else {
-                    $(".buyafter").hide();
-                    $(".buynow").hide();
-                    $(".unbuy").show();
-                }
-                if (data.typeId==1){
-                $(".lujing").append("<span><a href='index.html'>主页</a></span>&gt;\n" +
-                    "<span><a href='ziying.html'>自营</a></span>")
-                }else if (data.typeId==2){
-                    $(".lujing").append("<span><a href='index.html'>主页</a></span>&gt;\n" +
-                        "<span><a href='yanxuan.html'>严选</a></span>")
-                }else if (data.typeId==3){
-                    $(".lujing").append("<span><a href='index.html'>主页</a></span>&gt;\n" +
-                        "<span><a href='zhuanqu.html'>专区</a></span>")
-                }
-            });
-            //相关推荐
-            $.getJSON("detail/queryTuijian",function (data) {
-                var str = "";
-                str += "<div class='xiangguang'>相关推荐</div>"
-                $(data).each(function () {
-                    str += "<div class='repic'>\n" +
-                        "<a href='xiangqingye.jsp?id='"+this.shopId+" title='"+this.shopName+"'>\n" +
-                        "<img src='img/"+this.img.img+"' alt='"+this.shopName+"'/>\n" +
-                        "</a>\n" +
-                        "</div>"
-                })
-                $(".recommend").empty().append(str);
-            })
-            //评价查询
-            $.getJSON("detail/queryPingjia",function (data){
-                $(".pingjia-head").append("<a class='all'>全部分享("+data.length+")</a>\n" +
-                    "<header class='sha'><span class='share'></span></header>")
-                var  str = "";
-                $(data).each(function () {
-                    str += "<li>\n" +
-                        "<div class='touxiang'><img src='img/qqlogo.png'></div>\n" +
-                        "<h1>"+this.user.name+":<span>"+this.content+"</span></h1>\n" +
-                        "<p>\n" +
-                        "<span>型号:默认</span>\n" +
-                        "<span>分享时间："+this.createdate+"</span>\n" +
-                        "</p>\n" +
-                        "<div class='star_grade'>\n" +
-                        "</div>\n" +
-                        "</li>";
-                })
-                $("#postList").empty().append(str);
-                $(".star_grade").markingSystem({
-                    num: 5,
-                    havePoint: true,
-                    haveGrade: true,
-                    unit: '星',
-                    grade: 4.5,
-                    height: 20,
-                    width: 20,
-                })
-            })
-        });
-    </script>
-    <title>解忧杂货铺-商品详情</title>
+    <script type="text/javascript" src="js/carts.js"></script>
 </head>
 <body>
 <!-- 首页头部 -->
 <div class="first">
     <div class="headone">
-        <span>欢迎来到解忧杂货铺！</span>
+        <span>欢迎来到皆有杂货铺！</span>
         <a href="登录.html" class="q">
             <h4>请登录</h4>
         </a>
@@ -198,7 +65,7 @@
                                                 <li><a href="#">琥珀小米锅巴</a></li>
                                                 <li><a href="#">一根葱干吃面</a></li>
                                                 <li><a href="#">砂拉豆</a></li>
-                                                <li><a href="#">李子园</a></li>
+                                                <li><a href="##">李子园</a></li>
                                                 <li><a href="#">小当家 </a></li>
                                                 <li><a href="#">乐吸管糖</a></li>
                                                 <li><a href="#">牛羊配</a></li>
@@ -438,197 +305,209 @@
     </div>
 </div>
 <!-- 头部导航栏 end -->
-<div class="body">
-    <div class="lujing"><!-- 路径 --></div>
-    <div class="bodyhead" style="height: 485px;">
-        <!-- 头部 -->
-        <div class="picview">
-            <div class="view">
-                <div class="picturebox"></div>
-            </div>
-            <div class="change">
-                <!-- 图片切换开始 -->
-                <ul>
-                    <li class="changepic" id="small1"></li>
-                    <li class="changepic" id="small2"></li>
-                    <li class="changepic" id="small3"></li>
-                </ul>
-                <div class="cb"></div>
-            </div><!-- 图片切换结束 -->
-        </div>
-        <div class="details">
-            <div class='title'></div>
-            <div class="msg">
-                <div class="price">
-                    <div class="text"><span class="newprice"></span></div>
-                    <div class="text"><span class="oldprice"></span></div>
-                </div>
-                <div class="mmsg"></div>
-            </div>
-            <div class="dashline"></div><!-- 分隔线 -->
-            <div class="msgs">
-                <div class="specifications">
-                    <span class="spectitle">规格：</span>
-                    <span class="speccontent">
-								<a href="#" title="型号：默认" class="choose" id="putong">
-									<span class="size"><span class="ti">型号：默认</span></span>
-								</a>
-								<%--<a href="#" title="型号：4K有线版" class="choose" id="jingjie1">
-									<span class="size"><span class="ti">型号：4K有线版</span></span>
-								</a>
-								<a href="#" title="型号：4K无线版" class="choose" id="jingjie2">
-									<span class="size"><span class="ti">型号：4K无线版</span></span>
-								</a>--%>
-							</span>
-                </div>
-            </div>
-            <div class="countmsg">
-                <div class="counts">
-                    <span style="width:60px;">购买：</span>
-                    <span>
-                        <button class="reduce">-</button>
-                        <input type="text" class="amount" value="1"/>
-                        <button class="increase">+</button>
-                    </span>
-                    <span>件&nbsp;&nbsp;&nbsp;<span class="inventory">(库存<b class="stock"></b>件)</span></span>
-                    <span class="favor" style="margin-left:10px;">
-                        <span>
-                            <a href="#" style="color:#FF6A00" type="add">收藏商品</a>
-                        </span>
-                        <span class="hide" style="display: none">
-                            <a href="#" style="color:#999" type="cancel">取消收藏</a>
-                        </span>
-                    </span>
-                </div>
-            </div>
-            <div class="dashline"></div><!-- 分隔线 -->
-            <div class="bugmsgs" demo>
-                <div class="buyafter box">
-                    <img src="img/car.jpg" class="img" width="180" height="180"
-                         style="display: none;">
-                    <button type="button" class="addCar button orange addcar">加入购物车</button>
-                </div>
-                <div class="buynow">
-                    <button type="button" class="buys">立即购买</button>
-                </div>
-                <div class="unbuy" style="display: none">
-                    <button class="buys">暂时不能购买</button>
-                </div>
-                <div class="cb"></div>
-            </div>
-            <div class="promotion">
-                <div class="dashline"></div><!-- 分隔线 -->
-                <div class="free">促销商品，优惠多多，快来抢购吧！</div>
-            </div>
-        </div>
-        <div class="recommended">
-            <div class="recommend">
-            </div>
-        </div>
-        <div class="cb"></div>
+<div class="stepnav">
+    <i class="step1"></i><br/>
+    <span class="step1 text-center active">购物车</span>
+    <span class="step2">确认订单信息</span>
+    <span class="step3">成功提交订单</span>
+</div>
+<div class="tt">我的购物车</div>
+<section class="cartMain">
+    <div class="cartMain_hd">
+        <ul class="order_lists cartTop">
+            <li class="list_chk">
+                <!--所有商品全选-->
+                <input type="checkbox" id="all" class="whole_check">
+                <label for="all"></label>
+                全选
+            </li>
+            <li class="list_con">商品信息</li>
+            <li class="list_info">商品参数</li>
+            <li class="list_price">单价</li>
+            <li class="list_amount">数量</li>
+            <li class="list_sum">金额</li>
+            <li class="list_op">操作</li>
+        </ul>
     </div>
-    <!-- 底部 -->
-    <div class="profoot">
-        <div class="footleft">
-            <div class="service">
-                <div>
-                    <div class="center">客服中心</div>
-                    <div class="service-div">
-                        <a class="service-QQ" id="service"><span class="service-img"><img src="img/qqlogo.png"></span>联系客服</a>
-                        <div class="centertime">客服在线时间 : 08:30-19:00</div>
+    <div class="cartBox">
+        <div class="order_content">
+            <ul class="order_lists">
+                <li class="list_chk">
+                    <input type="checkbox" id="checkbox_2" class="son_check">
+                    <label for="checkbox_2"></label>
+                </li>
+                <li class="list_con">
+                    <div class="list_img"><a href="javascript:;"><img src="" alt=""></a></div>
+                    <div class="list_text"><a href="javascript:;">夏季男士迷彩无袖T恤圆领潮流韩版修身男装背心青年时尚打底衫男</a></div>
+                </li>
+                <li class="list_info">
+                    <p>规格：默认</p>
+                    <p>尺寸：16*16*3(cm)</p>
+                </li>
+                <li class="list_price">
+                    <p class="price">￥980</p>
+                </li>
+                <li class="list_amount">
+                    <div class="amount_box">
+                        <a href="javascript:;" class="reduce reSty">-</a>
+                        <input type="text" value="1" class="sum">
+                        <a href="javascript:;" class="plus">+</a>
                     </div>
-                </div>
-            </div>
-            <div>
-                <div class="about-titles">相关分类</div>
-                <ul class="about">
-                    <li>
-                        <dl>
-                            <dt class="ziying"><a href="ziying.html">自营</a></dt>
-                            <dd><a href="#">糖果</a></dd>
-                            <dd><a href="#">牛奶</a></dd>
-                            <dd><a href="#">零食</a></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl>
-                            <dt class="yanxuan"><a href="yanxuan.html">严选</a></dt>
-                            <dd><a href="#">恶搞</a></dd>
-                            <dd><a href="#">惊喜</a></dd>
-                            <dd><a href="#">游戏机</a></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl>
-                            <dt class="zhuanqu"><a href="zhuanqu.html">专区</a></dt>
-                            <dd><a href="#">精选吃货</a></dd>
-                            <dd><a href="#">精选玩家</a></dd>
-                            <dd><a href="#">精选</a></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl>
-                            <dt><a href="#">敬请期待</a></dt>
-                            <dd><a href="#">游戏</a></dd>
-                            <dd><a href="#">电影</a></dd>
-                            <dd><a href="#">电视</a></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl>
-                            <dt><a href="#">敬请期待</a></dt>
-                            <dd><a href="#">旅行录线</a></dd>
-                            <dd><a href="#">旅行计划</a></dd>
-                            <dd><a href="#">旅行装备</a></dd>
-                        </dl>
-                    </li>
-                </ul>
-            </div>
+                </li>
+                <li class="list_sum">
+                    <p class="sum_price">￥980</p>
+                </li>
+                <li class="list_op">
+                    <p class="del"><a href="javascript:;" class="delBtn">移除商品</a></p>
+                </li>
+            </ul>
+            <ul class="order_lists">
+                <li class="list_chk">
+                    <input type="checkbox" id="checkbox_3" class="son_check">
+                    <label for="checkbox_3"></label>
+                </li>
+                <li class="list_con">
+                    <div class="list_img"><a href="javascript:;"><img src="" alt=""></a></div>
+                    <div class="list_text"><a href="javascript:;">夏季男士迷彩无袖T恤圆领潮流韩版修身男装背心青年时尚打底衫男</a></div>
+                </li>
+                <li class="list_info">
+                    <p>规格：默认</p>
+                    <p>尺寸：16*16*3(cm)</p>
+                </li>
+                <li class="list_price">
+                    <p class="price">￥780</p>
+                </li>
+                <li class="list_amount">
+                    <div class="amount_box">
+                        <a href="javascript:;" class="reduce reSty">-</a>
+                        <input type="text" value="1" class="sum">
+                        <a href="javascript:;" class="plus">+</a>
+                    </div>
+                </li>
+                <li class="list_sum">
+                    <p class="sum_price">￥780</p>
+                </li>
+                <li class="list_op">
+                    <p class="del"><a href="javascript:;" class="delBtn">移除商品</a></p>
+                </li>
+            </ul>
+            <ul class="order_lists">
+                <li class="list_chk">
+                    <input type="checkbox" id="checkbox_6" class="son_check">
+                    <label for="checkbox_6"></label>
+                </li>
+                <li class="list_con">
+                    <div class="list_img"><a href="javascript:;"><img src="" alt=""></a></div>
+                    <div class="list_text"><a href="javascript:;">夏季男士迷彩无袖T恤圆领潮流韩版修身男装背心青年时尚打底衫男</a></div>
+                </li>
+                <li class="list_info">
+                    <p>规格：默认</p>
+                    <p>尺寸：16*16*3(cm)</p>
+                </li>
+                <li class="list_price">
+                    <p class="price">￥180</p>
+                </li>
+                <li class="list_amount">
+                    <div class="amount_box">
+                        <a href="javascript:;" class="reduce reSty">-</a>
+                        <input type="text" value="1" class="sum">
+                        <a href="javascript:;" class="plus">+</a>
+                    </div>
+                </li>
+                <li class="list_sum">
+                    <p class="sum_price">￥180</p>
+                </li>
+                <li class="list_op">
+                    <p class="del"><a href="javascript:;" class="delBtn">移除商品</a></p>
+                </li>
+            </ul>
         </div>
-        <div class="footight">
-            <div class="changeTitle">
-                <span class="xiangqing" class="p">商品详情</span>
-                <span class="pingjia" class="p">分享你的故事</span>
-            </div>
-            <div class="navContent">
-                <div id="xiangqing">
-                    <div class="detail">
-                        <div class="imgwrap">
-                            //商品详情图片查询
-                        </div>
-                    </div>
-                </div>
-                <div id="pingjia" style="display:none;">
-                    <div class="pingjia-head">
-                    </div>
-                    <div class="pingjia-bottom">
-                        <div class="bbs">
-                            <section>
-                                <ul id="postList">
-                                </ul>
-                            </section>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    </div>
+
+    <!--底部-->
+    <div class="bar-wrapper">
+        <div class="bar-right">
+            <div class="piece">已选商品<strong class="piece_num">0</strong>件</div>
+            <div class="totalMoney">共计: <strong class="total_text">0.00</strong></div>
+            <div class="calBtn"><a href="javascript:;">结算</a></div>
         </div>
-        <div class="htmleaf-container">
-            <!-- 右侧小火箭图标返回顶部 -->
-            <div id="shangxia2">
-							<span id="gotop1">
-								<img src="img/huojian.svg" alt="返回顶部小火箭">
-							</span>
-            </div>
+    </div>
+</section>
+<section class="model_bg"></section>
+<section class="my_model">
+    <p class="title">删除宝贝<span class="closeModel">X</span></p>
+    <p>您确认要删除该宝贝吗？</p>
+    <div class="opBtn"><a href="javascript:;" class="dialog-sure">确定</a><a href="javascript:;"
+                                                                           class="dialog-close">关闭</a></div>
+</section>
+<!-- 尾部 -->
+<div class="gongyong-footsum">
+    <div class="gongyong-footzong">
+        <ul class="gongyong-footdul">
+            <li>
+                <img src="img/21.png">
+                <p class="gongyong-p">严筛精选 品质保证</p><br>
+                <p class="gongyong-q">用心为您挑选产品</p>
+            </li>
+            <li>
+                <img src="img/22.png">
+                <p class="gongyong-p">特产100%原产地直采</p><br>
+                <p class="gongyong-q">确保产品的原汁原味</p>
+            </li>
+            <li>
+                <img src="img/23.png">
+                <p class="gongyong-p">售后无忧</p><br>
+                <p class="gongyong-q">7天免费退换货</p>
+            </li>
+            <li>
+                <img src="img/24.png">
+                <p class="gongyong-p">多仓直发，极速配送</p><br>
+                <p class="gongyong-q">收货时间更快速，用心为您服务</p>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="gongyong-foot">
+    <div class="gongyong-footone">
+        <dl>
+            <dt><strong>购物保障</strong></dt>
+            <dd><a href="#">自营商品退换货总则</a></dd>
+            <dd><a href="#">严选商品退货总则</a></dd>
+            <dd><a href="#">退换货流程</a></dd>
+            <dd><a href="#">服务承诺</a></dd>
+        </dl>
+        <dl>
+            <dt><strong>新手上路</strong></dt>
+            <dd><a href="#">支付方式</a></dd>
+            <dd><a href="#">注意事项</a></dd>
+        </dl>
+        <dl>
+            <dt><strong>物流配送</strong></dt>
+            <dd><a href="#">验货与签收</a></dd>
+            <dd><a href="#">换货规范</a></dd>
+        </dl>
+        <dl>
+            <dt><strong>关于我们</strong></dt>
+            <dd><a href="#">联系我们</a></dd>
+            <dd><a href="#">诚聘英才</a></dd>
+            <dd><a href="#">服务协议</a></dd>
+        </dl>
+        <dl>
+            <dt><strong>营业执照</strong></dt>
+            <dd><span class="gongyong-footimg1"><img src="img/denglu.png"></span></dd>
+        </dl>
+        <div class="gongyong-foot-last">
+            <dl>
+                <dt><strong>关注我们</strong></dt>
+                <li><span class="gongyong-footimg2"><img src="img/erweima.png"></span></li>
+            </dl>
         </div>
     </div>
 </div>
-<div class="m-sidebar">
-    <div class="cart">
-        <i id="end"></i>
-        <span>购物车</span>
-    </div>
+<div class="gongyong-foottwo">
+    <p class="gongyong-footp1"> 粤ICP备14021738号-1&nbsp;&nbsp;粤工商备P191810000024 </p>
+    <p class="gongyong-footp2">Copyright &copy; 东莞市长勋电子商务有限公司 2013-现在 版权所有 </p>
 </div>
-<div id="msg">已成功加入购物车！</div>
-</div>
+<!-- 尾部结束 -->
 </body>
 </html>

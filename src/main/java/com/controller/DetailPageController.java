@@ -1,9 +1,6 @@
 package com.controller;
 
-import com.entity.Img;
-import com.entity.Imgs;
-import com.entity.Shop;
-import com.entity.Video;
+import com.entity.*;
 import com.service.DetailPageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,4 +28,10 @@ public class DetailPageController {
     public Shop queryShop(){
         return detailPageService.queryShop();
     }
+    @RequestMapping("queryTuijian")
+    public List<Shop> queryTuijian(){ return detailPageService.queryTuijian(); }
+    @RequestMapping("queryPingjia")
+    public List<PingJia> queryPingjia(){ return detailPageService.queryPingjia(); }
+    @RequestMapping("queryPingjiacount")
+    public Integer queryPingjiacount(){ return detailPageService.queryPingjiacount(); }
 }

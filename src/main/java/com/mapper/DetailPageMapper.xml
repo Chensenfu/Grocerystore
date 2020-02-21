@@ -30,6 +30,10 @@
             <result column="inventory" property="inventory"/>
             <result column="sales" property="sales"/>
         </association>
+        <association property="shoppingTyp" javaType="com.entity.ShoppingTyp">
+            <id column="typeId" property="typeId"/>
+            <result column="shoppingType" property="shoppingType"/>
+        </association>
         <association property="img" javaType="com.entity.Img">
             <id column="id" property="id"/>
             <result column="imgIds" property="imgId"/>
@@ -37,7 +41,29 @@
         </association>
     </resultMap>
     <select id="queryShop" resultMap="queryShops">
-        select s.shopId,shopName,price,typeId,s.imgId,sd.shopId shopIds,model,number,weight,inventory,sales,id,i.imgId imgIds,img from shopping s
-        INNER JOIN sdetail sd ON s.shopId=sd.shopId INNER JOIN img i ON s.imgId=i.id where s.shopId=1
+        select s.shopId,shopName,price,s.typeId,s.imgId,sd.shopId shopIds,model,number,weight,inventory,sales,st.typeId,shoppingType from shopping s
+        INNER JOIN sdetail sd ON s.shopId=sd.shopId INNER JOIN shoppingtyp st ON st.typeId=s.typeId where s.shopId=1
+    </select>
+    <select id="queryTuijian" resultMap="queryShops">
+        SELECT s.shopId,shopName,price,typeId,s.imgId,id,i.imgId imgIds,img FROM shopping s INNER JOIN img i ON s.imgId=i.id WHERE shopId >= ((SELECT MAX(shopId) FROM shopping)-(SELECT MIN(shopId) FROM shopping)) * RAND() + (SELECT MIN(shopId) FROM shopping) AND shopId != 1 LIMIT 3
+    </select>
+    <resultMap id="queryPingjias" type="com.entity.PingJia">
+        <id column="id" property="id"/>
+        <result column="content" property="content"/>
+        <result column="createdate" property="createdate"/>
+        <result column="shopId" property="shopId"/>
+        <result column="userId" property="userId"/>
+        <association property="user" javaType="com.entity.User">
+            <id column="userId" property="userId"/>
+            <result column="name" property="name"/>
+            <result column="password" property="password"/>
+            <result column="tel" property="tel"/>
+        </association>
+    </resultMap>
+    <select id="queryPingjia" resultMap="queryPingjias">
+        SELECT id,content,createdate,shopId,p.userId,u.userid userids,`name` FROM pingjia p INNER JOIN `user` u on p.userId=u.userid
+    </select>
+    <select id="queryPingjiacount" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM pingjia
     </select>
 </mapper>
