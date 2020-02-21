@@ -32,12 +32,21 @@
                     .to("#gotop1", 1, {y:-1000, opacity:0, ease:  Power4.easeOut}, 0.6)
                     .to("#gotop1", 1, {y:0, rotationY:0, opacity:1, scale:1, ease: Expo.easeOut, clearProps: "all"}, "1.4");
             });
+            //顶部图片查询
             $.getJSON("detail/queryImg",function (data) {
                 var str ="";
                 str += "<img id='big' src='img/"+data[0].img+"' width='350' height='350'>";
                 str += "<video id=\"video\" src=\"xiaobawang.mp4\" width=\"350\" height=\"350\" controls=\"controls\" style=\"display: none;\"></video>"
                 $(".picturebox").empty().append(str)
-            })
+            });
+            //商品详情图片查询
+            $.getJSON("detail/queryImgs",function (data) {
+                var str ="";
+                $(data).each(function () {
+                    str += "<img src='img/"+this.img+"'/>";
+                })
+                $(".imgwrap").empty().append(str)
+            });
         });
     </script>
     <title>解忧杂货铺-商品详情</title>
@@ -72,7 +81,6 @@
         <a href="购物车.html" class="aone">购物车</a>
     </div>
 </form>
-
 <!-- 头部导航栏 -->
 <div class="hdnav">
     <div class="hdnav-inner">
@@ -344,21 +352,19 @@
     <div class="bodyhead" style="height: 485px;">
         <!-- 头部 -->
         <div class="picview">
-            <div class="view">
-                <div class="picturebox">
-
-
-                </div>
-            </div>
+            <div class="view"><div class="picturebox"></div></div>
             <div class="change">
                 <!-- 图片切换开始 -->
                 <ul>
                     <li class="changepic">
-                        <img id="small1" src="img/xiaobawang/xiaobawang02.jpg" alt="小霸王游戏机双人手柄电视家用经典插卡" width="45px" height="45px"></li>
+                        <img id="small1" src="img/xiaobawang/xiaobawang02.jpg" alt="小霸王游戏机双人手柄电视家用经典插卡" width="45px" height="45px">
+                    </li>
                     <li class="changepic">
-                        <img id="small2" src="img/xiaobawang/xiaobawang03.jpg" alt="小霸王游戏机双人手柄电视家用经典插卡" width="45px" height="45px"></li>
+                        <img id="small2" src="img/xiaobawang/xiaobawang03.jpg" alt="小霸王游戏机双人手柄电视家用经典插卡" width="45px" height="45px">
+                    </li>
                     <li class="changepic"  >
-                        <video src="xiaobawang.mp4" id="small3" width="45px" height="45px"></video></li>
+                        <video id="small3" src="xiaobawang.mp4" width="45px" height="45px"></video>
+                    </li>
                 </ul>
                 <div class="cb"></div>
             </div><!-- 图片切换结束 -->
@@ -520,22 +526,7 @@
                 <div id="xiangqing">
                     <div class="detail">
                         <div class="imgwrap">
-                            <img src="img/xiaobawang/xiaobawang04.jpg" />
-                            <img src="img/xiaobawang/xiaobawang05.jpg" />
-                            <img src="img/xiaobawang/xiaobawang06.jpg" />
-                            <img src="img/xiaobawang/xiaobawang07.jpg" />
-                            <img src="img/xiaobawang/xiaobawang08.jpg" />
-                            <img src="img/xiaobawang/xiaobawang09.jpg" />
-                            <img src="img/xiaobawang/xiaobawang10.jpg" />
-                            <img src="img/xiaobawang/xiaobawang11.jpg" />
-                            <img src="img/xiaobawang/xiaobawang12.jpg" />
-                            <img src="img/xiaobawang/xiaobawang13.jpg" />
-                            <img src="img/xiaobawang/xiaobawang14.jpg" />
-                            <img src="img/xiaobawang/xiaobawang15.jpg" />
-                            <img src="img/xiaobawang/xiaobawang16.jpg" />
-                            <img src="img/xiaobawang/xiaobawang17.jpg" />
-                            <img src="img/xiaobawang/xiaobawang18.jpg" />
-                            <img src="img/xiaobawang/xiaobawang19.jpg" />
+
                         </div>
                     </div>
                 </div>

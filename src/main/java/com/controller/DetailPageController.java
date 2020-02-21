@@ -1,7 +1,7 @@
 package com.controller;
 
 import com.entity.Img;
-import com.entity.Shopping;
+import com.entity.Imgs;
 import com.service.DetailPageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,8 +21,8 @@ public class DetailPageController {
     public List<Img> queryImg(){
         return detailPageService.queryImg();
     }
-
-    public List<Shopping> queryAll(Integer id){
-        return detailPageService.queryAll(id);
+    @RequestMapping("queryImgs")
+    public List<Imgs> queryImgs(){
+        return detailPageService.queryImgs();
     }
 }

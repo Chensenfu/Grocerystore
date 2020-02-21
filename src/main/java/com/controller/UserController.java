@@ -33,4 +33,11 @@ public class UserController {
     public Boolean add(User user){
         return userService.add(user);
     }
+    @RequestMapping("queryuser")
+    public User query(HttpServletRequest req){
+        HttpSession session = req.getSession();
+
+        return (User) session.getAttribute("user");
+
+    }
 }
