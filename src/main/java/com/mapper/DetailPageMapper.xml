@@ -1,10 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "http://mybatis.org/dtd/mybatis-3-mapper.dtd" "mybatis-3-mapper.dtd" >
 <mapper namespace="com.mapper.DetailPageMapper">
-    <select id="queryImg" resultType="com.entity.Img">
-        select id,imgId,img from img where imgId=1
+    <resultMap id="queryVideo" type="com.entity.Img">
+    <id column="id" property="id"/>
+    <result column="imgId" property="imgId"/>
+    <result column="img" property="img"/>
+    <association property="videos" javaType="com.entity.Video">
+        <id column="vid" property="id"/>
+        <result column="videos" property="videos"/>
+    </association>
+    </resultMap>
+    <select id="queryImg" resultMap="queryVideo">
+        select i.id,imgId,img,v.id vid,videos from img i inner JOIN video v on i.id=v.id where imgId=1
     </select>
     <select id="queryImgs" resultType="com.entity.Imgs">
         select id,imgId,img from imgs where imgId=1
+    </select>
+    <resultMap id="queryShops" type="com.entity.Shop">
+        <id column="shopId" property="shopId"/>
+        <result column="shopName" property="shopName"/>
+        <result column="price" property="price"/>
+        <result column="typeId" property="typeId"/>
+        <result column="imgId" property="imgId"/>
+        <association property="sdetail" javaType="com.entity.Sdetail">
+            <id column="shopIds" property="shopId"/>
+            <result column="model" property="model"/>
+            <result column="number" property="number"/>
+            <result column="weight" property="weight"/>
+            <result column="inventory" property="inventory"/>
+            <result column="sales" property="sales"/>
+        </association>
+        <association property="img" javaType="com.entity.Img">
+            <id column="id" property="id"/>
+            <result column="imgIds" property="imgId"/>
+            <result column="img" property="img"/>
+        </association>
+    </resultMap>
+    <select id="queryShop" resultMap="queryShops">
+        select s.shopId,shopName,price,typeId,s.imgId,sd.shopId shopIds,model,number,weight,inventory,sales,id,i.imgId imgIds,img from shopping s
+        INNER JOIN sdetail sd ON s.shopId=sd.shopId INNER JOIN img i ON s.imgId=i.id where s.shopId=1
     </select>
 </mapper>

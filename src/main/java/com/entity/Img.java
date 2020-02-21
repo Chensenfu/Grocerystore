@@ -4,6 +4,7 @@ public class Img {
     private Integer id;
     private Integer imgId;
     private String img;
+    private Video videos;
 
     public Integer getId() {
         return id;
@@ -27,5 +28,13 @@ public class Img {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public Video getVideos() {
+        return videos;
+    }
+
+    public void setVideos(Video videos) {
+        this.videos = videos;
     }
 }

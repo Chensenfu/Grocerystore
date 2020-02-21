@@ -6,6 +6,24 @@ public class Shop {
     private Double price;
     private Integer typeId;
     private Integer imgId;
+    private Sdetail sdetail;
+    private Img img;
+
+    public Sdetail getSdetail() {
+        return sdetail;
+    }
+
+    public void setSdetail(Sdetail sdetail) {
+        this.sdetail = sdetail;
+    }
+
+    public Img getImg() {
+        return img;
+    }
+
+    public void setImg(Img img) {
+        this.img = img;
+    }
 
     public Integer getShopId() {
         return shopId;

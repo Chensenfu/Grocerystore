@@ -8,10 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <!--meta-->
     <meta charset="UTF-8">
-    <!--meta END-->
-    <link rel="stylesheet" type="text/css" href="css/commons.css" />
+    <link rel="stylesheet" type="text/css" href="css/commons.css"/>
     <link rel="stylesheet" type="text/css" href="css/daohang.css"/>
     <link rel="stylesheet" type="text/css" href="css/head.css"/>
     <link rel="stylesheet" type="text/css" href="css/fly.css"/>
@@ -23,30 +21,79 @@
     <script src="http://cdn.bootcss.com/gsap/1.19.0/TweenMax.min.js"></script>
     <script src="http://cdn.bootcss.com/gsap/1.19.0/plugins/ScrollToPlugin.min.js"></script>
     <script type="text/javascript">
-        $(function() {
+        $(function () {
             // 返回顶部，绑定gotop1图标和gotop2文字事件
-            $("#gotop1").click(function(e) {
-                TweenMax.to(window, 1.5, {scrollTo:0, ease: Expo.easeInOut});
+            $("#gotop1").click(function (e) {
+                TweenMax.to(window, 1.5, {scrollTo: 0, ease: Expo.easeInOut});
                 var huojian = new TimelineLite();
-                huojian.to("#gotop1", 1, {rotationY:720, scale:0.6, y:"+=40", ease:  Power4.easeOut})
-                    .to("#gotop1", 1, {y:-1000, opacity:0, ease:  Power4.easeOut}, 0.6)
-                    .to("#gotop1", 1, {y:0, rotationY:0, opacity:1, scale:1, ease: Expo.easeOut, clearProps: "all"}, "1.4");
+                huojian.to("#gotop1", 1, {rotationY: 720, scale: 0.6, y: "+=40", ease: Power4.easeOut})
+                    .to("#gotop1", 1, {y: -1000, opacity: 0, ease: Power4.easeOut}, 0.6)
+                    .to("#gotop1", 1, {
+                        y: 0,
+                        rotationY: 0,
+                        opacity: 1,
+                        scale: 1,
+                        ease: Expo.easeOut,
+                        clearProps: "all"
+                    }, "1.4");
             });
             //顶部图片查询
-            $.getJSON("detail/queryImg",function (data) {
-                var str ="";
-                str += "<img id='big' src='img/"+data[0].img+"' width='350' height='350'>";
-                str += "<video id=\"video\" src=\"xiaobawang.mp4\" width=\"350\" height=\"350\" controls=\"controls\" style=\"display: none;\"></video>"
-                $(".picturebox").empty().append(str)
+            $.getJSON("detail/queryImg", function (data) {
+                var str = "";
+                str += "<img id='big' src='img/" + data[0].img + "' width='350' height='350'>";
+                if (data[0].videos.videos != ""){
+                str += "<video id='video' src='img/"+data[0].videos.videos+"' width='350' height='350' controls='controls' style='display: none;'></video>"
+                }
+                $(".picturebox").empty().append(str);
+                if (data[0].videos.videos != ""){
+                    $("#small3").append("<video src='img/"+data[0].videos.videos+"' width='45px' height='45px'></video>");
+                }
+                $("#small3").click(function() {
+                    $("#big").hide();
+                    $("#video").show();
+                })
             });
             //商品详情图片查询
-            $.getJSON("detail/queryImgs",function (data) {
-                var str ="";
+            $.getJSON("detail/queryImgs", function (data) {
+                var str = "";
                 $(data).each(function () {
-                    str += "<img src='img/"+this.img+"'/>";
+                    str += "<img src='img/" + this.img + "'/>";
                 })
-                $(".imgwrap").empty().append(str)
+                $(".imgwrap").empty().append(str);
+                $("#small1").append("<img src='img/"+data[1].img+"' width='45px' height='45px'>");
+                $("#small2").append("<img src='img/"+data[2].img+"' width='45px' height='45px'>");
+                $("#small1").click(function () {
+                    var img = document.getElementById("big");
+                    img.setAttribute("src", "img/"+data[1].img+"");
+                    $("#big").show();
+                    $("#video").hide();
+                })
+                $("#small2").click(function () {
+                    var img = document.getElementById("big");
+                    img.setAttribute("src", "img/"+data[2].img+"");
+                    $("#big").show();
+                    $("#video").hide();
+                })
             });
+            //商品查询
+            $.getJSON("detail/qureyShop", function (data) {
+                $(".title").html(data.shopName);
+                $(".newprice").html("￥"+data.price);
+                $(".oldprice").html("￥"+(data.price + data.price * 0.3));
+                $(".mmsg").append("<div class='text'>货号：" + data.sdetail.number + "</div>\n" +
+                    "<div class='text'>重量：" + data.sdetail.weight + "</div>\n" +
+                    "<div class='text'>已售出：" + data.sdetail.sales + "</div>");
+                $(".stock").html(data.sdetail.inventory);
+                if (data.sdetail.inventory > 0) {
+                    $(".buyafter").show();
+                    $(".buynow").show();
+                    $(".unbuy").hide();
+                } else {
+                    $(".buyafter").hide();
+                    $(".buynow").hide();
+                    $(".unbuy").show();
+                }
+            })
         });
     </script>
     <title>解忧杂货铺-商品详情</title>
@@ -73,11 +120,9 @@
     <div class="firstone">
         <img src="img/logo1.jpg" class="imgone">
         <div class="inputone">
-            <input type="text" name="words" id="" value="" />
-            <input type="button" name="see" id="" value="搜索" />
-
+            <input type="text" name="words" id="" value=""/>
+            <input type="button" name="see" id="" value="搜索"/>
         </div>
-
         <a href="购物车.html" class="aone">购物车</a>
     </div>
 </form>
@@ -85,7 +130,6 @@
 <div class="hdnav">
     <div class="hdnav-inner">
         <ul class="hdnav-list">
-
             <li class="hdnav-item hdnav-list-menu">
                 <a class="link" href="#"><i class="hdnav-menu-icon"></i>全部分类</a>
                 <div class="nav-down">
@@ -103,7 +147,7 @@
                                                 <li><a href="#">琥珀小米锅巴</a></li>
                                                 <li><a href="#">一根葱干吃面</a></li>
                                                 <li><a href="#">砂拉豆</a></li>
-                                                <li><a href="##">李子园</a></li>
+                                                <li><a href="#">李子园</a></li>
                                                 <li><a href="#">小当家 </a></li>
                                                 <li><a href="#">乐吸管糖</a></li>
                                                 <li><a href="#">牛羊配</a></li>
@@ -352,35 +396,27 @@
     <div class="bodyhead" style="height: 485px;">
         <!-- 头部 -->
         <div class="picview">
-            <div class="view"><div class="picturebox"></div></div>
+            <div class="view">
+                <div class="picturebox"></div>
+            </div>
             <div class="change">
                 <!-- 图片切换开始 -->
                 <ul>
-                    <li class="changepic">
-                        <img id="small1" src="img/xiaobawang/xiaobawang02.jpg" alt="小霸王游戏机双人手柄电视家用经典插卡" width="45px" height="45px">
-                    </li>
-                    <li class="changepic">
-                        <img id="small2" src="img/xiaobawang/xiaobawang03.jpg" alt="小霸王游戏机双人手柄电视家用经典插卡" width="45px" height="45px">
-                    </li>
-                    <li class="changepic"  >
-                        <video id="small3" src="xiaobawang.mp4" width="45px" height="45px"></video>
-                    </li>
+                    <li class="changepic" id="small1"></li>
+                    <li class="changepic" id="small2"></li>
+                    <li class="changepic" id="small3"></li>
                 </ul>
                 <div class="cb"></div>
             </div><!-- 图片切换结束 -->
         </div>
         <div class="details">
-            <div class="title">【九折】 小霸王游戏机双人手柄电视家用经典插卡 </div>
+            <div class='title'></div>
             <div class="msg">
                 <div class="price">
-                    <div class="text"><span class="newprice">￥78.30</span></div>
-                    <div class="text"><span class="oldprice">￥87.00</span></div>
+                    <div class="text"><span class="newprice"></span></div>
+                    <div class="text"><span class="oldprice"></span></div>
                 </div>
-                <div class="mmsg">
-                    <div class="text">货号：X000001</div>
-                    <div class="text">重量：0.000kg</div>
-                    <div class="text">已售出：1202</div>
-                </div>
+                <div class="mmsg"></div>
             </div>
             <div class="dashline"></div><!-- 分隔线 -->
             <div class="msgs">
@@ -403,31 +439,32 @@
                 <div class="counts">
                     <span style="width:60px;">购买：</span>
                     <span>
-								<button class="reduce">-</button>
-								<input type="text" class="amount" value="1" />
-								<button class="increase">+</button>
-							</span>
-                    <span>件&nbsp;&nbsp;&nbsp;<span class="inventory">(库存<b class="stock">46</b>件)</span></span>
+                        <button class="reduce">-</button>
+                        <input type="text" class="amount" value="1"/>
+                        <button class="increase">+</button>
+                    </span>
+                    <span>件&nbsp;&nbsp;&nbsp;<span class="inventory">(库存<b class="stock"></b>件)</span></span>
                     <span class="favor" style="margin-left:10px;">
-								<span>
-									<a href="#" style="color:#FF6A00" type="add">收藏商品</a>
-								</span>
-								<span class="hide">
-									<a href="#" style="color:#999" type="cancel">取消收藏</a>
-								</span>
-							</span>
+                        <span>
+                            <a href="#" style="color:#FF6A00" type="add">收藏商品</a>
+                        </span>
+                        <span class="hide" style="display: none">
+                            <a href="#" style="color:#999" type="cancel">取消收藏</a>
+                        </span>
+                    </span>
                 </div>
             </div>
             <div class="dashline"></div><!-- 分隔线 -->
             <div class="bugmsgs" demo>
                 <div class="buyafter box">
-                    <img src="img/xiaobawang/xiaobawang01.jpg" class="img" width="180" height="180" style="display: none;">
+                    <img src="img/xiaobawang/xiaobawang01.jpg" class="img" width="180" height="180"
+                         style="display: none;">
                     <button type="button" class="addCar button orange addcar">加入购物车</button>
                 </div>
                 <div class="buynow">
                     <button type="button" class="buys">立即购买</button>
                 </div>
-                <div class="unbuy">
+                <div class="unbuy" style="display: none">
                     <button class="buys">暂时不能购买</button>
                 </div>
                 <div class="cb"></div>
@@ -442,17 +479,17 @@
                 <div class="xiangguang">相关推荐</div>
                 <div class="repic">
                     <a href="恶搞小猪.html" title="恶搞小猪礼盒">
-                        <img src="img/egaoxiaozhu/01.jpg" alt="恶搞小猪礼盒" />
+                        <img src="img/egaoxiaozhu/01.jpg" alt="恶搞小猪礼盒"/>
                     </a>
                 </div>
                 <div class="repic">
                     <a href="#" title="魔法圣诞树">
-                        <img src="img/shengdanshu/01.jpg" alt="魔法圣诞树" />
+                        <img src="img/shengdanshu/01.jpg" alt="魔法圣诞树"/>
                     </a>
                 </div>
                 <div class="repic">
                     <a href="惊喜盒.html" title="惊喜盒">
-                        <img src="img/jingxihe/jingxihe01.jpg" alt="惊喜盒" />
+                        <img src="img/jingxihe/jingxihe01.jpg" alt="惊喜盒"/>
                     </a>
                 </div>
             </div>
@@ -526,7 +563,7 @@
                 <div id="xiangqing">
                     <div class="detail">
                         <div class="imgwrap">
-
+                            //商品详情图片查询
                         </div>
                     </div>
                 </div>
@@ -587,24 +624,16 @@
 </body>
 </html>
 <script>
-    $(function(){
-        $("#small1").click(function() {
-            var img = document.getElementById("big");
-            img.setAttribute("src", "img/xiaobawang/xiaobawang02.jpg");
-        })
-        $("#small2").click(function() {
-            var img = document.getElementById("big");
-            img.setAttribute("src", "img/xiaobawang/xiaobawang03.jpg");
-        })
-        $("#jingjie2").click(function() {
+    $(function () {
+        $("#jingjie2").click(function () {
             $(".newprice").html("￥98");
             $(".oldprice").html("￥107");
         })
-        $("#putong").click(function() {
+        $("#putong").click(function () {
             $(".newprice").html("￥78.3");
             $(".oldprice").html("￥87");
         })
-        $("#jingjie1").click(function() {
+        $("#jingjie1").click(function () {
             $(".newprice").html("￥88");
             $(".oldprice").html("￥97");
         })

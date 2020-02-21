@@ -2,6 +2,8 @@ package com.service.impl;
 
 import com.entity.Img;
 import com.entity.Imgs;
+import com.entity.Shop;
+import com.entity.Video;
 import com.mapper.DetailPageMapper;
 import com.service.DetailPageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +24,10 @@ public class DetailPageServiceImpl implements DetailPageService {
     @Override
     public List<Imgs> queryImgs() {
         return detailsPageMapper.queryImgs();
+    }
+
+    @Override
+    public Shop queryShop() {
+        return detailsPageMapper.queryShop();
     }
 }

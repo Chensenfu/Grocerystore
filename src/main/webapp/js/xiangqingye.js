@@ -7,10 +7,6 @@
 			}
 		});
 		setTimeout("PlayJsAdPopWin()", 1000);
-		$("#small3").click(function() {
-			$("#big").hide();
-			$("#video").show();
-		})
 		$(".xiangqing").click(function() {
 			$(".xiangqing").addClass("p");
 			$(".pingjia").removeClass("p");
