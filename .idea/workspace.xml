@@ -7,44 +7,82 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aaf3d79d-7a35-4e24-aef4-dda445b2c30e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/WEB-INF/classes/com/controller/DetailPageController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/WEB-INF/classes/com/controller/UserController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/WEB-INF/classes/com/entity/Img.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/WEB-INF/classes/com/entity/Imgs.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/WEB-INF/classes/com/entity/Shop.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/WEB-INF/classes/com/entity/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/WEB-INF/classes/com/mapper/DetailPageMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/WEB-INF/classes/com/mapper/DetailPageMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/WEB-INF/classes/com/mapper/UserMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/WEB-INF/classes/com/mapper/UserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/WEB-INF/classes/com/service/DetailPageService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/WEB-INF/classes/com/service/UserService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/WEB-INF/classes/com/service/impl/DetailPageServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/WEB-INF/classes/com/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/1556444890_f87.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/1556445116_60r.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/1577505150_ef4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/23.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/24.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/GBA.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/dabaitu.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/danzhu.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/denglu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/duomuji.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/erweima.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/hupo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/jingxihe.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/lexiguan.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/lexiguan01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/lexiguan02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/lexiguan03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/lexiguan04.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/liziyuan.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/logo1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/maixiaodai.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/shaladou.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/shengdanshu.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/siquche.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/tiaogunzi.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/xiangyan.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/xiaobawang1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/xiaodangjia.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/xiaomiguoba.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/yigencong.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/youxiwangka.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/youyouqiu.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/zuqiudanzhu.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/img/⁮xiaozhu1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/js/denglu-zhuce.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/Grocery store/xiangqingye.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/controller/DetailPageController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/controller/UserController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/entity/Img.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/entity/Imgs.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/entity/Shop.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/entity/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/mapper/DetailPageMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/mapper/DetailPageMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/mapper/UserMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/mapper/UserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/service/DetailPageService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/service/UserService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/service/impl/DetailPageServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/service/impl/UserServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/1556444890_f87.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/1556444890_f87.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/1556445116_60r.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/1556445116_60r.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/1577505150_ef4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/1577505150_ef4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/21.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/21.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/22.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/22.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/23.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/23.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/24.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/24.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/GBAzhangji 179.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/GBA.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/jingxihe01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/jingxihe.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/logo.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/logo1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/shengdanshu01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/shengdanshu.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/xiaobawang.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/xiaobawang1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/⁮xiaozhu.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/⁮xiaozhu1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/一根葱干吃面  26.38.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/yigencong.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/二维码.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/erweima.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/四驱车 65.69.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/siquche.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/多头积木笔 3.9.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/duomuji.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/大白兔牛奶糖 19.90.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/dabaitu.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/小当家.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/xiaodangjia.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/小米锅巴虾条美食 25克20包9.90.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/xiaomiguoba.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/弹珠 400粒 9.5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/danzhu.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/挑棍子游戏棒 24.77.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/tiaogunzi.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/李子园.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/liziyuan.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/游戏网卡牌 31.5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/youxiwangka.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/溜溜球youyou球  25.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/youyouqiu.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/琥珀小锅巴 17.80.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/hupo.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/登录3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/denglu.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/砂拉豆砂拉豆 9.88.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/shaladou.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/足球弹珠飞盘138.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/zuqiudanzhu.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/香烟糖果  12.80.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/xiangyan.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/首页/麦小呆大辣片 19.80.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/maixiaodai.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/xiangqingye.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/xiangqingye.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/yanxuan.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/yanxuan.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/zhuanqu.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/zhuanqu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/ziying.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ziying.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/new_file.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/new_file.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/我的杂货铺.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/我的杂货铺.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Grocery store/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/Grocery store/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Grocery store/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/Grocery store/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Grocery store/yanxuan.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/Grocery store/yanxuan.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Grocery store/zhuanqu.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/Grocery store/zhuanqu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Grocery store/ziying.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/Grocery store/ziying.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,49 +97,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/我的杂货铺.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="509" column="57" selection-start-line="509" selection-start-column="57" selection-end-line="509" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/xiangqingye.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1196">
-              <caret line="184" column="30" selection-start-line="184" selection-start-column="30" selection-end-line="184" selection-end-column="30" />
+            <state relative-caret-position="224">
+              <caret line="20" column="39" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="39" />
               <folding>
-                <element signature="n#style#0;n#video#0;n#!!top" expanded="true" />
+                <element signature="n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/yanxuan.html">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/new_file.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-717">
-              <caret line="512" column="81" selection-start-line="512" selection-start-column="81" selection-end-line="512" selection-end-column="81" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/zhuanqu.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1242">
-              <caret line="78" column="39" selection-start-line="78" selection-start-column="39" selection-end-line="78" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/ziying.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-671">
-              <caret line="529" column="81" selection-start-line="529" selection-start-column="81" selection-end-line="529" selection-end-column="81" />
+            <state relative-caret-position="224">
+              <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -109,8 +120,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
+            <state relative-caret-position="140">
+              <caret line="38" selection-start-line="38" selection-end-line="38" />
               <folding>
                 <element signature="e#1056#1057#0" expanded="true" />
                 <element signature="e#1100#1101#0" expanded="true" />
@@ -119,40 +130,9 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/Img.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/Shop.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-220">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/DetailPageController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-            </state>
-          </provider>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/login.jsp">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -167,6 +147,9 @@
         <option value="$PROJECT_DIR$/src/main/webapp/yanxuan.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/zhuanqu.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/ziying.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/我的杂货铺.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/new_file.js" />
       </list>
     </option>
   </component>
@@ -194,7 +177,7 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="width" value="1278" />
+    <option name="width" value="1279" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectId" id="1Y46RzCl2hDfQrAlFXJ5XwNz6zR" />
@@ -245,6 +228,15 @@
               <item name="Grocerystore" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Grocery store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Grocerystore" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -253,7 +245,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -274,7 +266,13 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/WEB-INF" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -295,6 +293,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 8.0.46" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.46" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="Grocerystore:war exploded">
@@ -402,17 +401,17 @@
       <updated>1582189515453</updated>
       <workItem from="1582189521604" duration="1631000" />
       <workItem from="1582195639521" duration="1749000" />
+      <workItem from="1582246269756" duration="3411000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1874000" />
+    <option name="totallyTimeSpent" value="5285000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21179625" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21447721" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -420,18 +419,19 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932975" visible="true" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Application Servers" order="7" sideWeight="0.49932975" weight="0.3286119" />
       <window_info anchor="bottom" id="Spring" order="8" sideWeight="0.49932975" weight="0.3286119" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49798927" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49731904" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5020107" side_tool="true" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50067025" side_tool="true" visible="true" weight="0.39943343" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
       <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.49329758" weight="0.38243628" />
@@ -530,6 +530,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/Img.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/Shop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/DetailPageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/xiangqingye.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-81">
+          <caret line="196" column="30" selection-start-line="196" selection-start-column="30" selection-end-line="196" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#video#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/zhuanqu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-669">
+          <caret line="78" column="39" selection-start-line="78" selection-start-column="39" selection-end-line="78" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/购物车.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-756" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/yanxuan.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="512" column="81" selection-start-line="512" selection-start-column="81" selection-end-line="512" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/ziying.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11500">
+          <caret line="529" column="81" selection-start-line="529" selection-start-column="81" selection-end-line="529" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/公用-尾部.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -537,17 +594,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/DetailPageController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/敬请期待.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/new_file.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        <state relative-caret-position="224">
+          <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jingxihe.mp4">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2173">
+          <caret line="508" column="51" selection-start-line="508" selection-start-column="51" selection-end-line="508" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/我的杂货铺.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="20" column="39" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="39" />
+          <folding>
+            <element signature="n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mapper/UserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
+        <state relative-caret-position="140">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
           <folding>
             <element signature="e#1056#1057#0" expanded="true" />
             <element signature="e#1100#1101#0" expanded="true" />
@@ -555,64 +645,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/Img.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/Shop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-220">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/yanxuan.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-717">
-          <caret line="512" column="81" selection-start-line="512" selection-start-column="81" selection-end-line="512" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="509" column="57" selection-start-line="509" selection-start-column="57" selection-end-line="509" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/zhuanqu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1242">
-          <caret line="78" column="39" selection-start-line="78" selection-start-column="39" selection-end-line="78" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/ziying.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-671">
-          <caret line="529" column="81" selection-start-line="529" selection-start-column="81" selection-end-line="529" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/xiangqingye.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1196">
-          <caret line="184" column="30" selection-start-line="184" selection-start-column="30" selection-end-line="184" selection-end-column="30" />
-          <folding>
-            <element signature="n#style#0;n#video#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/login.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
