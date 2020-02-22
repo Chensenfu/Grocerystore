@@ -11,10 +11,10 @@
     </association>
     </resultMap>
     <select id="queryImg" resultMap="queryVideo">
-        select i.id,imgId,img,v.id vid,videos from img i inner JOIN video v on i.id=v.id where imgId=1
+        select i.id,imgId,img,v.id vid,videos from img i inner JOIN video v on i.id=v.id where imgId=#{id}
     </select>
     <select id="queryImgs" resultType="com.entity.Imgs">
-        select id,imgId,img from imgs where imgId=1
+        select id,imgId,img from imgs where imgId=#{id}
     </select>
     <resultMap id="queryShops" type="com.entity.Shop">
         <id column="shopId" property="shopId"/>
@@ -42,10 +42,10 @@
     </resultMap>
     <select id="queryShop" resultMap="queryShops">
         select s.shopId,shopName,price,s.typeId,s.imgId,sd.shopId shopIds,model,number,weight,inventory,sales,st.typeId,shoppingType from shopping s
-        INNER JOIN sdetail sd ON s.shopId=sd.shopId INNER JOIN shoppingtyp st ON st.typeId=s.typeId where s.shopId=1
+        INNER JOIN sdetail sd ON s.shopId=sd.shopId INNER JOIN shoppingtyp st ON st.typeId=s.typeId where s.shopId=#{id}
     </select>
     <select id="queryTuijian" resultMap="queryShops">
-        SELECT s.shopId,shopName,price,typeId,s.imgId,id,i.imgId imgIds,img FROM shopping s INNER JOIN img i ON s.imgId=i.id WHERE shopId >= ((SELECT MAX(shopId) FROM shopping)-(SELECT MIN(shopId) FROM shopping)) * RAND() + (SELECT MIN(shopId) FROM shopping) AND shopId != 1 LIMIT 3
+        SELECT s.shopId,shopName,price,typeId,s.imgId,id,i.imgId imgIds,img FROM shopping s INNER JOIN img i ON s.imgId=i.id WHERE shopId >= ((SELECT MAX(shopId) FROM shopping)-(SELECT MIN(shopId) FROM shopping)) * RAND() + (SELECT MIN(shopId) FROM shopping) AND shopId != #{id} LIMIT 3
     </select>
     <resultMap id="queryPingjias" type="com.entity.PingJia">
         <id column="id" property="id"/>
@@ -61,9 +61,6 @@
         </association>
     </resultMap>
     <select id="queryPingjia" resultMap="queryPingjias">
-        SELECT id,content,createdate,shopId,p.userId,u.userid userids,`name` FROM pingjia p INNER JOIN `user` u on p.userId=u.userid
-    </select>
-    <select id="queryPingjiacount" resultType="java.lang.Integer">
-        SELECT COUNT(1) FROM pingjia
+        SELECT id,content,createdate,shopId,p.userId,u.userid userids,`name` FROM pingjia p INNER JOIN `user` u on p.userId=u.userid where shopId=#{id}
     </select>
 </mapper>

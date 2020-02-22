@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "http://mybatis.org/dtd/mybatis-3-mapper.dtd" "mybatis-3-mapper.dtd" >
 <mapper namespace="com.mapper.ShoppingMapper">
-    <resultMap id="AllMap" type="com.entity.Shopping ">
+    <resultMap id="AllMap" type="com.entity.Shopping">
         <id column="shopId" property="shopId"></id>
         <result column="shopName" property="shopName"></result>
         <result column="price" property="price"></result>

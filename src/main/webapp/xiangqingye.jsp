@@ -22,6 +22,7 @@
     <script src="http://cdn.bootcss.com/gsap/1.19.0/plugins/ScrollToPlugin.min.js"></script>
     <script type="text/javascript">
         $(function () {
+            var id = 1;
             // 返回顶部，绑定gotop1图标和gotop2文字事件
             $("#gotop1").click(function (e) {
                 TweenMax.to(window, 1.5, {scrollTo: 0, ease: Expo.easeInOut});
@@ -38,7 +39,7 @@
                     }, "1.4");
             });
             //顶部图片查询
-            $.getJSON("detail/queryImg", function (data) {
+            $.getJSON("detail/queryImg",{"id":id}, function (data) {
                 var str = "";
                 str += "<img id='big' src='img/" + data[0].img + "' width='350' height='350'>";
                 if (data[0].videos.videos != ""){
@@ -54,7 +55,7 @@
                 })
             });
             //商品详情图片查询
-            $.getJSON("detail/queryImgs", function (data) {
+            $.getJSON("detail/queryImgs",{"id":id}, function (data) {
                 var str = "";
                 $(data).each(function () {
                     str += "<img src='img/" + this.img + "'/>";
@@ -76,7 +77,7 @@
                 })
             });
             //商品查询
-            $.getJSON("detail/qureyShop", function (data) {
+            $.getJSON("detail/qureyShop",{"id":id}, function (data) {
                 $(".title").html(data.shopName);
                 $(".newprice").html("￥"+data.price);
                 $(".oldprice").html("￥"+(data.price + data.price * 0.3));
@@ -105,7 +106,7 @@
                 }
             });
             //相关推荐
-            $.getJSON("detail/queryTuijian",function (data) {
+            $.getJSON("detail/queryTuijian",{"id":id}, function (data) {
                 var str = "";
                 str += "<div class='xiangguang'>相关推荐</div>"
                 $(data).each(function () {
@@ -118,7 +119,7 @@
                 $(".recommend").empty().append(str);
             })
             //评价查询
-            $.getJSON("detail/queryPingjia",function (data){
+            $.getJSON("detail/queryPingjia",{"id":id},function (data){
                 $(".pingjia-head").append("<a class='all'>全部分享("+data.length+")</a>\n" +
                     "<header class='sha'><span class='share'></span></header>")
                 var  str = "";
@@ -145,7 +146,34 @@
                     width: 20,
                 })
             })
-        });
+            //加入购物车
+            $(".addcar").click(function () {
+                $.ajax({
+                    url:"detail/add",
+                    type:"post",
+                    data:{"id":id},
+                    dataType:"json",
+                    success:function (data) {
+                        if (data){
+                            alert("添加购物车成功！");
+                        }else {
+                            alert("添加购物车失败！");
+                        }
+                    }
+                })
+            })
+        })
+        //获取地址栏参数,可以是中文参数
+        function getUrlParam(key) {
+            // 获取参数
+            var url = window.location.search;
+            // 正则筛选地址栏
+            var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
+            // 匹配目标参数
+            var result = url.substr(1).match(reg);
+            //返回参数值
+            return result ? decodeURIComponent(result[2]) : null;
+        }
     </script>
     <title>解忧杂货铺-商品详情</title>
 </head>

@@ -16,4 +16,9 @@ public class CarServiceImpl implements CarService {
     public List<Car> queryCar() {
         return carMapper.queryCar();
     }
+
+    @Override
+    public Boolean del(Integer delId) {
+        return carMapper.del(delId)==1;
+    }
 }

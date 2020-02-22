@@ -14,32 +14,27 @@ public class DetailPageServiceImpl implements DetailPageService {
     private DetailPageMapper detailsPageMapper;
 
     @Override
-    public List<Img> queryImg() {
-        return detailsPageMapper.queryImg();
+    public List<Img> queryImg(Integer id) {
+        return detailsPageMapper.queryImg(id);
     }
 
     @Override
-    public List<Imgs> queryImgs() {
-        return detailsPageMapper.queryImgs();
+    public List<Imgs> queryImgs(Integer id) {
+        return detailsPageMapper.queryImgs(id);
     }
 
     @Override
-    public Shop queryShop() {
-        return detailsPageMapper.queryShop();
+    public Shop queryShop(Integer id) {
+        return detailsPageMapper.queryShop(id);
     }
 
     @Override
-    public List<Shop> queryTuijian() {
-        return detailsPageMapper.queryTuijian();
+    public List<Shop> queryTuijian(Integer id) {
+        return detailsPageMapper.queryTuijian(id);
     }
 
     @Override
-    public List<PingJia> queryPingjia() {
-        return detailsPageMapper.queryPingjia();
-    }
-
-    @Override
-    public Integer queryPingjiacount() {
-        return detailsPageMapper.queryPingjiacount();
+    public List<PingJia> queryPingjia(Integer id) {
+        return detailsPageMapper.queryPingjia(id);
     }
 }
