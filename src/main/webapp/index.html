@@ -79,6 +79,34 @@
 							.to("#gotop1", 1, {y:-1000, opacity:0, ease:  Power4.easeOut}, 0.6)
 							.to("#gotop1", 1, {y:0, rotationY:0, opacity:1, scale:1, ease: Expo.easeOut, clearProps: "all"}, "1.4");
 				})
+				//查询自营商品
+				$.getJSON("shopping/queryziying",function (data) {
+
+					var str ="";
+					$(data).each(function () {
+						str +=  "<div class=\"pic-wrapper\">" +
+								"<a href=\"xiangqingye.jsp?id="+this.shopId+"\" class=\"goods-item\">" +
+								"<img class=\"pic\" src=\"img/"+this.img.img+"\" alt=\"\">" +
+								"<p class=\"goods-name\">"+this.shopName+"</p>" +
+								"<div class=\"price-wrapper\">"+"￥"+this.price+"</div>" +
+								"</a>"+
+								"</div>"
+					})
+					$("#shen ").empty().append(str);
+				})
+				$.getJSON("shopping/queryyanxuan",function (data) {
+					var even ="";
+					$(data).each(function () {
+						even +="<div class=\"pic-wrapper\">" +
+								"<a href=\"xiangqingye.jsp?id="+this.shoopId+"\" class=\"goods-item\">" +
+								"<img class=\"pic\" src=\"img/"+this.img.img+"\" alt=\"\">" +
+								"<p class=\"goods-name\">"+this.shopName+"</p>" +
+								"<div class=\"price-wrapper\">"+"￥"+this.price+"</div>" +
+								"</a>" +
+								"</div>"
+					})
+					$("#she").empty().append(even);
+				})
 			})
 			$(document).ready(function() {
 				$('.slider_one_big_picture').EasySlides({
@@ -106,41 +134,9 @@
 					'stepbystep': false,
 					'show': 15
 				})
-				$(function () {
-
-
-				//查询所有商品
-				$.getJSON("shopping/queryAll",function (data) {
-					if (data.typeId==1){
-						var str ="";
-						$(data).each(function () {
-							str +=  "<div class=\"pic-wrapper\">" +
-									"<a href=\"xiangqingye.jsp?id="+this.shopId+"\" class=\"goods-item\">" +
-									"<img class=\"pic\" src=\"img/"+this.img.img+"\" alt=\"\">" +
-									"<p class=\"goods-name\">"+this.shopName+"</p>" +
-									"<div class=\"price-wrapper\">"+"￥"+this.price+"</div>" +
-									"</a>"+
-									"</div>"
-						})
-						$("#shen ").empty().append(str);
-					} else {
-						var even ="";
-						$(data).each(function () {
-							even +="<div class=\"pic-wrapper\">" +
-									"<a href=\"xiangqingye.jsp?id="+this.shopId+"\" class=\"goods-item\">" +
-									"<img class=\"pic\" src=\"img/"+this.img.img+"\" alt=\"\">" +
-									"<p class=\"goods-name\">"+this.shopName+"</p>" +
-									"<div class=\"price-wrapper\">"+"￥"+this.price+"</div>" +
-									"</a>" +
-									"</div>"
-						})
-						$("#she").empty().append(even);
-					}
 
 
 
-				})
-				})
 			})
 		</script>
 	</head>
@@ -150,7 +146,7 @@
 		<div class="first">
 			<div class="headone">
 				<span>欢迎来到皆有杂货铺！</span>
-				<a href="login.jsp"  class="q">
+				<a href="登录.html" class="q">
 					<h4>请登录</h4>
 				</a>
 				<a href="注册.html"><span>快速注册</span></a>
@@ -575,14 +571,16 @@
 			<div class="ziyinga">
 				<p class="cc">严选</p>
 			</div>
-            <div class="ccc">
+           <div class="ccc">
            	
            
-			 <div class="ziyingb" id="she">
+			    <div class="ziyingb" id="she">
 				<!-- <div class="inner goods-list"> -->
 
-			 </div>
+				</div>
 		   </div>
+
+
 		</div>
 
         

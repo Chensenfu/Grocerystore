@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+        <title>自营</title>
 		<meta charset="utf-8">
 		<title></title>
 		<!-- <link rel="stylesheet" type="text/css" href="css/renqi.css"/> -->
@@ -72,15 +73,22 @@
 							.to("#gotop1", 1, {y:0, rotationY:0, opacity:1, scale:1, ease: Expo.easeOut, clearProps: "all"}, "1.4");
 				});
 			});
+            $.getJSON("shopping/queryziying",function (data) {
 
-			$(function () {
-				$.getJSON("shopping/queryAll",function (data) {
-					var  str ="";
-					$(data).each(function () {
-						str +=""
-					})
-				})
-			})
+                var str ="";
+                $(data).each(function () {
+                    str +=  "<div class=\"pic-wrapper\">" +
+                        "<a href=\"xiangqingye.jsp?id="+this.shopId+"\" class=\"goods-item\">" +
+                        "<img class=\"pis\" src=\"img/"+this.img.img+"\" alt=\"\">" +
+                        "<p class=\"goods-name\">"+this.shopName+"</p>" +
+                        "<div class=\"price-wrapper\">"+"￥"+this.price+"</div>" +
+                        "<p class=\"zi\">" + (this.shoppingTyp.typeId==1?"自营":"严选") + "</p>"+
+                        "</a>"+
+                        "</div>"
+                })
+                $("#sss ").empty().append(str);
+            })
+
 		</script>
 	</head>
 	<body>
@@ -385,7 +393,7 @@
 			<div class="ziyinga">
 				<p class="cc">自营</p>
 			</div>
-			<div class="ziyingb">
+			<div class="ziyingb" id="sss">
 				<!-- <div class="inner goods-list"> -->
 				<div class="pic-wrapper">
 					<a href="#" class="goods-item">
@@ -397,7 +405,7 @@
 				</div>
 				<div class="pic-wrapper">
 					<a href="#" class="goods-item">
-				
+
 						<img class="pis" src="img/liziyuan.jpg" alt="">
 						<p class="goods-name">李子园 10瓶装</p>
 						<div class="price-wrapper">￥21.00</div>
@@ -406,7 +414,7 @@
 				</div>
 				<div class="pic-wrapper">
 					<a href="#" class="goods-item">
-				
+
 						<img class="pis" src="img/xiaobawang1.jpg" alt="">
 						<p class="goods-name">小当家 一箱*24</p>
 						<div class="price-wrapper">￥22.80</div>
@@ -415,7 +423,7 @@
 				</div>
 				<div class="pic-wrapper">
 					<a href="#" class="goods-item">
-				
+
 						<img class="pis" src="img/shaladou.png" alt="">
 						<p class="goods-name">砂拉豆砂拉豆</p>
 						<div class="price-wrapper">￥9.88</div>
@@ -428,7 +436,7 @@
 						<p class="goods-name">小米锅巴虾条美食 25克*20包</p>
 						<div class="price-wrapper">￥9.90</div>
 						<p class="zi">自营</p>
-				
+
 					</a>
 				</div>
 				<div class="pic-wrapper">
@@ -439,7 +447,7 @@
 						<p class="zi">自营</p>
 					</a>
 				</div>
-		
+
 				<div class="pic-wrapper">
 					<a href="#" class="goods-item">
 						<img class="pis" src="img/hupo.jpg" alt="">
@@ -474,16 +482,16 @@
 				</div>
 				<div class="pic-wrapper">
 					<a href="#" class="goods-item">
-				
+
 						<img class="pis" src="img/maixiaodai.jpg" alt="">
 						<p class="goods-name">麦小呆大辣片 </p>
 						<div class="price-wrapper">￥19.80</div>
 						<p class="zi">自营</p>
 					</a>
 				</div>
-		
-		
-		
+
+
+
 			</div>
 			<!-- </div> -->
 		

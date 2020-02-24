@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title>专区</title>
 		<meta charset="utf-8">
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="css/daohang.css"/>
@@ -356,17 +357,11 @@
 						<p class="cc">专区</p>
 					</div>
 		      <div class="ccc">
-		      	
-		      
 					<div class="ziyingb" id="ss">
 						<!-- <div class="inner goods-list"> -->
-
-
-						</div>
 					</div>
-		
-		
-				</div>
+			  </div>
+		</div>
 		
 		   <div id="123">
 		   	
@@ -475,15 +470,16 @@
 				$.getJSON("shopping/queryAll",function (data) {
 					var str ="";
 					$(data).each(function () {
-						str+="<div class=\"pic-wrapper\">" +
+						str +="<div class=\"pic-wrapper\">" +
 								"<a href=\"xiangqingye.jsp?id="+this.shopId+"\" class=\"goods-item\">" +
 								"<img class=\"pi\" src=\"img/"+this.img.img+"\" alt=\"\">" +
-								"<p class=\"goods-name\">"+this.shopName+" </p>" +
+								"<p class=\"goods-name\">"+this.shopName+"</p>" +
 								"<div class=\"price-wrapper\">"+"￥"+this.price+"</div>" +
-								"<p class=\"jin\">"+(this.typeId==2?'严选':'精品')+"</p>" +
+								"<p class=\"jin\">"+(this.shoppingTyp.typeId==2?"严选":"精品")+"</p>"+
 								"</a>" +
 								"</div>"
 					})
+
 					$("#ss").empty().append(str);
 				})
 			})

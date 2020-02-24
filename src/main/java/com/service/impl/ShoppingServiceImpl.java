@@ -15,4 +15,14 @@ public class ShoppingServiceImpl implements ShoppingService {
     public List<Shopping> queryAll() {
         return shoppingMapper.queryAll();
     }
+
+    @Override
+    public List<Shopping> queryziying() {
+        return shoppingMapper.queryziying();
+    }
+
+    @Override
+    public List<Shopping> queryyanxuan() {
+        return shoppingMapper.queryyanxuan();
+    }
 }
