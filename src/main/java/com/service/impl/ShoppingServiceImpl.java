@@ -25,4 +25,9 @@ public class ShoppingServiceImpl implements ShoppingService {
     public List<Shopping> queryyanxuan() {
         return shoppingMapper.queryyanxuan();
     }
+
+    @Override
+    public List<Shopping> querymohu(String shopName) {
+        return shoppingMapper.querymohu(shopName);
+    }
 }

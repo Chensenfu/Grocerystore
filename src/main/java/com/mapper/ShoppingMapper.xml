@@ -37,4 +37,13 @@
             s.typeId=2
         </where>
     </select>
+    <select id="querymohu" resultMap="AllMap">
+        SELECT s.shopId,s.shopName,s.price,s.typeId, t.typeId,t.shoppingType ,i.id,i.img,i.imgId
+        FROM shopping s  INNER JOIN  shoppingtyp t ON s.typeId=t.typeId INNER JOIN img i ON s.imgId=i.imgId
+        <where>
+            <if test="shopName!=null||shopName!=''">
+                s.shopName like concat('%',#{shopName},'%')
+            </if>
+        </where>
+    </select>
 </mapper>
