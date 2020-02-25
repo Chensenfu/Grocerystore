@@ -6,26 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf3d79d-7a35-4e24-aef4-dda445b2c30e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/entity/Collect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/huojian.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/goTop.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/DetailPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/DetailPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/entity/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entity/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mapper/CarMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mapper/CarMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mapper/DetailPageMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mapper/DetailPageMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mapper/DetailPageMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mapper/DetailPageMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/DetailPageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/DetailPageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/impl/DetailPageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/impl/DetailPageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/commons.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/commons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/gouwuche.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/gouwuche.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/huojian.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/xiangqingye.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/xiangqingye.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/xiangqingye.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/xiangqingye.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Grocery store/css/commons.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/Grocery store/css/commons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Grocery store/js/xiangqingye.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/Grocery store/js/xiangqingye.js" afterDir="false" />
-    </list>
+    <list default="true" id="aaf3d79d-7a35-4e24-aef4-dda445b2c30e" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -178,11 +159,6 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
             </expand>
             <select />
@@ -391,10 +367,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="554" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1582343904122" />
-    <state x="451" y="206" key="git4idea.merge.GitPullDialog" timestamp="1582590581005">
+    <state x="451" y="206" key="git4idea.merge.GitPullDialog" timestamp="1582592048963">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="451" y="206" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1582590581005" />
+    <state x="451" y="206" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1582592048963" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1582263982457">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
