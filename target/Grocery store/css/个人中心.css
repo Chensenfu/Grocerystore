@@ -1,0 +1,435 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family:"微软雅黑";
+}
+
+#yezhong:after{
+	content: "";
+	clear: both;
+	display: block;
+}
+
+#yezhong{
+	width: 1200px;
+	margin: 0px auto;
+	margin-top:15px ;
+}
+#xinxilangonggong{
+	width: 100px ;
+	border: #CFCFCF 1px solid;
+	float: left;
+	margin: 0px 0px 0px 20px;
+	text-align: center;
+	border-top: red 2px solid;
+}
+#personal{
+	color:#336699 ;
+	line-height: 40px;
+	font-size: 16px;
+	
+	border-bottom:#CFCFCF 1px solid ;
+}
+#personal:hover{
+	cursor: pointer;
+}
+ul{
+	list-style: none;
+}
+#Infobar li {
+	 padding-bottom: 5px;
+}
+.show{
+    color: #336699;
+    line-height: 29px;
+    font-size: 14px;
+}
+.show:hover{
+	  cursor: pointer;
+}
+.hide{
+	
+	color: #999999;
+	font-size: 14px;
+}
+.hide li:hover{
+	cursor: pointer;
+	color: red;
+	text-decoration: underline;
+}
+
+#middle{
+	float: right;
+	width: 1000px;
+	margin-right: 60px;
+}
+#usercenter>div{
+	border: #E4EAEE 1px  solid;
+}
+#photo{
+	background-color: #F4F8FB;
+	line-height: 80px;
+}
+
+
+#tup{
+	vertical-align: middle;
+	margin:0px 10px 0px 10px;
+}
+#photo span{
+	font-size: 16px;
+	margin-right: 350px;
+}
+#money {
+	line-height: 50px;
+}
+#money span{
+	margin-left: 100px;
+	color: #336699;
+}
+#money i{
+	color: red;
+}
+#information{
+	background-color: #F4F8FB;
+}
+#information:after{
+	content: "";
+	clear: both;
+	display: block;
+}
+#information ul{
+	float: left;
+	margin-right: 50px;
+}
+#information li{
+	font-size: 12px;
+	margin: 12px;
+}
+#usercenter h5{
+    color: #66B0EA;
+    line-height: 40px;
+    font-size: 20px;
+    margin-left: 12px;
+}
+#commodity:after{
+	content: "";
+	clear: both;
+	display: block;
+}
+#commodity{
+		background-color: #F4F8FB;
+}
+#commodity div{
+	border: #E4EAEE 1px  solid;
+	float: left;
+	width: 220px;
+	height: 270px;
+	margin: 20px;
+}
+
+#commodity>div>p:nth-of-type(1){
+	font-size: 20px;
+	color: red;
+}
+#commodity div p:nth-of-type(2){
+	font-size: 10px;
+}
+
+.ReCharge h3{
+	 text-indent:5px;
+	line-height: 40px;
+	border-bottom: #CCCCCC 3px solid;
+}
+.ReCharge p{
+	 text-indent:5px;
+	line-height: 40px;
+	border-bottom: #CCCCCC 0.5px solid;
+}
+.ReCharge p span{
+	color: red;
+	font-weight: 800;
+}
+.ReCharge form{
+    line-height: 50px;
+    font-size: 15px;
+}
+.ReCharge form input{
+	margin: 0px 5px 0px 5px;
+}
+.ReCharge form span{
+	margin:0px 10px ;
+	padding: 0px 10px;
+	border-radius:10px;
+	background: #E52178;
+	color: white;
+}
+
+.ReCharge table tr:first-child  {
+	background: #ECECEC;
+	line-height: 40px;
+	font-size:15px ;
+}
+.ReCharge table tr td{
+	width: 170px;
+	    text-align: center;
+	border: #CCCCCC 1px solid;
+	;
+}
+
+
+#binding h3{
+	 text-indent:5px;
+	line-height: 40px;
+	border-bottom: #CCCCCC 3px solid;
+}
+#binding div{
+	margin-top: 40px;
+	text-align: center;
+	border-bottom:#ECECEC  1px  solid; ;
+	
+}
+#binding div img:first-child{
+	border: #ECECEC  1px  solid;
+	padding: 10px;
+}
+#binding div img:last-child{
+	margin:20px 0px ;
+}
+#binding span{
+	color: red;
+}
+#ChangePassword h3{
+	 text-indent:5px;
+	line-height: 40px;
+	border-bottom: #CCCCCC 3px solid;
+}
+#ChangePassword div{
+	margin-top: 10px;
+	border: #CCCCCC  1px  solid;
+}
+#ChangePassword table{
+margin-top: 40px;
+	margin-left: 100px;
+	margin-bottom: 20px;
+}
+#ChangePassword tr{
+
+	line-height: 50px;
+	font-size: 20px;
+}
+#ChangePassword input[type=password]{
+	font-size: 20px;
+}
+#ChangePassword input[type=button]{
+	width: 120px;
+	font-size: 20px;
+	margin:0px 20px;
+	height: 40px;
+	color: white;
+	background:red;
+	border: white;
+	  border-radius:10px;
+}
+#ChangePassword input[type=button]:first-child{
+background: #CECECE;
+}
+#collect h3{
+	 text-indent:5px;
+	line-height: 40px;
+	border-bottom: #CCCCCC 3px solid;
+}
+#collect>p{
+	line-height: 100px;
+}
+#collect>p a{
+	margin-left: 30px;
+}
+#collect>div>div{
+	border: #CCCCCC 1px  solid;
+	float: left;
+	width: 220px;
+	height: 270px;
+	margin: 20px;
+}
+#collect div p:nth-of-type(1){
+	font-size: 20px;
+	color: red;
+}
+#collect div p:nth-of-type(2){
+	font-size: 10px;
+}
+
+
+#site h3{
+	 text-indent:5px;
+	line-height: 40px;
+	border-bottom: #CCCCCC 3px solid;
+}
+#site>input{
+	border: 0px;
+	border-radius: 10px;
+	width: 120px;
+	line-height: 20px;
+	font-size: 15px;
+	color: white;
+	background: #E52871;
+	margin: 10px 0px;
+}
+#site p{
+	color: red;
+	line-height: 30px;
+}
+#site tr:first-child{
+    
+   
+    background: #f2f2f2;
+	}
+#site th{
+	width: 147px;
+}	
+#site td{
+	padding-left: 6px;
+	 border: 1px solid #e8e8e8;
+}
+#site tr td:last-child{
+	text-align: center;
+}
+#site a{
+	margin: 0px 5px;
+}
+#newsite{
+	width: 700px;
+	border:  #CCCCCC 3px solid;
+	position:fixed  ;
+	left: 25%;
+	top: 20%;
+	background: white;
+	display: none;
+	z-index: order;
+}
+
+#newsite p{
+	font-size: 20px;
+	line-height: 60px;
+	color: black;
+	text-indent: 20px;
+}
+#newsite form div{
+	display: inline-block;
+}
+#newsite form {
+	display: inline-block;
+}
+#newsite>div{
+	 line-height: 40px;
+}
+#newsite  span{
+	display: inline-block;
+	width: 120px;
+	text-align: center;
+}
+#newsite>div>input{
+	 width: 225px;
+	 height: 30px;
+}
+#newsite  textarea {
+	vertical-align: middle;
+	    width: 360px;
+	    height: 60px;
+	    resize: none;
+}
+#newsite>input{
+	margin: 20px 50px;
+	border: 0px;
+	padding: 5px 10px;
+}
+#newsite>input:hover{
+	background: #0000EE;
+	color: white;
+	display: ;
+}
+
+#indent h3{
+	text-indent:5px;
+	line-height: 40px;
+	border-bottom: #CCCCCC 3px solid;
+}
+#indent p{
+	margin: 10px 0px;
+}
+#indent p input[type=text]{
+    width: 250px;
+    height: 30px;
+}
+#indent p input[type=button]{
+	background: white;
+	border: #E8E8E8 1px solid;
+	height: 30px;
+	width: 80px;
+}
+#indent p input[type=button]:hover{
+	background:#E8E8E8 ;
+}
+#indent form{
+	padding: 10px 0px;
+}
+#indent form input{
+	margin: 0px 10px;
+}
+#indent form input[type=button]{
+	background:#E52178;
+	color: white;
+	border: 0px;
+	border-radius:5px ;
+	height: 24px;
+	width: 50px;
+}
+
+#indent table tr:first-child{
+	border-bottom: #E8E8E8 1px solid;
+}
+
+#Changemiddle h3{
+	text-indent:5px;
+	line-height: 40px;
+	border-bottom: #CCCCCC 3px solid;
+}
+#Changemiddle>p{
+    margin-top: 20px;
+    line-height: 41px;
+    border-bottom: #E52178 1px solid;
+}
+#Changemiddle>p>span{
+	     padding: 10px 10px;
+	   
+}
+#Changemiddle>p>span:first-child{
+	  border: #E52178 1px solid;
+	  border-bottom: white 1px solid;
+}
+#Changemiddle img{
+	vertical-align:middle;
+}
+#Changemiddle tr{
+    line-height: 35px;
+    font-size: 10px;
+}
+
+#Changemiddle  input[type=button]{
+    margin: 14px -5px 23px 23px;
+    padding: 5px 8px;
+    background: white;
+    border: #A9A9A9 1px solid;
+}
+#headportraits{
+	display: none;
+}
+
+
+
+
+
+
+
+

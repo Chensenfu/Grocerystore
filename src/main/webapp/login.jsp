@@ -28,17 +28,15 @@
         }
 
     </style>
-
     <link href="css/default.css" rel="stylesheet">
     <link href="css/normalize.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-
-    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript">
         $(function () {
             /*$("#user").blur(function () {
                 $("#tishiname").html("用户名不能为空");
-            });
+        });~`
             $("#pass").blur(function () {
                 $("#tishipwd").html("密码不能为空");
             });
@@ -158,7 +156,7 @@
                         dataType: "json",
                         success: function (data) {
                             if(data){
-                                window.location.href = "index.jsp";
+                                window.location.href = "index.html";
                             }else{
                                 $("#tishideng").html("用户名或密码错误")
                             }

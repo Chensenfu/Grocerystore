@@ -23,4 +23,18 @@
         FROM shopping s  INNER JOIN  shoppingtyp t ON s.typeId=t.typeId INNER JOIN img i ON s.imgId=i.imgId
 
     </select>
+    <select id="queryziying" resultMap="AllMap">
+        SELECT s.shopId,s.shopName,s.price,s.typeId, t.typeId,t.shoppingType ,i.id,i.img,i.imgId
+        FROM shopping s  INNER JOIN  shoppingtyp t ON s.typeId=t.typeId INNER JOIN img i ON s.imgId=i.imgId
+        <where>
+            s.typeId=1
+        </where>
+    </select>
+    <select id="queryyanxuan" resultMap="AllMap">
+        SELECT s.shopId,s.shopName,s.price,s.typeId, t.typeId,t.shoppingType ,i.id,i.img,i.imgId
+        FROM shopping s  INNER JOIN  shoppingtyp t ON s.typeId=t.typeId INNER JOIN img i ON s.imgId=i.imgId
+        <where>
+            s.typeId=2
+        </where>
+    </select>
 </mapper>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title>严选</title>
 		<meta charset="utf-8">
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="css/daohang.css"/>
@@ -358,91 +359,8 @@
 		      <div class="ccc">
 		      	
 		      
-					<div class="ziyingb">
+					<div class="ziyingb" id="s">
 						<!-- <div class="inner goods-list"> -->
-							<div class="pic-wrapper">
-								<a href="#" class="goods-item">
-									<img class="pi" src="img/tiaogunzi.jpg" alt="">
-									<p class="goods-name">挑棍子游戏棒 </p>
-									<div class="price-wrapper">￥24.77</div>
-							        <p class="yan">严选</p>
-								</a>
-							</div>
-							<div class="pic-wrapper">
-								<a href="#" class="goods-item">
-							
-									<img class="pi" src="img/duomuji.jpg" alt="">
-									<p class="goods-name">多头积木笔</p>
-									<div class="price-wrapper">￥3.09</div>
-									<p class="yan">严选</p>
-								</a>
-							</div>
-							<div class="pic-wrapper">
-								<a href="恶搞小猪.html" class="goods-item">
-									<img class="pi" src="img/⁮xiaozhu1.jpg" alt="">
-									<p class="goods-name">恶搞粉小猪</p>
-									<div class="price-wrapper">￥25.00</div>
-									<p class="yan">精品</p>
-								</a>
-							</div>
-							<div class="pic-wrapper">
-								<a href="#" class="goods-item">
-									<img class="pi" src="img/youyouqiu.jpg" alt="">
-									<p class="goods-name">溜溜球youyou球</p>
-									<div class="price-wrapper">￥25.00</div>
-									<p class="yan">严选</p>
-								</a>
-							</div>
-							<div class="pic-wrapper">
-								<a href="#" class="goods-item">
-									<img class="pi" src="img/youxiwangka.jpg" alt="">
-									<p class="goods-name">游戏网卡牌</p>
-									<div class="price-wrapper">¥31.05</div>
-									<p class="yan">严选</p>
-								</a>
-							</div>
-							<div class="pic-wrapper">
-								<a href="#" class="goods-item">
-									<img class="pi" src="img/shengdanshu.jpg" alt="">
-									<p class="goods-name">魔法圣诞树</p>
-									<div class="price-wrapper">￥30.00</div>
-									<p class="yan">严选</p>
-								</a>
-							</div>
-							<div class="pic-wrapper">
-								<a href="惊喜盒.html" class="goods-item">
-									<img class="pi" src="img/jingxihe.jpg" alt="">
-									<p class="goods-name">惊喜盒</p>
-									<div class="price-wrapper">￥128.00</div>
-									<p class="yan">精品</p>
-								</a>
-							</div>
-							<div class="pic-wrapper">
-								<a href="#" class="goods-item">
-									<img class="pi" src="img/siquche.jpg" alt="">
-									<p class="goods-name">四驱车 </p>
-									<div class="price-wrapper">￥65.69</div>
-									<p class="yan">严选</p>
-								</a>
-							</div>
-							
-							<div class="pic-wrapper">
-								<a href="#" class="goods-item">
-									<img class="pi" src="img/danzhu.jpg" alt="">
-									<p class="goods-name">弹珠</p>
-									<div class="price-wrapper">￥9.50</div>
-									<p class="yan">严选</p>
-								</a>
-							</div>
-							<div class="pic-wrapper">
-								<a href="#" class="goods-item">
-									<img class="pi" src="img/GBA.jpg" alt="">
-									<p class="goods-name">复古GBA掌机</p>
-									<div class="price-wrapper">￥179.00</div>
-									<p class="yan">严选</p>
-								</a>
-							</div>
-							
 						</div>
 					</div>
 		
@@ -550,6 +468,21 @@
 				.to("#gotop1", 1, {y:0, rotationY:0, opacity:1, scale:1, ease: Expo.easeOut, clearProps: "all"}, "1.4");
 			 });
 			});
+
+			$.getJSON("shopping/queryyanxuan",function (data) {
+				var even = "";
+				$(data).each(function () {
+					even += "<div class=\"pic-wrapper\">" +
+							"<a href=\"xiangqingye.jsp?id=" + this.shoopId + "\" class=\"goods-item\">" +
+							"<img class=\"pi\" src=\"img/" + this.img.img + "\" alt=\"\">" +
+							"<p class=\"goods-name\">" + this.shopName + "</p>" +
+							"<div class=\"price-wrapper\">" + "￥" + this.price + "</div>" +
+							"</a>" +
+							"<p class=\"yan\">" + (this.shoppingTyp.typeId==1?"自营":"严选") + "</p>" +
+							"</div>"
+				})
+				$("#s").empty().append(even);
+			})
 		</script>
 	</body>
 </html>

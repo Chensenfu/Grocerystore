@@ -11,10 +11,12 @@ $(function(){
 		 	$("#newsite").hide();
 		 })
 	$.getJSON("user/queryuser",function (data) {
-		if (data==null&&data==""){
+		if (data==null){
 			window.location.href="login.jsp";
 		}else {
-			$(".headone").html(data.name);
+            $(".headone").html(data.name);
+            $("#photo span").html(data.name);
+
 		}
 	})
 		})

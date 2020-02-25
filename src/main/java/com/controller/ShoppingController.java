@@ -19,4 +19,12 @@ public class ShoppingController {
     public List<Shopping> queryAll(){
         return shoppingService.queryAll();
     }
+    @RequestMapping("queryziying")
+    public List<Shopping> queryziying(){
+        return shoppingService.queryziying();
+    }
+    @RequestMapping("queryyanxuan")
+    public List<Shopping> queryyanxuan(){
+        return shoppingService.queryyanxuan();
+    }
 }

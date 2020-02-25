@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title>专区</title>
 		<meta charset="utf-8">
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="css/daohang.css"/>
@@ -356,108 +357,11 @@
 						<p class="cc">专区</p>
 					</div>
 		      <div class="ccc">
-		      	
-		      
-					<div class="ziyingb">
+					<div class="ziyingb" id="ss">
 						<!-- <div class="inner goods-list"> -->
-							<div class="pic-wrapper">
-								<a href="xiangqingye.html" class="goods-item">
-									<img class="pi" src="img/⁮xiaozhu1.jpg" alt="">
-									<p class="goods-name">恶搞粉小猪</p>
-									<div class="price-wrapper">￥25.00</div>
-									<p class="jin">精品</p>
-								</a>
-							</div>
-							<div class="pic-wrapper">
-								<a href="惊喜盒.html" class="goods-item">
-									<img class="pi" src="img/jingxihe.jpg" alt="">
-									<p class="goods-name">惊喜盒</p>
-									<div class="price-wrapper">￥128.00</div>
-									<p class="jin">精品</p>
-								</a>
-							</div>
-							<div class="pic-wrapper">
-								<a href="#" class="goods-item">
-									<img class="pi" src="img/shengdanshu.jpg" alt="">
-									<p class="goods-name">魔法圣诞树</p>
-									<div class="price-wrapper">￥30.00</div>
-									<p class="jin">精品</p>
-								</a>
-							</div>
-							<div class="pic-wrapper">
-								<a href="小霸王.html" class="goods-item">
-									<img class="pi" src="img/xiaobawang1.jpg" alt="">
-									<p class="goods-name">小霸王游戏机</p>
-									<div class="price-wrapper">￥78.00</div>
-									<p class="jin">精品</p>
-								</a>
-							</div>
-							<div class="pic-wrapper">
-								<a href="#" class="goods-item">
-									<img class="pi" src="img/yigencong.png" alt="">
-									<p class="goods-name">一根葱干吃面</p>
-									<div class="price-wrapper">￥26.38</div>
-									<p class="jin">精品</p>
-								</a>
-							</div>
-							<div class="pic-wrapper">
-								<a href="#" class="goods-item">
-									<img class="pi" src="img/hupo.jpg" alt="">
-									<p class="goods-name">琥珀小锅巴 </p>
-									<div class="price-wrapper">¥17.80</div>
-									<p class="jin">精品</p>
-								</a>
-							</div>
-							
-							<div class="pic-wrapper">
-								<a href="#" class="goods-item">
-									<img class="pi" src="img/shaladou.png" alt="">
-									<p class="goods-name">砂拉豆砂拉豆</p>
-									<div class="price-wrapper">￥9.88</div>
-									<p class="jin">精品</p>
-							
-								</a>
-							</div>
-							<div class="pic-wrapper">
-								<a href="#" class="goods-item">
-							
-									<img class="pi" src="img/maixiaodai.jpg" alt="">
-									<p class="goods-name">麦小呆大辣片 </p>
-									<div class="price-wrapper">￥19.80</div>
-									<p class="jin">精品</p>
-								</a>
-							</div>
-							<div class="pic-wrapper">
-								<a href="#" class="goods-item">
-									<img class="pi" src="img/lexiguan.jpg" alt="">
-									<p class="goods-name">cc乐吸管糖棒棒 一袋</p>
-									<div class="price-wrapper">￥2.80</div>
-									<p class="jin">自营</p>
-								</a>
-							</div>
-							<div class="pic-wrapper">
-								<a href="#" class="goods-item">
-							
-									<img class="pi" src="img/liziyuan.jpg" alt="">
-									<p class="goods-name">李子园 10瓶装</p>
-									<div class="price-wrapper">￥21.00</div>
-									<p class="jin">自营</p>
-								</a>
-							</div>
-							<div class="pic-wrapper">
-								<a href="#" class="goods-item">
-							
-									<img class="pi" src="img/dabaitu.jpg" alt="">
-									<p class="goods-name">大白兔牛奶糖 </p>
-									<div class="price-wrapper">￥19.90</div>
-									<p class="jin">精品</p>
-								</a>
-							</div>
-						</div>
 					</div>
-		
-		
-				</div>
+			  </div>
+		</div>
 		
 		   <div id="123">
 		   	
@@ -544,7 +448,7 @@
 					</span>
 				</div>
 		</div>
-		
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 		<script src="http://libs.useso.com/js/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
 		<script>window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')</script>
 		<script src="http://cdn.bootcss.com/gsap/1.19.0/TweenMax.min.js"></script>
@@ -561,6 +465,24 @@
 				.to("#gotop1", 1, {y:0, rotationY:0, opacity:1, scale:1, ease: Expo.easeOut, clearProps: "all"}, "1.4");
 			 });
 			});
+
+			$(function () {
+				$.getJSON("shopping/queryAll",function (data) {
+					var str ="";
+					$(data).each(function () {
+						str +="<div class=\"pic-wrapper\">" +
+								"<a href=\"xiangqingye.jsp?id="+this.shopId+"\" class=\"goods-item\">" +
+								"<img class=\"pi\" src=\"img/"+this.img.img+"\" alt=\"\">" +
+								"<p class=\"goods-name\">"+this.shopName+"</p>" +
+								"<div class=\"price-wrapper\">"+"￥"+this.price+"</div>" +
+								"<p class=\"jin\">"+(this.shoppingTyp.typeId==2?"严选":"精品")+"</p>"+
+								"</a>" +
+								"</div>"
+					})
+
+					$("#ss").empty().append(str);
+				})
+			})
 		</script>
 	</body>
 </html>
