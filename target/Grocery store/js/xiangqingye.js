@@ -6,7 +6,6 @@ $(function () {
             popwin = window.location.href = 'tencent://message/?uin=984180458&Site=小霸王.html&Menu=yes';
         }
     });
-    setTimeout("PlayJsAdPopWin()", 1000);
     //详情-图片和评价切换
     $(".xiangqing").click(function () {
         $(".xiangqing").addClass("p");
@@ -54,14 +53,6 @@ $(function () {
         var count = parseInt($(".amount").val()) + 1;
         $(".amount").val(count);
     });
-    //相关分类
-    $("dl").toggle(function () {
-            $(this).find("dd").slideDown("slow");
-        },
-        function () {
-            $(this).find("dd").slideUp("fast");
-        }
-    )
     //价格切换
     /*$(function () {
         $("#jingjie2").click(function () {

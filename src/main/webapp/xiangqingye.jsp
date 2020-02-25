@@ -13,74 +13,70 @@
     <link rel="stylesheet" type="text/css" href="css/daohang.css"/>
     <link rel="stylesheet" type="text/css" href="css/head.css"/>
     <link rel="stylesheet" type="text/css" href="css/fly.css"/>
-    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="js/xiangqingye.js"></script>
-    <script src="js/jquery.fly.min.js"></script>
-    <script src="http://libs.useso.com/js/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')</script>
-    <script src="http://cdn.bootcss.com/gsap/1.19.0/TweenMax.min.js"></script>
-    <script src="http://cdn.bootcss.com/gsap/1.19.0/plugins/ScrollToPlugin.min.js"></script>
+    <script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="js/xiangqingye.js" type="text/javascript"></script>
+    <script src="js/jquery.fly.min.js" type="text/javascript"></script>
+    <script src="js/goTop.js" type="text/javascript"></script>
     <script type="text/javascript">
+        $.fn.toggle = function( fn, fn2 ) {
+            var args = arguments,guid = fn.guid || $.guid++,i=0,
+                toggle = function( event ) {
+                    var lastToggle = ( $._data( this, "lastToggle" + fn.guid ) || 0 ) % i;
+                    $._data( this, "lastToggle" + fn.guid, lastToggle + 1 );
+                    event.preventDefault();
+                    return args[ lastToggle ].apply( this, arguments ) || false;
+                };
+            toggle.guid = guid;
+            while ( i < args.length ) {
+                args[ i++ ].guid = guid;
+            }
+            return this.click( toggle );
+        };
         $(function () {
             var id = 1;
-            // 返回顶部，绑定gotop1图标和gotop2文字事件
-            $("#gotop1").click(function (e) {
-                TweenMax.to(window, 1.5, {scrollTo: 0, ease: Expo.easeInOut});
-                var huojian = new TimelineLite();
-                huojian.to("#gotop1", 1, {rotationY: 720, scale: 0.6, y: "+=40", ease: Power4.easeOut})
-                    .to("#gotop1", 1, {y: -1000, opacity: 0, ease: Power4.easeOut}, 0.6)
-                    .to("#gotop1", 1, {
-                        y: 0,
-                        rotationY: 0,
-                        opacity: 1,
-                        scale: 1,
-                        ease: Expo.easeOut,
-                        clearProps: "all"
-                    }, "1.4");
-            });
             //顶部图片查询
-            $.getJSON("detail/queryImg",{"id":id}, function (data) {
+            $.getJSON("detail/queryImg", {"id": id}, function (data) {
                 var str = "";
                 str += "<img id='big' src='img/" + data[0].img + "' width='350' height='350'>";
-                if (data[0].videos.videos != ""){
-                str += "<video id='video' src='img/"+data[0].videos.videos+"' width='350' height='350' controls='controls' style='display: none;'></video>"
+                if (data[0].videos.videos != "") {
+                    str += "<video id='video' src='img/" + data[0].videos.videos + "' width='350' height='350' controls='controls' style='display: none;'></video>"
                 }
                 $(".picturebox").empty().append(str);
-                if (data[0].videos.videos != ""){
-                    $("#small3").append("<video src='img/"+data[0].videos.videos+"' width='45px' height='45px'></video>");
+                if (data[0].videos.videos != "") {
+                    $("#small3").append("<video src='img/" + data[0].videos.videos + "' width='45px' height='45px'></video>");
                 }
-                $("#small3").click(function() {
+                $("#small3").click(function () {
                     $("#big").hide();
                     $("#video").show();
                 })
             });
             //商品详情图片查询
-            $.getJSON("detail/queryImgs",{"id":id}, function (data) {
+            $.getJSON("detail/queryImgs", {"id": id}, function (data) {
                 var str = "";
                 $(data).each(function () {
                     str += "<img src='img/" + this.img + "'/>";
                 })
                 $(".imgwrap").empty().append(str);
-                $("#small1").append("<img src='img/"+data[1].img+"' width='45px' height='45px'>");
-                $("#small2").append("<img src='img/"+data[2].img+"' width='45px' height='45px'>");
+                $("#small1").append("<img src='img/" + data[1].img + "' width='45px' height='45px'>");
+                $("#small2").append("<img src='img/" + data[2].img + "' width='45px' height='45px'>");
                 $("#small1").click(function () {
                     var img = document.getElementById("big");
-                    img.setAttribute("src", "img/"+data[1].img+"");
+                    img.setAttribute("src", "img/" + data[1].img + "");
                     $("#big").show();
                     $("#video").hide();
                 })
                 $("#small2").click(function () {
                     var img = document.getElementById("big");
-                    img.setAttribute("src", "img/"+data[2].img+"");
+                    img.setAttribute("src", "img/" + data[2].img + "");
                     $("#big").show();
                     $("#video").hide();
                 })
             });
             //商品查询
-            $.getJSON("detail/qureyShop",{"id":id}, function (data) {
+            $.getJSON("detail/qureyShop", {"id": id}, function (data) {
                 $(".title").html(data.shopName);
-                $(".newprice").html("￥"+data.price);
-                $(".oldprice").html("￥"+(data.price + data.price * 0.3));
+                $(".newprice").html("￥" + data.price);
+                $(".oldprice").html("￥" + (data.price + data.price * 0.3));
                 $(".mmsg").append("<div class='text'>货号：" + data.sdetail.number + "</div>\n" +
                     "<div class='text'>重量：" + data.sdetail.weight + "</div>\n" +
                     "<div class='text'>已售出：" + data.sdetail.sales + "</div>");
@@ -94,42 +90,42 @@
                     $(".buynow").hide();
                     $(".unbuy").show();
                 }
-                if (data.typeId==1){
-                $(".lujing").append("<span><a href='index.html'>主页</a></span>&gt;\n" +
-                    "<span><a href='ziying.html'>自营</a></span>")
-                }else if (data.typeId==2){
+                if (data.typeId == 1) {
+                    $(".lujing").append("<span><a href='index.html'>主页</a></span>&gt;\n" +
+                        "<span><a href='ziying.html'>自营</a></span>")
+                } else if (data.typeId == 2) {
                     $(".lujing").append("<span><a href='index.html'>主页</a></span>&gt;\n" +
                         "<span><a href='yanxuan.html'>严选</a></span>")
-                }else if (data.typeId==3){
+                } else if (data.typeId == 3) {
                     $(".lujing").append("<span><a href='index.html'>主页</a></span>&gt;\n" +
                         "<span><a href='zhuanqu.html'>专区</a></span>")
                 }
             });
             //相关推荐
-            $.getJSON("detail/queryTuijian",{"id":id}, function (data) {
+            $.getJSON("detail/queryTuijian", {"id": id}, function (data) {
                 var str = "";
                 str += "<div class='xiangguang'>相关推荐</div>"
                 $(data).each(function () {
                     str += "<div class='repic'>\n" +
-                        "<a href='xiangqingye.jsp?id='"+this.shopId+" title='"+this.shopName+"'>\n" +
-                        "<img src='img/"+this.img.img+"' alt='"+this.shopName+"'/>\n" +
+                        "<a href='xiangqingye.jsp?id='" + this.shopId + " title='" + this.shopName + "'>\n" +
+                        "<img src='img/" + this.img.img + "' alt='" + this.shopName + "'/>\n" +
                         "</a>\n" +
                         "</div>"
                 })
                 $(".recommend").empty().append(str);
             })
             //评价查询
-            $.getJSON("detail/queryPingjia",{"id":id},function (data){
-                $(".pingjia-head").append("<a class='all'>全部分享("+data.length+")</a>\n" +
+            $.getJSON("detail/queryPingjia", {"id": id}, function (data) {
+                $(".pingjia-head").append("<a class='all'>全部分享(" + data.length + ")</a>\n" +
                     "<header class='sha'><span class='share'></span></header>")
-                var  str = "";
+                var str = "";
                 $(data).each(function () {
                     str += "<li>\n" +
                         "<div class='touxiang'><img src='img/qqlogo.png'></div>\n" +
-                        "<h1>"+this.user.name+":<span>"+this.content+"</span></h1>\n" +
+                        "<h1>" + this.user.name + ":<span>" + this.content + "</span></h1>\n" +
                         "<p>\n" +
                         "<span>型号:默认</span>\n" +
-                        "<span>分享时间："+this.createdate+"</span>\n" +
+                        "<span>分享时间：" + this.createdate + "</span>\n" +
                         "</p>\n" +
                         "<div class='star_grade'>\n" +
                         "</div>\n" +
@@ -146,22 +142,106 @@
                     width: 20,
                 })
             })
-            //加入购物车
-            $(".addcar").click(function () {
+            //判断购物车有无此商品
+            $.getJSON("detail/queryCar", {"id": id}, function (data) {
+                if (data[0] == "") {
+                    //加入购物车
+                    $(".addcar").click(function () {
+                        var count = $(".amount").val();
+                        $.ajax({
+                            url: "detail/add",
+                            type: "post",
+                            data: {"id": id, "count": count},
+                            dataType: "json",
+                            success: function (data) {}
+                        })
+                    })
+                } else {//修改购物车商品数量
+                    $(".addcar").click(function () {
+                        var count = $(".amount").val();
+                        $.ajax({
+                            url: "detail/updateCount",
+                            type: "post",
+                            data: {"id": id, "count": count},
+                            dataType: "json",
+                            success: function (data) {}
+                        })
+                    })
+                }
+            })
+            //判断是否收藏
+            $.getJSON("detail/queryLike", function (data) {
+                if (data[0].shopId == id) {
+                    $("a[type=add]").hide();
+                    $("a[type=cancel]").show();
+                } else if (data[0].shopId != id || data.shopId == null) {
+                    $("a[type=cancel]").hide();
+                    $("a[type=add]").show();
+                }
+            })
+            //收藏商品
+            $("a[type=add]").click(function () {
+                $("a[type=add]").hide();
+                $("a[type=cancel]").show();
                 $.ajax({
-                    url:"detail/add",
-                    type:"post",
-                    data:{"id":id},
-                    dataType:"json",
-                    success:function (data) {
-                        if (data){
-                            alert("添加购物车成功！");
-                        }else {
-                            alert("添加购物车失败！");
+                    url: "detail/addLike",
+                    type: "post",
+                    data: {"id": id},
+                    dataType: "json",
+                    success: function (data) {
+                        if (data) {
+                            alert("添加收藏成功！");
+                        } else {
+                            alert("添加收藏失败！");
                         }
                     }
                 })
             })
+            //取消收藏
+            $("a[type=cancel]").click(function () {
+                $("a[type=cancel]").hide();
+                $("a[type=add]").show();
+                $.ajax({
+                    url: "detail/delLike",
+                    type: "post",
+                    data: {"id": id},
+                    dataType: "json",
+                    success: function (data) {
+                        if (data) {
+                            alert("取消收藏成功！");
+                        } else {
+                            alert("取消收藏失败！");
+                        }
+                    }
+                })
+            })
+            //相关分类
+            $(".dl").toggle(function () {
+                    $(this).find(".dd").slideDown("slow");
+                },
+                function () {
+                    $(this).find(".dd").slideUp("fast");
+                }
+            )
+            new GoTop({
+                hide: true,//当页面不滚动时 是否隐藏 默认false
+                url: 'img/huojian.png',//图片路径 默认我们提供base64的图片
+                state: '',//出现的位置 默认是 下方 提供 center bottom参数
+                height: '50px',//高 默认40px
+                width: '50px',//宽 默认40px
+                scrollTop: 500,//滚到什么位置出现 px
+                time: 500,//返回顶部多长时间 ms 默认500ms
+                aimation: 'animated bounceInDown',//出场动画 默认show（没有出场动画） 这个可以自定义
+                toTop: '',//滚到顶部触发事件
+                toShow: '',//出场时触发事件
+                toHide: function () {
+                    $('h1').html('我消失了');
+                    setTimeout(function () {
+                        $('h1').html('');
+                    }, 1000)
+                },//隐藏触发事件
+                go: ""//点击返回顶部触发事件
+            });
         })
         //获取地址栏参数,可以是中文参数
         function getUrlParam(key) {
@@ -199,8 +279,8 @@
     <div class="firstone">
         <img src="img/logo1.jpg" class="imgone">
         <div class="inputone">
-            <input type="text" name="words" id="" value=""/>
-            <input type="button" name="see" id="" value="搜索"/>
+            <input type="text" name="words" value=""/>
+            <input type="button" name="see" value="搜索"/>
         </div>
         <a href="gouwuche.jsp" class="aone">购物车</a>
     </div>
@@ -498,7 +578,7 @@
                 <div class="specifications">
                     <span class="spectitle">规格：</span>
                     <span class="speccontent">
-								<a href="#" title="型号：默认" class="choose" id="putong">
+								<a title="型号：默认" class="choose" id="putong">
 									<span class="size"><span class="ti">型号：默认</span></span>
 								</a>
 								<%--<a href="#" title="型号：4K有线版" class="choose" id="jingjie1">
@@ -520,11 +600,11 @@
                     </span>
                     <span>件&nbsp;&nbsp;&nbsp;<span class="inventory">(库存<b class="stock"></b>件)</span></span>
                     <span class="favor" style="margin-left:10px;">
-                        <span>
-                            <a href="#" style="color:#FF6A00" type="add">收藏商品</a>
+                        <span style="cursor:pointer;">
+                            <a style="color:#FF6A00" type="add">收藏商品</a>
                         </span>
-                        <span class="hide" style="display: none">
-                            <a href="#" style="color:#999" type="cancel">取消收藏</a>
+                        <span style="cursor:pointer;">
+                            <a style="color:#999" type="cancel">取消收藏</a>
                         </span>
                     </span>
                 </div>
@@ -571,43 +651,43 @@
                 <div class="about-titles">相关分类</div>
                 <ul class="about">
                     <li>
-                        <dl>
-                            <dt class="ziying"><a href="ziying.html">自营</a></dt>
-                            <dd><a href="#">糖果</a></dd>
-                            <dd><a href="#">牛奶</a></dd>
-                            <dd><a href="#">零食</a></dd>
+                        <dl class="dl">
+                            <dt class="dt"><a href="ziying.html">自营</a></dt>
+                            <dd class="dd"><a href="#">糖果</a></dd>
+                            <dd class="dd"><a href="#">牛奶</a></dd>
+                            <dd class="dd"><a href="#">零食</a></dd>
                         </dl>
                     </li>
                     <li>
-                        <dl>
-                            <dt class="yanxuan"><a href="yanxuan.html">严选</a></dt>
-                            <dd><a href="#">恶搞</a></dd>
-                            <dd><a href="#">惊喜</a></dd>
-                            <dd><a href="#">游戏机</a></dd>
+                        <dl class="dl">
+                            <dt class="dt"><a href="yanxuan.html">严选</a></dt>
+                            <dd class="dd"><a href="#">恶搞</a></dd>
+                            <dd class="dd"><a href="#">惊喜</a></dd>
+                            <dd class="dd"><a href="#">游戏机</a></dd>
                         </dl>
                     </li>
                     <li>
-                        <dl>
-                            <dt class="zhuanqu"><a href="zhuanqu.html">专区</a></dt>
-                            <dd><a href="#">精选吃货</a></dd>
-                            <dd><a href="#">精选玩家</a></dd>
-                            <dd><a href="#">精选</a></dd>
+                        <dl class="dl">
+                            <dt class="dt"><a href="zhuanqu.html">专区</a></dt>
+                            <dd class="dd"><a href="#">精选吃货</a></dd>
+                            <dd class="dd"><a href="#">精选玩家</a></dd>
+                            <dd class="dd"><a href="#">精选</a></dd>
                         </dl>
                     </li>
                     <li>
-                        <dl>
-                            <dt><a href="#">敬请期待</a></dt>
-                            <dd><a href="#">游戏</a></dd>
-                            <dd><a href="#">电影</a></dd>
-                            <dd><a href="#">电视</a></dd>
+                        <dl class="dl">
+                            <dt class="dt"><a href="#">敬请期待</a></dt>
+                            <dd class="dd"><a href="#">游戏</a></dd>
+                            <dd class="dd"><a href="#">电影</a></dd>
+                            <dd class="dd"><a href="#">电视</a></dd>
                         </dl>
                     </li>
                     <li>
-                        <dl>
-                            <dt><a href="#">敬请期待</a></dt>
-                            <dd><a href="#">旅行录线</a></dd>
-                            <dd><a href="#">旅行计划</a></dd>
-                            <dd><a href="#">旅行装备</a></dd>
+                        <dl class="dl">
+                            <dt class="dt"><a href="#">敬请期待</a></dt>
+                            <dd class="dd"><a href="#">旅行录线</a></dd>
+                            <dd class="dd"><a href="#">旅行计划</a></dd>
+                            <dd class="dd"><a href="#">旅行装备</a></dd>
                         </dl>
                     </li>
                 </ul>
@@ -638,14 +718,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="htmleaf-container">
-            <!-- 右侧小火箭图标返回顶部 -->
-            <div id="shangxia2">
-							<span id="gotop1">
-								<img src="img/huojian.svg" alt="返回顶部小火箭">
-							</span>
             </div>
         </div>
     </div>

@@ -55,7 +55,7 @@
                         "<li class=\"list_amount\">\n" +
                         "<div class=\"amount_box\">\n" +
                         "<a href=\"javascript:;\" class=\"reduce reSty\">-</a>\n" +
-                        "<input type=\"text\" value=\"1\" class=\"sum\">\n" +
+                        "<input type=\"text\" value='"+this.count+"' class=\"sum\">\n" +
                         "<a href=\"javascript:;\" class=\"plus\">+</a>\n" +
                         "</div>\n" +
                         "</li>\n" +

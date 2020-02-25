@@ -38,7 +38,7 @@ span{display: inline-block;}
 .counts *{vertical-align:middle;}
 .reduce,.increase{width:26px;height:28px;color: #333;background: #e2e2e2;text-align: center;line-height:26px;float:left;border:1px solid #ccc;}
 input{text-indent: 4px;}
-.amount{width:48px;text-align: center;height:26px;line-height:26px;float:left;border:1px solid #ccc;}
+.amount{width:48px;text-align: center;height:28px;line-height:26px;float:left;border:1px solid #ccc;}
 .favor{margin:10px 0;}
 .buynow{float:left;margin-left: 40px;}
 .buyafter{float:left;margin-left: 40px;}
@@ -98,47 +98,3 @@ ul,li{list-style: none;}
 .set_image_all .set_image_top>div {display: inline-block;overflow: hidden;}
 .set_image_all .set_image_top>div>img {height: 100%;}
 .grade {vertical-align: top;}
-/* 小火箭css */
-			#gotop1 {
-			    width: 80px;
-			    position: fixed;
-			    bottom: 90px;
-			    cursor: pointer;
-			    z-index: 99998;
-			    right: 50%;
-			    margin-right: -620px;
-			}
-			/* 小火箭悬停特效 */
-			#gotop1:hover {
-			    animation: rubberBand 1s;
-			}
-		
-			@keyframes rubberBand {
-			  from {
-			    transform: scale3d(1, 1, 1);
-			  }
-		
-			  30% {
-			    transform: scale3d(1.25, 0.75, 1);
-			  }
-		
-			  40% {
-			    transform: scale3d(0.75, 1.25, 1);
-			  }
-		
-			  50% {
-			    transform: scale3d(1.15, 0.85, 1);
-			  }
-		
-			  65% {
-			    transform: scale3d(.95, 1.05, 1);
-			  }
-		
-			  75% {
-			    transform: scale3d(1.05, .95, 1);
-			  }
-		
-			  to {
-			    transform: scale3d(1, 1, 1);
-			  }
-			}

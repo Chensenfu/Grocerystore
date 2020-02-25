@@ -63,4 +63,24 @@
     <select id="queryPingjia" resultMap="queryPingjias">
         SELECT id,content,createdate,shopId,p.userId,u.userid userids,`name` FROM pingjia p INNER JOIN `user` u on p.userId=u.userid where shopId=#{id}
     </select>
+    <insert id="add">
+        insert into gouwuche(shopId,count)
+        value(#{id},#{count})
+    </insert>
+    <insert id="addLike">
+        insert into collect(shopId)
+        value(#{id})
+    </insert>
+    <delete id="delLike">
+        delete from collect where shopId=#{id}
+    </delete>
+    <select id="queryLike" resultType="com.entity.Collect">
+        select collectId,userId,shopId from collect
+    </select>
+    <select id="queryCar" resultType="com.entity.Car">
+        select id,shopId,imgId,count,userId from gouwuche where shopId=#{id}
+    </select>
+    <update id="updateCount">
+        update gouwuche set count=count+#{count} where shopId=#{id}
+    </update>
 </mapper>

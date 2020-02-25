@@ -4,8 +4,9 @@
     <resultMap id="queryCars" type="com.entity.Car">
         <id column="id" property="id"/>
         <result column="shopId" property="shopId"/>
-        <result column="createdate" property="createdate"/>
+        <result column="count" property="count"/>
         <result column="userId" property="userId"/>
+        <result column="imgId" property="imgId"/>
         <association property="shop" javaType="com.entity.Shop">
             <id column="shopIds" property="shopId"/>
             <result column="shopName" property="shopName"/>
@@ -17,7 +18,7 @@
         </association>
     </resultMap>
 <select id="queryCar" resultMap="queryCars">
-    SELECT g.id,g.shopId,g.imgId,s.shopId shopIds,g.userId,shopName,price,i.imgId imgIdi,img FROM gouwuche g INNER JOIN shopping s on g.shopId=s.shopId
+    SELECT g.id,g.shopId,g.imgId,count,s.shopId shopIds,g.userId,shopName,price,i.imgId imgIdi,img FROM gouwuche g INNER JOIN shopping s on g.shopId=s.shopId
     INNER JOIN img i ON g.imgId=i.imgId
 </select>
     <delete id="del">

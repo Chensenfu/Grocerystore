@@ -7,6 +7,15 @@ public class Car {
     private Integer userId;
     private Shop shop;
     private Img img;
+    private Integer count;
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
+    }
 
     public Shop getShop() {
         return shop;

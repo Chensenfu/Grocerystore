@@ -33,4 +33,24 @@ public class DetailPageController {
     public List<Shop> queryTuijian(@RequestParam("id")Integer id){ return detailPageService.queryTuijian(id); }
     @RequestMapping("queryPingjia")
     public List<PingJia> queryPingjia(@RequestParam("id")Integer id){ return detailPageService.queryPingjia(id); }
+    @RequestMapping("queryLike")
+    public List<Collect> queryLike(){return detailPageService.queryLike();}
+    @RequestMapping("queryCar")
+    public Car queryCar(@RequestParam("id")Integer id){return detailPageService.queryCar(id);}
+    @RequestMapping("add")
+    public Boolean add(@RequestParam("id")Integer id,@RequestParam("count")Integer count){
+        return detailPageService.add(id,count);
+    }
+    @RequestMapping("addLike")
+    public Boolean addLike(@RequestParam("id")Integer id){
+        return detailPageService.addLike(id);
+    }
+    @RequestMapping("delLike")
+    public Boolean delLike(@RequestParam("id")Integer id){
+        return detailPageService.delLike(id);
+    }
+    @RequestMapping("updateCount")
+    public Boolean updateCount(@RequestParam("id")Integer id,@RequestParam("count")Integer count){
+        return detailPageService.updateCount(id,count);
+    }
 }
