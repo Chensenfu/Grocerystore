@@ -33,7 +33,7 @@
             return this.click( toggle );
         };
         $(function () {
-            var id = 1;
+            var id = getUrlParam("id");
             //顶部图片查询
             $.getJSON("detail/queryImg", {"id": id}, function (data) {
                 var str = "";
