@@ -4,7 +4,7 @@ import com.entity.User;
 
 public interface UserService {
 
-    public User queryByNameAndPwd(String name, String pwd);
+    public Integer queryByNameAndPwd(String username, String pwd);
 
     public Boolean add(User user);
 }

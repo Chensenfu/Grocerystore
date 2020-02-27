@@ -14,8 +14,16 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public User queryByNameAndPwd(String name,String pwd) {
-        return userMapper.queryByNameAndPwd(name,pwd);
+    public Integer queryByNameAndPwd(String username,String pwd) {
+        User user = userMapper.queryByNameAndPwd(username);
+        if(user == null){    //通过卡号查询时没有，代表卡号不存在
+            return 1;
+        }else if(!pwd.equals(user.getPassword())){ //如果存在，查询到的密码和传入的密码不一致，代表密码错误
+            return 2;
+        }else if(user.getStatus() == 0){ //状态码如果=0，代表冻结
+            return 3;
+        }
+        return 0;
     }
 
     @Override

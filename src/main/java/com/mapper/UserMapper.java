@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper {
 
-    public User queryByNameAndPwd(@Param("name") String name, @Param("pwd") String password);
+    public User queryByNameAndPwd(@Param("username") String username);
 
     public int add(@Param("user") User user);
 }

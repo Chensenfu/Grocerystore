@@ -54,14 +54,14 @@
         <result column="shopId" property="shopId"/>
         <result column="userId" property="userId"/>
         <association property="user" javaType="com.entity.User">
-            <id column="userId" property="userId"/>
+            <id column="userids" property="id"/>
             <result column="name" property="name"/>
             <result column="password" property="password"/>
             <result column="tel" property="tel"/>
         </association>
     </resultMap>
     <select id="queryPingjia" resultMap="queryPingjias">
-        SELECT id,content,createdate,shopId,p.userId,u.userid userids,`name` FROM pingjia p INNER JOIN `user` u on p.userId=u.userid where shopId=#{id}
+        SELECT p.id,content,p.createdate,shopId,p.userId,u.id userids,`name` FROM pingjia p INNER JOIN `user` u on p.userId=u.id where shopId=#{id}
     </select>
     <insert id="add">
         insert into gouwuche(shopId,count)
