@@ -79,8 +79,8 @@
 			<div class="firstone">
 				<img src="img/logo1.jpg" class="imgone">
 				<div class="inputone">
-					<input type="text" name="words" id="" value="" />
-					<input type="button" name="see" id="" value="搜索" />
+					<input type="text" name="words"  value="" onclick="window.location.href='findshop.jsp'" />
+					<input type="button" name="see"  value="搜索" />
 		
 				</div>
 		
@@ -475,7 +475,7 @@
 								"<img class=\"pi\" src=\"img/"+this.img.img+"\" alt=\"\">" +
 								"<p class=\"goods-name\">"+this.shopName+"</p>" +
 								"<div class=\"price-wrapper\">"+"￥"+this.price+"</div>" +
-								"<p class=\"jin\">"+(this.shoppingTyp.typeId==2?"严选":"精品")+"</p>"+
+								"<p class=\"jin\">"+(this.shoppingTyp.typeId==1?"精品":"精品")+"</p>"+
 								"</a>" +
 								"</div>"
 					})

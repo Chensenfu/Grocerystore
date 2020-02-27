@@ -27,4 +27,8 @@ public class ShoppingController {
     public List<Shopping> queryyanxuan(){
         return shoppingService.queryyanxuan();
     }
+    @RequestMapping("querymohu")
+    public List<Shopping> querymohu(@RequestParam("shopName") String shopName){
+        return shoppingService.querymohu(shopName);
+    }
 }
