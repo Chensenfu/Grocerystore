@@ -156,7 +156,22 @@
                 })
             }
         }
-
+        function gomycenter() {
+            var username =$(".headone").find(".username").length;
+            if (username==0){
+                if (confirm("请先登录！")){
+                    window.location.href="login.jsp";
+                }
+            }
+        }
+        function gomycar() {
+            var username =$(".headone").find(".username").length;
+            if (username==0){
+                if (confirm("请先登录！")){
+                    window.location.href="login.jsp";
+                }
+            }
+        }
 
     </script>
 </head>
@@ -174,10 +189,10 @@
         <c:if test="${username != null}">
             欢迎：<span>${username}</span>&nbsp;&nbsp;<a href="javascript:exit()">退出登录</a>
         </c:if>
-        <a href="注册.html"><span>快速注册</span></a>
+        <a href="login.jsp"><span>快速注册</span></a>
     </div>
     <div class="headtwo">
-        <a href="我的杂货铺.html">
+        <a href="javascript:gomycenter()">
             <h5>我的杂货铺</h5>
         </a>&nbsp;&nbsp;&nbsp;
         <span>客服热线：<h4>4008-916-999</h4></span>&nbsp;&nbsp;
