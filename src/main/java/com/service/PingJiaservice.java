@@ -16,4 +16,6 @@ public interface PingJiaservice {
     Shop queryByid(Integer shopingid);
     Boolean update(Integer orderid);
     Boolean add(PingJia pingJia,Integer id);
+    Integer countno();
+    Integer countis();
 }

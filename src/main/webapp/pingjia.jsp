@@ -57,6 +57,12 @@
                 $("#showPicDiv").removeClass("tab-active");
                 $("#serviceDiv").addClass("tab-active");
             })
+            $.getJSON("pingjia/countno", function (data) {
+                $("#noPub").html(data);
+            })
+            $.getJSON("pingjia/countis", function (data) {
+                $("#havePub").html(data);
+            })
             //评价查询
             $.getJSON("pingjia/query", function (data) {
                 var str1 = "";
@@ -72,8 +78,8 @@
                             "<h3>" + this.shop.shopName + "</h3>\n" +
                             "<p>评价+晒单最多送50个爱豆</p>\n" +
                             "<div class='aui-sunburn' onclick='fabiao()'>\n" +
-                            "<input type='hidden' class='orderid' value='"+this.id+"'>"+
-                            "<input type='hidden' class='shopingid' value='"+this.shop.shopId+"'>"+
+                            "<input type='hidden' class='orderid' value='" + this.id + "'>" +
+                            "<input type='hidden' class='shopingid' value='" + this.shop.shopId + "'>" +
                             "<i class='icon icon-sunburn'></i>\n" +
                             "评价晒单\n" +
                             "\n" +
@@ -81,7 +87,6 @@
                             "</div>\n" +
                             "</a>\n" +
                             "</div>";
-                        $("#noPub").html(data.length);
                     } else if (this.state == 5) {
                         str2 += "<div class='tab-item'>\n" +
                             "<a class='aui-flex'>\n" +
@@ -90,7 +95,7 @@
                             "</div>\n" +
                             "<div class='aui-flex-box aui-flex-title'>\n" +
                             "<h3>" + this.shop.shopName + "</h3>\n" +
-                            "<p>" + this.pingjia.content + "</p>\n" +
+                            "<p>" + this.pingJia.content + "</p>\n" +
                             "<div class=\"aui-sunburn aui-sunburn-def\">\n" +
                             "<i class=\"icon icon-sunburn\"></i>\n" +
                             "查看评价\n" +
@@ -99,7 +104,6 @@
                             "</div>\n" +
                             "</a>\n" +
                             "</div>";
-                        $("#noPub").html(data.length);
                     }
                 })
                 if (str1 == "") {
@@ -110,31 +114,32 @@
                 if (str2 == "") {
                     $("#havePubDiv").empty().append("<div class=\"tab-item\"><h2>暂无评价</h2></div>");
                 } else {
-                    $("#havePubDiv").empty().append(str1);
+                    $("#havePubDiv").empty().append(str2);
                 }
             })
-            function byIndexLeve(index){
-                var str ="";
-                switch (index)
-                {
+
+            function byIndexLeve(index) {
+                var str = "";
+                switch (index) {
                     case 0:
-                        str="差评";
+                        str = "差评";
                         break;
                     case 1:
-                        str="较差";
+                        str = "较差";
                         break;
                     case 2:
-                        str="中等";
+                        str = "中等";
                         break;
                     case 3:
-                        str="一般";
+                        str = "一般";
                         break;
                     case 4:
-                        str="好评";
+                        str = "好评";
                         break;
                 }
                 return str;
             }
+
             //  星星数量
             var stars = [
                 ['x2.png', 'x1.png', 'x1.png', 'x1.png', 'x1.png'],
@@ -143,11 +148,11 @@
                 ['x2.png', 'x2.png', 'x2.png', 'x2.png', 'x1.png'],
                 ['x2.png', 'x2.png', 'x2.png', 'x2.png', 'x2.png'],
             ];
-            $(".starchick").find("img").hover(function(e) {
+            $(".starchick").find("img").hover(function (e) {
                 var obj = $(this);
                 var index = obj.index();
-                if(index < (parseInt($(".starchick").attr("data-default-index")) -1)){
-                    return ;
+                if (index < (parseInt($(".starchick").attr("data-default-index")) - 1)) {
+                    return;
                 }
                 var li = obj.closest(".starchick");
                 var star_area_index = li.index();
@@ -155,128 +160,128 @@
                     li.find("img").eq(i).attr("src", "img/" + stars[index][i]);//切换每个星星
                 }
                 $(".level").html(byIndexLeve(index));
-            }, function() {
+            }, function () {
             })
-            $(".starchick").hover(function(e) {
-            }, function() {
+            $(".starchick").hover(function (e) {
+            }, function () {
                 var index = $(this).attr("data-default-index");//点击后的索引
                 index = parseInt(index);
-                console.log("index",index);
-                $(".level").html(byIndexLeve(index-1));
-                console.log(byIndexLeve(index-1));
-                $(".order-evaluation ul li:eq(0)").find("img").attr("src","img/x1.png");
-                for (var i=0;i<index;i++){
+                console.log("index", index);
+                $(".level").html(byIndexLeve(index - 1));
+                console.log(byIndexLeve(index - 1));
+                $(".order-evaluation ul li:eq(0)").find("img").attr("src", "img/x1.png");
+                for (var i = 0; i < index; i++) {
 
-                    $(".order-evaluation ul li:eq(0)").find("img").eq(i).attr("src","img/x2.png");
+                    $(".order-evaluation ul li:eq(0)").find("img").eq(i).attr("src", "img/x2.png");
                 }
             })
-            $(".starchick").find("img").click(function() {
+            $(".starchick").find("img").click(function () {
                 var obj = $(this);
                 var li = obj.closest("li");
                 var star_area_index = li.index();
                 var index1 = obj.index();
-                li.attr("data-default-index", (parseInt(index1)+1));
+                li.attr("data-default-index", (parseInt(index1) + 1));
                 var index = $(".starchick").attr("data-default-index");//点击后的索引
                 index = parseInt(index);
-                console.log("index",index);
-                $(".level").html(byIndexLeve(index-1));
-                console.log(byIndexLeve(index-1));
-                $(".order-evaluation ul li:eq(0)").find("img").attr("src","img/x1.png");
-                for (var i=0;i<index;i++){
-                    $(".order-evaluation ul li:eq(0)").find("img").eq(i).attr("src","img/x2.png");
+                console.log("index", index);
+                $(".level").html(byIndexLeve(index - 1));
+                console.log(byIndexLeve(index - 1));
+                $(".order-evaluation ul li:eq(0)").find("img").attr("src", "img/x1.png");
+                for (var i = 0; i < index; i++) {
+                    $(".order-evaluation ul li:eq(0)").find("img").eq(i).attr("src", "img/x2.png");
                 }
 
             });
             //印象
-            $(".order-evaluation-check").click(function(){
-                if($(this).hasClass('checked')){
+            $(".order-evaluation-check").click(function () {
+                if ($(this).hasClass('checked')) {
                     //当前为选中状态，需要取消
                     $(this).removeClass('checked');
-                }else{
+                } else {
                     //当前未选中，需要增加选中
                     $(this).addClass('checked');
                 }
             });
-            //评价字数限制
-            function words_deal()
-            {
-                var curLength=$("#TextArea1").val().length;
-                if(curLength>140)
-                {
-                    var num=$("#TextArea1").val().substr(0,140);
-                    $("#TextArea1").val(num);
-                    alert("超过字数限制，多出的字将被截断！" );
-                }
-                else
-                {
-                    $("#textCount").text(140-$("#TextArea1").val().length);
-                }
-            }
-            $("#order_evaluation").click(function(){
-                $("#order_evaluate_modal").html("感谢您的评价！么么哒(* ￣3)(ε￣ *)").show().delay(3000).hide(500);
-            })
         })
+
+        //评价字数限制
+        function words_deal() {
+            var curLength = $("#TextArea1").val().length;
+            if (curLength > 140) {
+                var num = $("#TextArea1").val().substr(0, 140);
+                $("#TextArea1").val(num);
+                alert("超过字数限制，多出的字将被截断！");
+            } else {
+                $("#textCount").text(140 - $("#TextArea1").val().length);
+            }
+        }
+
         function fabiao() {
-                $(".service").parent().show();
-                $(".service").parent().addClass("tab-active")
-                $(".service").parent().siblings().removeClass("tab-active");
-                $("#noPubDiv").removeClass("tab-active");
-                $("#havePubDiv").removeClass("tab-active");
-                $("#showPicDiv").removeClass("tab-active");
-                $("#serviceDiv").addClass("tab-active");
+            $(".service").parent().show();
+            $(".service").parent().addClass("tab-active")
+            $(".service").parent().siblings().removeClass("tab-active");
+            $("#noPubDiv").removeClass("tab-active");
+            $("#havePubDiv").removeClass("tab-active");
+            $("#showPicDiv").removeClass("tab-active");
+            $("#serviceDiv").addClass("tab-active");
             var shopingid = $(".orderid").val();
-            $.getJSON("pingjia/queryByid",{"shopingid":shopingid},function (data) {
-                $(".orderName").html("给“"+data.shopName+"”的评价");
+            $.getJSON("pingjia/queryByid", {"shopingid": shopingid}, function (data) {
+                $(".orderName").html("给“" + data.shopName + "”的评价");
             })
         }
+
         function add() {
             var orderid = $(".orderid").val();
             var shopingid = $(".shopingid").val();
-            $.getJSON("pingjia/update",{"":orderid},function (data) {})
+            $.getJSON("pingjia/update", {"orderid": orderid}, function (data) {
+            })
             var content = $("#TextArea1").val();
-            if (textarea==""){
+            if (content == "") {
                 alert("请填写评价内容！")
-            }else {
+            } else {
                 $.ajax({
-                    url:"pingjia/add",
-                    type:"post",
-                    data:{"id":shopingid,"content":content},
-                    dataType:"json",
-                    success:function (data) {
-                        if (data){
-                            alert("评价成功！")
-                        }else {
+                    url: "pingjia/add",
+                    type: "post",
+                    data: {"id": shopingid, "content": content},
+                    dataType: "json",
+                    success: function (data) {
+                        if (data) {
+                            $("#order_evaluate_modal").html("感谢您的评价！么么哒(* ￣3)(ε￣ *)").show().delay(3000).hide(500);
+                        } else {
                             alert("评价失败！")
                         }
                     }
                 })
             }
         }
+
         //退出登录
-        function exit(){
-            if(confirm("确认退出吗？")){
-                $.getJSON("exit/exit",function(data){
-                    if (data){
+        function exit() {
+            if (confirm("确认退出吗？")) {
+                $.getJSON("exit/exits", function (data) {
+                    if (data) {
                         window.location.reload();
                     }
                 })
             }
         }
+
         //判断个人中心
         function gomycenter() {
-            var username =$(".headone").find(".username").length;
-            if (username==0){
-                if (confirm("请先登录！")){
-                    window.location.href="login.jsp";
+            var username = $(".headone").find(".username").length;
+            if (username == 0) {
+                if (confirm("请先登录！")) {
+                    window.location.href = "login.jsp";
                 }
             }
         }
+
         //判断购物车
         function gomycar() {
-            var username =$(".headone").find(".username").length;
-            if (username==0){
-                if (confirm("请先登录！")){
-                    window.location.href="login.jsp";
+            var username = $(".headone").find(".username").length;
+            if (username == 0) {
+                if (confirm("请先登录！")) {
+                    window.location.href = "login.jsp";
                 }
             }
         }
@@ -661,17 +666,17 @@
                             </div>
                             <div class="order-evaluation-checkbox">
                                 <ul class="clearfix">
-                                    <li class="order-evaluation-check" data-impression="1">专业水平高<i
+                                    <li class="order-evaluation-check" data-impression="1">东西完美<i
                                             class="iconfont icon-checked"></i></li>
-                                    <li class="order-evaluation-check" data-impression="2">交付准时<i
+                                    <li class="order-evaluation-check" data-impression="2">发货快<i
                                             class="iconfont icon-checked"></i></li>
                                     <li class="order-evaluation-check" data-impression="3">效果明显<i
                                             class="iconfont icon-checked"></i></li>
-                                    <li class="order-evaluation-check" data-impression="4">数据分析准确<i
+                                    <li class="order-evaluation-check" data-impression="4">实物准确<i
                                             class="iconfont icon-checked"></i></li>
-                                    <li class="order-evaluation-check" data-impression="5">能力待提高<i
+                                    <li class="order-evaluation-check" data-impression="5">质量很高<i
                                             class="iconfont icon-checked"></i></li>
-                                    <li class="order-evaluation-check" data-impression="6">工期延误<i
+                                    <li class="order-evaluation-check" data-impression="6">没有瑕疵<i
                                             class="iconfont icon-checked"></i></li>
                                 </ul>
                             </div>
@@ -681,9 +686,7 @@
                             </div>
                             <a href="javascript:add()" id="order_evaluation">评价完成</a>
                         </div>
-
                         <div id="order_evaluate_modal" class="dmlei_tishi_info"></div>
-
                     </div>
                 </div>
             </div>

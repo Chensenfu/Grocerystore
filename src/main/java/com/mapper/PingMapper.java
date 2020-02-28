@@ -12,4 +12,6 @@ public interface PingMapper {
     Shop queryByid(@Param("shopingid") Integer shopingid);
     Integer update(@Param("orderid") Integer orderid);
     Integer add(@Param("pingJia")PingJia pingJia,@Param("id") Integer id);
+    Integer countno();
+    Integer countis();
 }

@@ -36,4 +36,10 @@
         insert into pingjia(content,createdate,shopId,userId)
         values(#{pingJia.content},curdate(),#{pingJia.id},#{id})
     </insert>
+    <select id="countno" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM orderform WHERE state=4
+    </select>
+    <select id="countis" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM orderform WHERE state=5
+    </select>
 </mapper>

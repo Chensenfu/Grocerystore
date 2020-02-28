@@ -33,4 +33,14 @@ public class PingJiaServiceImpl implements PingJiaservice {
     public Boolean add(PingJia pingJia, Integer id) {
         return pingJiaMapper.add(pingJia,id)==1;
     }
+
+    @Override
+    public Integer countno() {
+        return pingJiaMapper.countno();
+    }
+
+    @Override
+    public Integer countis() {
+        return pingJiaMapper.countis();
+    }
 }

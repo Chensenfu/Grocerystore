@@ -261,7 +261,7 @@
         //退出登录
         function exit(){
             if(confirm("确认退出吗？")){
-                $.getJSON("exit/exit",function(data){
+                $.getJSON("exit/exits",function(data){
                     if (data){
                         window.location.reload();
                     }

@@ -5,7 +5,6 @@ import com.entity.PingJia;
 import com.entity.Shop;
 import com.entity.User;
 import com.service.PingJiaservice;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,5 +41,14 @@ public class PingJiaController {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
         return pingJiaservice.add(pingJia,user.getId());
+    }
+    @RequestMapping("countno")
+    public Integer countno() {
+        return pingJiaservice.countno();
+    }
+
+    @RequestMapping("countis")
+    public Integer countis() {
+        return pingJiaservice.countis();
     }
 }
