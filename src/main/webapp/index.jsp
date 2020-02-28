@@ -210,7 +210,7 @@
 
         </div>
 
-        <a href="gouwuche.jsp" class="aone">购物车</a>
+        <a href="javascript:gomycar()" class="aone">购物车</a>
     </div>
 </form>
 
