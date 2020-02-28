@@ -15,29 +15,21 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("user")
 @ResponseBody
 public class UserController {
+
     @Autowired
     private UserService userService;
-    @RequestMapping("login")
-    public Boolean login(@RequestParam("name") String name, @RequestParam("pwd") String pwd,HttpServletRequest req){
-        User user = userService.queryByNameAndPwd(name,pwd);
 
-        if (user != null){
-            HttpSession session = req.getSession();
-            session.setAttribute("user",user);
-            return true;
-        }
-        return false;
+    @RequestMapping("login")
+    public Integer login(@RequestParam("username") String username,
+                         @RequestParam("pwd") String pwd,
+                         HttpServletRequest req){
+        HttpSession session = req.getSession();
+        session.setAttribute("username",username);
+        return userService.queryByNameAndPwd(username,pwd);
     }
 
     @RequestMapping("add")
     public Boolean add(User user){
         return userService.add(user);
-    }
-    @RequestMapping("queryuser")
-    public User query(HttpServletRequest req){
-        HttpSession session = req.getSession();
-
-        return (User) session.getAttribute("user");
-
     }
 }

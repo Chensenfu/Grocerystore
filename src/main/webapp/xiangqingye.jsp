@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -18,22 +19,22 @@
     <script src="js/jquery.fly.min.js" type="text/javascript"></script>
     <script src="js/goTop.js" type="text/javascript"></script>
     <script type="text/javascript">
-        $.fn.toggle = function( fn, fn2 ) {
-            var args = arguments,guid = fn.guid || $.guid++,i=0,
-                toggle = function( event ) {
-                    var lastToggle = ( $._data( this, "lastToggle" + fn.guid ) || 0 ) % i;
-                    $._data( this, "lastToggle" + fn.guid, lastToggle + 1 );
+        $.fn.toggle = function (fn, fn2) {
+            var args = arguments, guid = fn.guid || $.guid++, i = 0,
+                toggle = function (event) {
+                    var lastToggle = ($._data(this, "lastToggle" + fn.guid) || 0) % i;
+                    $._data(this, "lastToggle" + fn.guid, lastToggle + 1);
                     event.preventDefault();
-                    return args[ lastToggle ].apply( this, arguments ) || false;
+                    return args[lastToggle].apply(this, arguments) || false;
                 };
             toggle.guid = guid;
-            while ( i < args.length ) {
-                args[ i++ ].guid = guid;
+            while (i < args.length) {
+                args[i++].guid = guid;
             }
-            return this.click( toggle );
+            return this.click(toggle);
         };
         $(function () {
-            var id = 1;
+            var id = getUrlParam("id");
             //顶部图片查询
             $.getJSON("detail/queryImg", {"id": id}, function (data) {
                 var str = "";
@@ -153,7 +154,8 @@
                             type: "post",
                             data: {"id": id, "count": count},
                             dataType: "json",
-                            success: function (data) {}
+                            success: function (data) {
+                            }
                         })
                     })
                 } else {//修改购物车商品数量
@@ -164,7 +166,8 @@
                             type: "post",
                             data: {"id": id, "count": count},
                             dataType: "json",
-                            success: function (data) {}
+                            success: function (data) {
+                            }
                         })
                     })
                 }
@@ -243,6 +246,7 @@
                 go: ""//点击返回顶部触发事件
             });
         })
+
         //获取地址栏参数,可以是中文参数
         function getUrlParam(key) {
             // 获取参数
@@ -254,6 +258,32 @@
             //返回参数值
             return result ? decodeURIComponent(result[2]) : null;
         }
+        //退出登录
+        function exit(){
+            if(confirm("确认退出吗？")){
+                $.getJSON("exit/exit",function(data){
+                    if (data){
+                        window.location.reload();
+                    }
+                })
+            }
+        }
+        function gomycenter() {
+            var username =$(".headone").find(".username").length;
+           if (username==0){
+               if (confirm("请先登录！")){
+                   window.location.href="login.jsp";
+               }
+           }
+        }
+        function gomycar() {
+            var username =$(".headone").find(".username").length;
+           if (username==0){
+               if (confirm("请先登录！")){
+                   window.location.href="login.jsp";
+               }
+           }
+        }
     </script>
     <title>解忧杂货铺-商品详情</title>
 </head>
@@ -262,18 +292,24 @@
 <div class="first">
     <div class="headone">
         <span>欢迎来到解忧杂货铺！</span>
-        <a href="登录.html" class="q">
-            <h4>请登录</h4>
-        </a>
-        <a href="注册.html"><span>快速注册</span></a>
-    </div>
-    <div class="headtwo">
-        <a href="我的杂货铺.html">
-            <h5>我的杂货铺</h5>
-        </a>&nbsp;&nbsp;&nbsp;
-        <span>客服热线：<h4>4008-916-999</h4></span>&nbsp;&nbsp;
-        <span>杂货铺承诺&nbsp;&nbsp;&nbsp;产品体验&nbsp;&nbsp;&nbsp;厂家资源&nbsp;&nbsp;&nbsp;帮助中心</span>
-    </div>
+        <c:if test="${username == null}">
+            <a href="login.jsp" class="q">
+                <h4>请登录</h4>
+            </a>
+        </c:if>
+        <c:if test="${username != null}">
+        欢迎：<span class="username">${username}</span>&nbsp;&nbsp;<a href="javascript:exit()">退出登录</a>
+        </c:if>
+    <a href="login.jsp"><span>快速注册</span></a>
+
+</div>
+<div class="headtwo">
+    <a href="javascript:gomycenter()">
+        <h5>我的杂货铺</h5>
+    </a>&nbsp;&nbsp;&nbsp;
+    <span>客服热线：<h4>4008-916-999</h4></span>&nbsp;&nbsp;
+    <span>杂货铺承诺&nbsp;&nbsp;&nbsp;产品体验&nbsp;&nbsp;&nbsp;厂家资源&nbsp;&nbsp;&nbsp;帮助中心</span>
+</div>
 </div>
 <form action="" method="post">
     <div class="firstone">
@@ -282,7 +318,7 @@
             <input type="text" name="words" value=""/>
             <input type="button" name="see" value="搜索"/>
         </div>
-        <a href="gouwuche.jsp" class="aone">购物车</a>
+        <a href="javascript:gomycar()" class="aone">购物车</a>
     </div>
 </form>
 <!-- 头部导航栏 -->

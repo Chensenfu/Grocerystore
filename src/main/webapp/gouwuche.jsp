@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>购物车</title>
@@ -287,6 +288,31 @@
                 }
             })
         })
+        function exit(){
+            if(confirm("确认退出吗？")){
+                $.getJSON("exit/exit",function(data){
+                    if (data){
+                        window.location.reload();
+                    }
+                })
+            }
+        }
+        function gomycenter() {
+            var username =$(".headone").find(".username").length;
+            if (username==0){
+                if (confirm("请先登录！")){
+                    window.location.href="login.jsp";
+                }
+            }
+        }
+        function gomycar() {
+            var username =$(".headone").find(".username").length;
+            if (username==0){
+                if (confirm("请先登录！")){
+                    window.location.href="login.jsp";
+                }
+            }
+        }
     </script>
 </head>
 <body>
@@ -294,15 +320,21 @@
 <div class="first">
     <div class="headone">
         <span>欢迎来到皆有杂货铺！</span>
-        <a href="登录.html" class="q">
-            <h4>请登录</h4>
-        </a>
+        <span>欢迎来到解忧杂货铺！</span>
+        <c:if test="${username == null}">
+            <a href="login.jsp" class="q">
+                <h4>请登录</h4>
+            </a>
+        </c:if>
+        <c:if test="${username != null}">
+            欢迎：<span>${username}</span>&nbsp;&nbsp;<a href="javascript:exit()">退出登录</a>
+        </c:if>
         <a href="注册.html"><span>快速注册</span></a>
     </div>
     <div class="headtwo">
-        <a href="我的杂货铺.html">
+        <a href="javascript:gomycenter()">
             <h5>我的杂货铺</h5>
-        </a>&nbsp;&nbsp;&nbsp;
+        </a>&nbsp;&nbsp;&nbsp;&nbsp;
         <span>客服热线：<h4>4008-916-999</h4></span>&nbsp;&nbsp;
         <span>杂货铺承诺&nbsp;&nbsp;&nbsp;产品体验&nbsp;&nbsp;&nbsp;厂家资源&nbsp;&nbsp;&nbsp;帮助中心</span>
     </div>
@@ -314,7 +346,7 @@
             <input type="text" name="words" value=""/>
             <input type="button" name="see" value="搜索"/>
         </div>
-        <a href="gouwuche.jsp" class="aone">购物车</a>
+        <a href="javascript:gomycar()" class="aone">购物车</a>
     </div>
 </form>
 <!-- 头部导航栏 -->
