@@ -268,6 +268,7 @@
                 })
             }
         }
+        //判断个人中心
         function gomycenter() {
             var username =$(".headone").find(".username").length;
            if (username==0){
@@ -276,6 +277,7 @@
                }
            }
         }
+        //判断购物车
         function gomycar() {
             var username =$(".headone").find(".username").length;
            if (username==0){
@@ -292,16 +294,15 @@
 <div class="first">
     <div class="headone">
         <span>欢迎来到解忧杂货铺！</span>
-        <c:if test="${username == null}">
+        <c:if test="${user.username == null}">
             <a href="login.jsp" class="q">
                 <h4>请登录</h4>
             </a>
         </c:if>
-        <c:if test="${username != null}">
-        欢迎：<span class="username">${username}</span>&nbsp;&nbsp;<a href="javascript:exit()">退出登录</a>
+        <c:if test="${user.username != null}">
+        欢迎：<span class="username">${user.username}</span>&nbsp;&nbsp;<a href="javascript:exit()">退出登录</a>
         </c:if>
     <a href="login.jsp"><span>快速注册</span></a>
-
 </div>
 <div class="headtwo">
     <a href="javascript:gomycenter()">

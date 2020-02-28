@@ -19,7 +19,7 @@
     </resultMap>
 <select id="queryCar" resultMap="queryCars">
     SELECT g.id,g.shopId,g.imgId,count,s.shopId shopIds,g.userId,shopName,price,i.imgId imgIdi,img FROM gouwuche g INNER JOIN shopping s on g.shopId=s.shopId
-    INNER JOIN img i ON g.imgId=i.imgId
+    INNER JOIN img i ON g.imgId=i.imgId where g.userId=#{id}
 </select>
     <delete id="del">
         delete from gouwuche where id=#{delId}

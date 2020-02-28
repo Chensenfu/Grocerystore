@@ -13,8 +13,8 @@ public class CarServiceImpl implements CarService {
     @Autowired
     private CarMapper carMapper;
     @Override
-    public List<Car> queryCar() {
-        return carMapper.queryCar();
+    public List<Car> queryCar(Integer id) {
+        return carMapper.queryCar(id);
     }
 
     @Override

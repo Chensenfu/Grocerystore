@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "http://mybatis.org/dtd/mybatis-3-mapper.dtd" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.PingMapper">
+    <resultMap id="queryShop" type="com.entity.Order">
+        <id column="id" property="id"/>
+        <result column="userid" property="userid"/>
+        <result column="shoppingid" property="shoppingid"/>
+        <result column="state" property="state"/>
+        <association property="shop" javaType="com.entity.Shop">
+            <id column="shopId" property="shopId"/>
+            <result column="shopName" property="shopName"/>
+            <result column="imgId" property="imgId"/>
+        </association>
+        <association property="img" javaType="com.entity.Img">
+            <id column="ids" property="id"/>
+            <result column="img" property="img"/>
+        </association>
+        <collection property="pingJia" ofType="com.entity.PingJia">
+            <id column="pid" property="id"/>
+            <result column="userId" property="userId"/>
+            <result column="content" property="content"/>
+        </collection>
+    </resultMap>
+    <select id="query" resultMap="queryShop">
+        SELECT o.id,o.userid,o.shopingid,state,s.shopId,s.shopName,s.imgId,i.id ids,i.img,p.id pid,p.userId,p.content FROM orderform o
+        INNER JOIN shopping s ON o.shopingid=s.shopId INNER JOIN img i ON i.id=s.imgId INNER JOIN pingjia p on p.userId=o.userid
+        where o.userid=${id}
+    </select>
+    <select id="queryByid" resultType="com.entity.Shop">
+        select shopId,shopName from shopping where shopId=#{shopingid}
+    </select>
+    <update id="update">
+        update orderform set state=5 where id=${orderid}
+    </update>
+    <insert id="add">
+        insert into pingjia(content,createdate,shopId,userId)
+        values(#{pingJia.content},curdate(),#{pingJia.id},#{id})
+    </insert>
+</mapper>

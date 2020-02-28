@@ -5,6 +5,6 @@ import com.entity.Car;
 import java.util.List;
 
 public interface CarService {
-    List<Car> queryCar();
+    List<Car> queryCar(Integer id);
     Boolean del(Integer delId);
 }

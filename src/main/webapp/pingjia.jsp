@@ -14,10 +14,272 @@
     <meta content="yes" name="apple-mobile-web-app-capable"/>
     <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
     <meta content="telephone=no" name="format-detection"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/pingjia.css" rel="stylesheet" type="text/css"/>
+    <link href="css/fabiao.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="css/daohang.css"/>
     <link rel="stylesheet" type="text/css" href="css/head.css"/>
     <link rel="stylesheet" type="text/css" href="css/公用-尾部.css"/>
+    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //评价状态切换
+            $(".noPub").click(function () {
+                $(this).parent().addClass("tab-active");
+                $(this).parent().siblings().removeClass("tab-active");
+                $("#noPubDiv").addClass("tab-active")
+                $("#havePubDiv").removeClass("tab-active")
+                $("#showPicDiv").removeClass("tab-active")
+                $("#serviceDiv").removeClass("tab-active")
+            })
+            $(".showPic").click(function () {
+                $(this).parent().addClass("tab-active")
+                $(this).parent().siblings().removeClass("tab-active");
+                $("#noPubDiv").removeClass("tab-active")
+                $("#havePubDiv").removeClass("tab-active")
+                $("#showPicDiv").addClass("tab-active")
+                $("#serviceDiv").removeClass("tab-active")
+            })
+            $(".havePub").click(function () {
+                $(this).parent().addClass("tab-active")
+                $(this).parent().siblings().removeClass("tab-active");
+                $("#noPubDiv").removeClass("tab-active")
+                $("#havePubDiv").addClass("tab-active")
+                $("#showPicDiv").removeClass("tab-active")
+                $("#serviceDiv").removeClass("tab-active")
+            })
+            $(".service").click(function () {
+                $(this).parent().addClass("tab-active")
+                $(this).parent().siblings().removeClass("tab-active");
+                $("#noPubDiv").removeClass("tab-active");
+                $("#havePubDiv").removeClass("tab-active");
+                $("#showPicDiv").removeClass("tab-active");
+                $("#serviceDiv").addClass("tab-active");
+            })
+            //评价查询
+            $.getJSON("pingjia/query", function (data) {
+                var str1 = "";
+                var str2 = "";
+                $(data).each(function () {
+                    if (this.state == 4) {
+                        str1 += "<div class='tab-item'>\n" +
+                            "<a class='aui-flex'>\n" +
+                            "<div class='aui-all-list'>\n" +
+                            "<img src='img/" + this.img.img + "'>\n" +
+                            "</div>\n" +
+                            "<div class='aui-flex-box aui-flex-title'>\n" +
+                            "<h3>" + this.shop.shopName + "</h3>\n" +
+                            "<p>评价+晒单最多送50个爱豆</p>\n" +
+                            "<div class='aui-sunburn' onclick='fabiao()'>\n" +
+                            "<input type='hidden' class='orderid' value='"+this.id+"'>"+
+                            "<input type='hidden' class='shopingid' value='"+this.shop.shopId+"'>"+
+                            "<i class='icon icon-sunburn'></i>\n" +
+                            "评价晒单\n" +
+                            "\n" +
+                            "</div>\n" +
+                            "</div>\n" +
+                            "</a>\n" +
+                            "</div>";
+                        $("#noPub").html(data.length);
+                    } else if (this.state == 5) {
+                        str2 += "<div class='tab-item'>\n" +
+                            "<a class='aui-flex'>\n" +
+                            "<div class='aui-all-list'>\n" +
+                            "<img src='img/" + this.img.img + "'>\n" +
+                            "</div>\n" +
+                            "<div class='aui-flex-box aui-flex-title'>\n" +
+                            "<h3>" + this.shop.shopName + "</h3>\n" +
+                            "<p>" + this.pingjia.content + "</p>\n" +
+                            "<div class=\"aui-sunburn aui-sunburn-def\">\n" +
+                            "<i class=\"icon icon-sunburn\"></i>\n" +
+                            "查看评价\n" +
+                            "\n" +
+                            "</div>" +
+                            "</div>\n" +
+                            "</a>\n" +
+                            "</div>";
+                        $("#noPub").html(data.length);
+                    }
+                })
+                if (str1 == "") {
+                    $("#noPubDiv").empty().append("<div class=\"tab-item\"><h2>暂无评价</h2></div>");
+                } else {
+                    $("#noPubDiv").empty().append(str1);
+                }
+                if (str2 == "") {
+                    $("#havePubDiv").empty().append("<div class=\"tab-item\"><h2>暂无评价</h2></div>");
+                } else {
+                    $("#havePubDiv").empty().append(str1);
+                }
+            })
+            function byIndexLeve(index){
+                var str ="";
+                switch (index)
+                {
+                    case 0:
+                        str="差评";
+                        break;
+                    case 1:
+                        str="较差";
+                        break;
+                    case 2:
+                        str="中等";
+                        break;
+                    case 3:
+                        str="一般";
+                        break;
+                    case 4:
+                        str="好评";
+                        break;
+                }
+                return str;
+            }
+            //  星星数量
+            var stars = [
+                ['x2.png', 'x1.png', 'x1.png', 'x1.png', 'x1.png'],
+                ['x2.png', 'x2.png', 'x1.png', 'x1.png', 'x1.png'],
+                ['x2.png', 'x2.png', 'x2.png', 'x1.png', 'x1.png'],
+                ['x2.png', 'x2.png', 'x2.png', 'x2.png', 'x1.png'],
+                ['x2.png', 'x2.png', 'x2.png', 'x2.png', 'x2.png'],
+            ];
+            $(".starchick").find("img").hover(function(e) {
+                var obj = $(this);
+                var index = obj.index();
+                if(index < (parseInt($(".starchick").attr("data-default-index")) -1)){
+                    return ;
+                }
+                var li = obj.closest(".starchick");
+                var star_area_index = li.index();
+                for (var i = 0; i < 5; i++) {
+                    li.find("img").eq(i).attr("src", "img/" + stars[index][i]);//切换每个星星
+                }
+                $(".level").html(byIndexLeve(index));
+            }, function() {
+            })
+            $(".starchick").hover(function(e) {
+            }, function() {
+                var index = $(this).attr("data-default-index");//点击后的索引
+                index = parseInt(index);
+                console.log("index",index);
+                $(".level").html(byIndexLeve(index-1));
+                console.log(byIndexLeve(index-1));
+                $(".order-evaluation ul li:eq(0)").find("img").attr("src","img/x1.png");
+                for (var i=0;i<index;i++){
+
+                    $(".order-evaluation ul li:eq(0)").find("img").eq(i).attr("src","img/x2.png");
+                }
+            })
+            $(".starchick").find("img").click(function() {
+                var obj = $(this);
+                var li = obj.closest("li");
+                var star_area_index = li.index();
+                var index1 = obj.index();
+                li.attr("data-default-index", (parseInt(index1)+1));
+                var index = $(".starchick").attr("data-default-index");//点击后的索引
+                index = parseInt(index);
+                console.log("index",index);
+                $(".level").html(byIndexLeve(index-1));
+                console.log(byIndexLeve(index-1));
+                $(".order-evaluation ul li:eq(0)").find("img").attr("src","img/x1.png");
+                for (var i=0;i<index;i++){
+                    $(".order-evaluation ul li:eq(0)").find("img").eq(i).attr("src","img/x2.png");
+                }
+
+            });
+            //印象
+            $(".order-evaluation-check").click(function(){
+                if($(this).hasClass('checked')){
+                    //当前为选中状态，需要取消
+                    $(this).removeClass('checked');
+                }else{
+                    //当前未选中，需要增加选中
+                    $(this).addClass('checked');
+                }
+            });
+            //评价字数限制
+            function words_deal()
+            {
+                var curLength=$("#TextArea1").val().length;
+                if(curLength>140)
+                {
+                    var num=$("#TextArea1").val().substr(0,140);
+                    $("#TextArea1").val(num);
+                    alert("超过字数限制，多出的字将被截断！" );
+                }
+                else
+                {
+                    $("#textCount").text(140-$("#TextArea1").val().length);
+                }
+            }
+            $("#order_evaluation").click(function(){
+                $("#order_evaluate_modal").html("感谢您的评价！么么哒(* ￣3)(ε￣ *)").show().delay(3000).hide(500);
+            })
+        })
+        function fabiao() {
+                $(".service").parent().show();
+                $(".service").parent().addClass("tab-active")
+                $(".service").parent().siblings().removeClass("tab-active");
+                $("#noPubDiv").removeClass("tab-active");
+                $("#havePubDiv").removeClass("tab-active");
+                $("#showPicDiv").removeClass("tab-active");
+                $("#serviceDiv").addClass("tab-active");
+            var shopingid = $(".orderid").val();
+            $.getJSON("pingjia/queryByid",{"shopingid":shopingid},function (data) {
+                $(".orderName").html("给“"+data.shopName+"”的评价");
+            })
+        }
+        function add() {
+            var orderid = $(".orderid").val();
+            var shopingid = $(".shopingid").val();
+            $.getJSON("pingjia/update",{"":orderid},function (data) {})
+            var content = $("#TextArea1").val();
+            if (textarea==""){
+                alert("请填写评价内容！")
+            }else {
+                $.ajax({
+                    url:"pingjia/add",
+                    type:"post",
+                    data:{"id":shopingid,"content":content},
+                    dataType:"json",
+                    success:function (data) {
+                        if (data){
+                            alert("评价成功！")
+                        }else {
+                            alert("评价失败！")
+                        }
+                    }
+                })
+            }
+        }
+        //退出登录
+        function exit(){
+            if(confirm("确认退出吗？")){
+                $.getJSON("exit/exit",function(data){
+                    if (data){
+                        window.location.reload();
+                    }
+                })
+            }
+        }
+        //判断个人中心
+        function gomycenter() {
+            var username =$(".headone").find(".username").length;
+            if (username==0){
+                if (confirm("请先登录！")){
+                    window.location.href="login.jsp";
+                }
+            }
+        }
+        //判断购物车
+        function gomycar() {
+            var username =$(".headone").find(".username").length;
+            if (username==0){
+                if (confirm("请先登录！")){
+                    window.location.href="login.jsp";
+                }
+            }
+        }
+    </script>
 </head>
 <body>
 <section class="aui-flexView">
@@ -26,13 +288,18 @@
         <div class="first">
             <div class="headone">
                 <span>欢迎来到解忧杂货铺！</span>
-                <a href="登录.html" class="q">
-                    <h4>请登录</h4>
-                </a>
+                <c:if test="${user.username == null}">
+                    <a href="login.jsp" class="q">
+                        <h4>请登录</h4>
+                    </a>
+                </c:if>
+                <c:if test="${user.username != null}">
+                    欢迎：<span class="username">${user.username}</span>&nbsp;&nbsp;<a href="javascript:exit()">退出登录</a>
+                </c:if>
                 <a href="注册.html"><span>快速注册</span></a>
             </div>
             <div class="headtwo">
-                <a href="我的杂货铺.html">
+                <a href="javascript:gomycenter()">
                     <h5>我的杂货铺</h5>
                 </a>&nbsp;&nbsp;&nbsp;
                 <span>客服热线：<h4>4008-916-999</h4></span>&nbsp;&nbsp;
@@ -46,7 +313,7 @@
                     <input type="text" name="words" value=""/>
                     <input type="button" name="see" value="搜索"/>
                 </div>
-                <a href="gouwuche.jsp" class="aone">购物车</a>
+                <a href="javascript:gomycar()" class="aone">购物车</a>
             </div>
         </form>
         <!-- 头部导航栏 -->
@@ -314,7 +581,7 @@
             <div class="m-slider" data-ydui-slider>
                 <div class="slider-wrapper">
                     <div class="slider-item">
-                        <a href="javascript:;">
+                        <a>
                             <img src="images/banner-002.png">
                         </a>
                     </div>
@@ -326,52 +593,34 @@
             <div class="aui-tab" data-ydui-tab>
                 <ul class="tab-nav">
                     <li class="tab-nav-item tab-active">
-                        <a href="javascript:;">
+                        <a class="noPub">
                             <span>待评价</span>
-                            <span>17</span>
+                            <span id="noPub">0</span>
                         </a>
                     </li>
                     <li class="tab-nav-item">
-                        <a href="javascript:;">
+                        <a class="showPic">
                             <span>晒图单</span>
-                            <span>10</span>
+                            <span>0</span>
                         </a>
                     </li>
                     <li class="tab-nav-item">
-                        <a href="javascript:;">
+                        <a class="havePub">
                             <span>已评价</span>
-                            <span>38</span>
+                            <span id="havePub">0</span>
                         </a>
                     </li>
-                    <li class="tab-nav-item">
-                        <a href="javascript:;">
+                    <li class="tab-nav-item" style="display: none">
+                        <a class="service">
                             <span>服务评价</span>
-                            <span>13</span>
                         </a>
                     </li>
                 </ul>
                 <div class="tab-panel">
-                    <div class="tab-panel-item tab-active">
+                    <div class="tab-panel-item tab-active" id="noPubDiv"></div>
+                    <div class="tab-panel-item" id="showPicDiv">
                         <div class="tab-item">
-                            <a href="javascript:;" class="aui-flex">
-                                <div class="aui-all-list">
-                                    <img src="images/ad-001.png" alt="">
-                                </div>
-                                <div class="aui-flex-box aui-flex-title">
-                                    <h3>小米8SE全面屏智能手机4GB+64GB灰色全网通4G双卡双待小米8SE全面屏智能手机4GB</h3>
-                                    <p>评价+晒单最多送50个爱豆</p>
-                                    <div class="aui-sunburn">
-                                        <i class="icon icon-sunburn"></i>
-                                        评价晒单
-
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="tab-panel-item">
-                        <div class="tab-item">
-                            <a href="javascript:;" class="aui-flex">
+                            <%--<a href="javascript:;" class="aui-flex">
                                 <div class="aui-all-list">
                                     <img src="images/icon-page-021.png" alt="">
                                 </div>
@@ -384,44 +633,56 @@
 
                                     </div>
                                 </div>
-                            </a>
+                            </a>--%><h2>暂无图片评价！</h2>
                         </div>
                     </div>
-                    <div class="tab-panel-item">
-                        <div class="tab-item">
-                            <a href="javascript:;" class="aui-flex">
-                                <div class="aui-all-list">
-                                    <img src="images/icon-page-015.png" alt="">
-                                </div>
-                                <div class="aui-flex-box aui-flex-title">
-                                    <h3>小米8SE全面屏智能手机4GB+64GB灰色全网通4G双卡双待小米8SE全面屏智能手机4GB</h3>
-                                    <p>评价+晒单最多送50个爱豆</p>
-                                    <div class="aui-sunburn aui-sunburn-def">
-                                        <i class="icon icon-sunburn"></i>
-                                        查看评价
-
-                                    </div>
-                                </div>
-                            </a>
+                    <div class="tab-panel-item" id="havePubDiv"></div>
+                    <div class="tab-panel-item" id="serviceDiv">
+                        <div class="order-evaluation clearfix">
+                            <h4 class="orderName"></h4>
+                            <p>请严肃认真对待此次评价哦！您的评价对我们真的真的非常重要！</p>
+                            <div class="block">
+                                <ul>
+                                    <li data-default-index="0" class="starchick">
+				<span>
+					<img src="img/x1.png">
+					<img src="img/x1.png">
+					<img src="img/x1.png">
+					<img src="img/x1.png">
+					<img src="img/x1.png">
+				</span>
+                                        <em class="level"></em>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="order-evaluation-text">
+                                本次交易，乖，摸摸头 给您留下了什么印象呢？
+                            </div>
+                            <div class="order-evaluation-checkbox">
+                                <ul class="clearfix">
+                                    <li class="order-evaluation-check" data-impression="1">专业水平高<i
+                                            class="iconfont icon-checked"></i></li>
+                                    <li class="order-evaluation-check" data-impression="2">交付准时<i
+                                            class="iconfont icon-checked"></i></li>
+                                    <li class="order-evaluation-check" data-impression="3">效果明显<i
+                                            class="iconfont icon-checked"></i></li>
+                                    <li class="order-evaluation-check" data-impression="4">数据分析准确<i
+                                            class="iconfont icon-checked"></i></li>
+                                    <li class="order-evaluation-check" data-impression="5">能力待提高<i
+                                            class="iconfont icon-checked"></i></li>
+                                    <li class="order-evaluation-check" data-impression="6">工期延误<i
+                                            class="iconfont icon-checked"></i></li>
+                                </ul>
+                            </div>
+                            <div class="order-evaluation-textarea">
+                                <textarea name="content" id="TextArea1" onKeyUp="words_deal();"></textarea>
+                                <span>还可以输入<em id="textCount">140</em>个字</span>
+                            </div>
+                            <a href="javascript:add()" id="order_evaluation">评价完成</a>
                         </div>
-                    </div>
-                    <div class="tab-panel-item">
-                        <div class="tab-item">
-                            <a href="javascript:;" class="aui-flex">
-                                <div class="aui-all-list">
-                                    <img src="images/icon-page-015.png" alt="">
-                                </div>
-                                <div class="aui-flex-box aui-flex-title">
-                                    <h3>小米8SE全面屏智能手机4GB+64GB灰色全网通4G双卡双待小米8SE全面屏智能手机4GB</h3>
-                                    <p>评价+晒单最多送50个爱豆</p>
-                                    <div class="aui-sunburn">
-                                        <i class="icon icon-sunburn"></i>
-                                        服务评价
 
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                        <div id="order_evaluate_modal" class="dmlei_tishi_info"></div>
+
                     </div>
                 </div>
             </div>
