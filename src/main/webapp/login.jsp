@@ -156,7 +156,7 @@
                         dataType: "json",
                         success: function (data) {
                             if(data){
-                                window.location.href = "index.html";
+                                window.location.href = "index.jsp";
                             }else{
                                 $("#tishideng").html("用户名或密码错误")
                             }
