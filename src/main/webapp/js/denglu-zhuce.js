@@ -29,8 +29,78 @@ function SetRemainTime1() {
     }
 }
 
+
+var InterValObj; //timer变量，控制时间
+var count = 60; //间隔函数，1秒执行
+var curCount;//当前剩余秒数
+function sendMessage() {
+    curCount = count;
+    $(".btn").attr("disabled", "true");
+    $(".btn").val(curCount + "秒后可重新发送");
+    InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次请求后台发送验证码 TODO
+}
+//timer处理函数
+function SetRemainTime() {
+    if (curCount == 0) {
+        window.clearInterval(InterValObj);//停止计时器
+        $(".btn").removeAttr("disabled");//启用按钮
+        $(".btn").val("重新发送验证码");
+    } else {
+        curCount--;
+        $(".btn").val(curCount + "秒后可重新发送");
+    }
+}
+
+var sms = "";
 $(function () {
 
+
+    $("#tab-1").click(function () {
+        $("#user1").val("");
+        $("#pass0").val("");
+        $("#pass1").val("");
+        $("#pass2").val("");
+        $("#pass3").val("");
+        $(".tishi").html("");
+    });
+
+    $("#tab-2").click(function () {
+        $("#user").val("");
+        $("#pass").val("");
+        $(".tishi").html("");
+    });
+
+    $(".btn").click(function() {
+        var phone = $("input[name=tel]").val();
+        if (phone != "") {
+            $.ajax({
+                url : "message/sendMsg",  //发送请求
+                type : "post",
+                data:{"phoneNumber":phone},
+                success : function(data) {
+                    sms = data;
+                }
+            });
+        } else {
+            /*$("#tishiyan").html("请输入手机号");*/
+            return false;
+        }
+    });
+
+    /*$("#zhuce").click(function() {
+        var code = $("input[name=yanzheng]").val();
+        if (code == "") {
+            $("#tishideng").html("请输入验证码！")
+        } else {
+            if (sms != code) {
+                $("#tishideng").html("注册失败，验证码错误！")
+            } else {
+                window.location.href = "login.jsp";
+            }
+
+        }
+
+    });*/
 
     /*$("#user").blur(function () {
         $("#tishiname").html("用户名不能为空");
@@ -72,6 +142,7 @@ $(function () {
         $("#tishideng").html("")
     });
 
+
     var reg1 =/^.{1,10}$/;
     //注册-用户名
     $("#user1").blur(function () {
@@ -79,11 +150,17 @@ $(function () {
         var name = $("#user1").val();
 
         if ($("#user1").val()==""){
-            $("#tishiname1").html("用户名不能为空");
+            $("#tishiname1").html("账户名不能为空");
         }else if(!reg1.test(name)){
-            $("#tishiname1").html("用户名填写格式错误")
+            $("#tishiname1").html("账户名填写格式错误")
         }else{
             $("#tishiname1").html("");
+            $.getJSON("user/chaxiangtong",{"tel":"","username":name},function (data) {
+                if (data==1){
+                    $("#tishiname1").html("该账户名已注册，请重新输入");
+                }
+
+            })
         }
     });
     $("#user1").focus(function () {
@@ -106,6 +183,12 @@ $(function () {
             $("#tishitel").html("该手机号已注册，请重新输入手机号！");
         }else{
             $("#tishitel").html("");
+            $.getJSON("user/chaxiangtong",{"tel":tel1,"username":""},function (data) {
+                if (data==2){
+                    $("#tishitel").html("该手机号已注册，请重新输入");
+                }
+
+            })
         }
     });
     $("#pass0").focus(function () {
@@ -129,9 +212,12 @@ $(function () {
 
 
     //注册-密码
+    var reg = /^.{6,20}$/;
     $("#pass2").blur(function () {
         if ($("#pass2").val()==""){
             $("#tishipwd1").html("密码不能为空");
+        }else if (!reg.test($("#pass2").val())){
+            $("#tishipwd1").html("密码长度必须为6位以上");
         }else{
             $("#tishipwd1").html("");
         }
@@ -165,7 +251,7 @@ $(function () {
         if (username == "" && pwd != ""){
             $("#tishiname").html("");
             $("#tishipwd").html("");
-            $("#tishideng").html("用户名不能为空")
+            $("#tishideng").html("账户名/手机号不能为空不能为空")
         }else if (username != "" && pwd == ""){
             $("#tishiname").html("");
             $("#tishipwd").html("");
@@ -182,8 +268,8 @@ $(function () {
                 dataType: "json",
                 success: function (data) {
                     if (data==1){
-                        $("#tishideng").html("登录失败，该用户不存在")
-                        confirm("您没有注册，请点击注册账号");
+                        $("#tishideng").html("登录失败，该用户不存在");
+                        confirm("您没有注册，请点击注册账号")
                     }else if (data==2){
                         $("#tishideng").html("登录失败，密码错误")
                     }else if (data==3){
@@ -205,13 +291,6 @@ $(function () {
             })
         }
     });
-
-
-
-
-
-
-
 
 
     //注册账号
@@ -240,6 +319,8 @@ $(function () {
             $("#tishipwd1").html("");
             $("#tishipwd2").html("");
             $("#tishizhu").html("验证码不能为空")
+        }else if (sms != yan){
+            $("#tishizhu").html("注册失败，验证码错误！")
         }else if (pwd1 ==""){
             $("#tishiname1").html("");
             $("#tishitel").html("");
@@ -290,7 +371,8 @@ $(function () {
             $("button[type=button]").click();
         }
     })
+    
+});
 
 
 
-})

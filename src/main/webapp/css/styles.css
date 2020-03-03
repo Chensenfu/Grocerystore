@@ -35,13 +35,19 @@ body{
     color: #6a81a0;
     display: block;
     margin-left: 270px;
-    margin-top: -50px;
-
-
+    margin-top: -46px;
 }
-
-
-
+#update-btnSendCode1{
+	border: none;
+	padding: 15px 20px;
+	border-radius: 25px;
+	background: #ff734c87;
+	width: 60%;
+	color: #6a81a0;
+	display: block;
+	margin-left: 270px;
+	margin-top: -46px;
+}
 
 .tishi{
 	margin-left: 9em;
@@ -219,4 +225,19 @@ body{
 .foot-lnk{
 	text-align:center;
 	margin-top: 1em;
+	margin-left: 16px;
+	cursor:pointer;
+}
+.foot-wang{
+	display: none;
+}
+.foot-lnk:hover{
+	color: #DF4E4D;
+}
+.tab1{
+	font-size: 22px;
+	margin-left: 130px;
+}
+.foot-wang .input .button{
+	width: 100%;
 }
