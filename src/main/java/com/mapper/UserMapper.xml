@@ -8,4 +8,16 @@
     <insert id="add">
         insert into user(username,password,tel,status,createdate,level) values(#{user.username},#{user.password},#{user.tel},1,curdate(),1)
     </insert>
+
+    <select id="queryUsernameAndTel" resultType="com.entity.User">
+        select username tel from user where username=#{username}
+    </select>
+
+    <select id="queryTel" resultType="com.entity.User">
+        select tel from user where tel=#{tel}
+    </select>
+    
+    <update id="updatePwd">
+        update user set password =#{pwd} where tel =#{tel}
+    </update>
 </mapper>

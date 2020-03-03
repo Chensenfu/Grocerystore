@@ -10,7 +10,6 @@
 <html>
 <head>
     <title>首页</title>
-
     <link rel="stylesheet" type="text/css" href="css/head.css" />
     <link rel="stylesheet" type="text/css" href="css/daohang.css" />
     <link rel="stylesheet" type="text/css" href="css/lunbo.css" />
@@ -68,15 +67,10 @@
     </style>
     <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
     <script src="http://libs.useso.com/js/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')</script>
     <script src="http://cdn.bootcss.com/gsap/1.19.0/TweenMax.min.js"></script>
     <script src="js/jq22.js"></script>
     <script src="http://cdn.bootcss.com/gsap/1.19.0/plugins/ScrollToPlugin.min.js"></script>
-
     <script src="http://cdn.bootcss.com/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
-    <script>
-        window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')
-    </script>
     <script src="js/jquery.easy_slides.js"></script>
     <script type="text/javascript">
         $(function() {
@@ -202,11 +196,9 @@
     <div class="firstone">
         <img src="img/logo1.jpg" class="imgone">
         <div class="inputone">
-            <input type="text" name="words" onclick="window.location.href='findshop.jsp'"/>
-            <input type="button" name="see"  value="搜索" />
-
+            <input type="text" name="words"/>
+            <input type="button" name="see" value="搜索" onclick="window.location.href='findshop.jsp'"/>
         </div>
-
         <a href="javascript:gomycar()" class="aone">购物车</a>
     </div>
 </form>
@@ -233,7 +225,7 @@
                                                 <li><a href="#">琥珀小米锅巴</a></li>
                                                 <li><a href="#">一根葱干吃面</a></li>
                                                 <li><a href="#">砂拉豆</a></li>
-                                                <li><a href="##">李子园</a></li>
+                                                <li><a href="#">李子园</a></li>
                                                 <li><a href="#">小当家 </a></li>
                                                 <li><a href="#">乐吸管糖</a></li>
                                                 <li><a href="#">牛羊配</a></li>
@@ -738,7 +730,7 @@
                 <div class="weixing-show">
                     <div class="weixing-txt">
                         微信扫一扫<br>
-                        关注jQuery插件库
+                        关注解忧杂货铺
                     </div>
                     <img class="weixing-ma" src="images/weixing-ma.jpg">
                     <div class="weixing-sanjiao">

@@ -35,10 +35,33 @@ public class UserController {
             session.setAttribute("user",user);
             return 0;
         }
+
     }
 
     @RequestMapping("add")
     public Boolean add(User user){
         return userService.add(user);
+    }
+
+    @RequestMapping("chaxiangtong")
+    public Integer queryUsernameAndTel(@RequestParam("username") String username,
+                                       @RequestParam("tel") String tel,
+                                       HttpServletRequest request){
+        HttpSession session = request.getSession();
+        session.setAttribute(username,tel);
+        return userService.queryUsernameAndTel(username,tel);
+
+    }
+
+
+    @RequestMapping("updatePwd")
+    public Integer updatePwd(@RequestParam("tel") String tel,
+                             @RequestParam("pwd") String password,
+                             HttpServletRequest req){
+        HttpSession session = req.getSession();
+        session.setAttribute("tel",tel);
+
+        return userService.updatePwd(tel,password);
+
     }
 }
