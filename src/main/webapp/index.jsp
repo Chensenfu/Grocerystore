@@ -501,14 +501,14 @@
         </div>
         <!-- <h2>4 in line</h2> -->
         <div class="slider slider_four_in_line">
-            <div>
+            <div onclick="window.location.href='xiangqingye.jsp?id=5'">
                 <div class="goods-item-inner">
                     <img class="picc" src="img/hupo.jpg" alt="">
-                    <p class="price">￥17.80</p>
+                    <p class="price">￥17.00</p>
                     <p class="goods-name">琥珀小锅巴</p>
                 </div>
             </div>
-            <div>
+            <div onclick="window.location.href='xiangqingye.jsp?id=3'">
                 <div class="goods-item-inner">
                     <img class="picc" src="img/⁮xiaozhu1.jpg" alt="">
                     <p class="price">￥25.00</p>
@@ -516,49 +516,49 @@
                 </div>
 
             </div>
-            <div>
+            <div onclick="window.location.href='xiangqingye.jsp?id=3'">
                 <div class="goods-item-inner">
                     <img class="picc" src="img/dabaitu.jpg" alt="">
                     <p class="price">￥19.90</p>
                     <p class="goods-name">大白兔牛奶糖</p>
                 </div>
             </div>
-            <div>
+            <div onclick="window.location.href='xiangqingye.jsp?id=9'">
                 <div class="goods-item-inner">
                     <img class="picc" src="img/xiaodangjia.jpg" alt="">
                     <p class="price">￥22.80</p>
                     <p class="goods-name">小当家 一箱*24</p>
                 </div>
             </div>
-            <div>
-                <div class="goods-item-inner">
+            <div onclick="window.location.href='xiangqingye.jsp?id=4'">
+                <div class="goods-item-inner ">
                     <img class="picc" src="img/maixiaodai.jpg" alt="">
                     <p class="price">￥19.80</p>
                     <p class="goods-name">麦小呆大辣片</p>
                 </div>
             </div>
-            <div>
+            <div onclick="window.location.href='xiangqingye.jsp?id=15'">
                 <div class="goods-item-inner">
                     <img class="picc" src="img/youyouqiu.jpg" alt="">
                     <p class="price">￥25.00</p>
                     <p class="goods-name">溜溜球youyou球</p>
                 </div>
             </div>
-            <div>
+            <div onclick="window.location.href='xiangqingye.jsp?id=20'">
                 <div class="goods-item-inner">
                     <img class="picc" src="img/shengdanshu.jpg" alt="">
                     <p class="price">￥30.00</p>
                     <p class="goods-name">魔法圣诞树</p>
                 </div>
             </div>
-            <div>
+            <div onclick="window.location.href='xiangqingye.jsp?id=19'">
                 <div class="goods-item-inner">
                     <img class="picc" src="img/jingxihe.jpg" alt="">
                     <p class="price">￥128.00</p>
                     <p class="goods-name">jinxihe</p>
                 </div>
             </div>
-            <div>
+            <div onclick="window.location.href='xiangqingye.jsp?id=7'">
                 <div class="goods-item-inner">
                     <img class="picc" src="img/xiaomiguoba.jpg" alt="">
                     <p class="price">￥9.90</p>
