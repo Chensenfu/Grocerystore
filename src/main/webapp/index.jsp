@@ -196,8 +196,8 @@
     <div class="firstone">
         <img src="img/logo1.jpg" class="imgone">
         <div class="inputone">
-            <input type="text" name="words"/>
-            <input type="button" name="see" value="搜索" onclick="window.location.href='findshop.jsp'"/>
+            <input type="text" name="words" onclick="window.location.href='findshop.jsp'"/>
+            <input type="button" name="see" value="搜索" />
         </div>
         <a href="javascript:gomycar()" class="aone">购物车</a>
     </div>

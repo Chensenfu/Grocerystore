@@ -203,17 +203,22 @@
         $("input[name=see]").click(function () {
             var shopName = $("input[name=words]").val();
             $.getJSON("shopping/querymohu",{"shopName":shopName},function (data) {
-                var str ="";
-                $(data).each(function () {
-                    str +=  "<div class=\"pic-wrapper\">" +
-                        "<a href=\"xiangqingye.jsp?id="+this.shopId+"\" class=\"goods-item\">" +
-                        "<img class=\"pis\" src=\"img/"+this.img.img+"\" alt=\"\">" +
-                        "<p class=\"goods-name\">"+this.shopName+"</p>" +
-                        "<div class=\"price-wrapper\">"+"￥"+this.price+"</div>" +
-                        "</a>"+
-                        "</div>"
-                })
-                $("#vare").empty().append(str);
+                if (data==""||data==null){
+                    alert("商品不存在")
+                } else {
+                    var str ="";
+                    $(data).each(function () {
+                        str +=  "<div class=\"pic-wrapper\">" +
+                            "<a href=\"xiangqingye.jsp?id="+this.shopId+"\" class=\"goods-item\">" +
+                            "<img class=\"pis\" src=\"img/"+this.img.img+"\" alt=\"\">" +
+                            "<p class=\"goods-name\">"+this.shopName+"</p>" +
+                            "<div class=\"price-wrapper\">"+"￥"+this.price+"</div>" +
+                            "</a>"+
+                            "</div>"
+                    })
+                    $("#vare").empty().append(str);
+                }
+
             })
         })
     })
