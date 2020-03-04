@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "http://mybatis.org/dtd/mybatis-3-mapper.dtd" "mybatis-3-mapper.dtd" >
 <mapper namespace="com.mapper.UserMapper">
     <select id="queryByNameAndPwd" resultType="com.entity.User">
-        select userId,name,password,tel from user where (name=#{name} or tel=#{name}) and password=#{pwd}
+        select id,username,password,tel,status from user where (username=#{username} or tel=#{username})
     </select>
 
     <insert id="add">
-        insert into user(name,password,tel) values(#{user.name},#{user.password},#{user.tel})
+        insert into user(username,password,tel,status,createdate,level) values(#{user.username},#{user.password},#{user.tel},1,curdate(),1)
     </insert>
 </mapper>

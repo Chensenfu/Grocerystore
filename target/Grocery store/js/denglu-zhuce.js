@@ -159,37 +159,46 @@ $(function () {
 
     //登录&校验
     $("button[type=button]:first").click(function () {
-        var name = $("#user").val();
+        var username = $("#user").val();
         var pwd = $("#pass").val();
 
-        if (name == "" && pwd != ""){
+        if (username == "" && pwd != ""){
             $("#tishiname").html("");
             $("#tishipwd").html("");
             $("#tishideng").html("用户名不能为空")
-        }else if (name != "" && pwd == ""){
+        }else if (username != "" && pwd == ""){
             $("#tishiname").html("");
             $("#tishipwd").html("");
             $("#tishideng").html("密码不能为空")
-        }else if (name == "" && pwd == ""){
+        }else if (username == "" && pwd == ""){
             $("#tishiname").html("");
             $("#tishipwd").html("");
             $("#tishideng").html("用户名和密码不能为空")
         }else {
-
-
             $.ajax({
                 url: "user/login",
                 type: "post",
-                data: {"name":name, "pwd":pwd},
+                data: {"username":username, "pwd":pwd},
                 dataType: "json",
                 success: function (data) {
+                    if (data==1){
+                        $("#tishideng").html("登录失败，该用户不存在")
+                        confirm("您没有注册，请点击注册账号");
+                    }else if (data==2){
+                        $("#tishideng").html("登录失败，密码错误")
+                    }else if (data==3){
+                        $("#tishideng").html("登录失败，账户已冻结")
+                    }else{
+                        $("#user").val("");
+                        window.location.href = "index.jsp";
+                    }
 
-                    if(data){
+                    /*if(data){
                         $("#user").val("");
                         window.location.href = "index.jsp";
                     }else {
                         $("#tishideng").html("用户名或密码不正确")
-                    }
+                    }*/
 
 
                 }
@@ -207,13 +216,13 @@ $(function () {
 
     //注册账号
     $("button[type=button]:last").click(function(){
-        var name1 = $("#user1").val();
+        var username = $("#user1").val();
         var tel = $("#pass0").val();
         var yan =$("#pass1").val();
         var pwd1 = $("#pass2").val();
         var pwd2 = $("#pass3").val();
 
-        if (name1 ==""){
+        if (username ==""){
             $("#tishiname1").html("");
             $("#tishitel").html("");
             $("#tishipwd1").html("");
@@ -250,22 +259,35 @@ $(function () {
             $("#tishipwd2").html("");
             $("#tishizhu").html("密码错误请重新填写")
         }else {
-            $.getJSON("user/add", $("form").serialize(), function(data){
+            $.ajax({
+                url: "user/add",
+                type: "post",
+                data: $("form").serialize(),
+                dataType: "json",
+                success: function (data) {
+                    if (data){
+
+                        window.location.href="login.jsp";
+                    }else{
+                        $("#tishideng").html("注册失败，请重新注册！")
+                    }
+                }
+            })
+
+            /*$.getJSON("user/add", $("form").serialize(), function(data){
 
                 if(data){
                     window.location.href="login.jsp";
                 }
-            })
+            })*/
         }
 
     });
 
 
-
-
     $(document).keydown(function (event) {
         if(event.keyCode == "13"){
-            $("input[type=button]").click();
+            $("button[type=button]").click();
         }
     })
 
